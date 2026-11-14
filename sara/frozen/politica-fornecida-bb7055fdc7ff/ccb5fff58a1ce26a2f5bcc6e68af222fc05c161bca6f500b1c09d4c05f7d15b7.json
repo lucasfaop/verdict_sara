@@ -1,0 +1,16 @@
+{
+  "section": "3306(c)(16)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Employer for the service was an international organization."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": null,
+    "error": "Evidência ou tipo inválido"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "id": "e6a4c0742576979488096db0ad40392ecaf1443721f6074c5f73e558e48ef750",
+  "original": false,
+  "pivotal": [
+    "income"
+  ],
+  "proposal": {
+    "old": "70117",
+    "new": "59909.1935483871",
+    "changes": [
+      {
+        "variable": "income",
+        "before": 70117,
+        "after": 59909.1935483871
+      },
+      {
+        "variable": "joint",
+        "before": null,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $59909.1935483871.",
+  "text_sha256": "652e303be866e3016faecb224f0f7098c650ee5f0f72490efe0f9144ff617cfc",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "joint": false
+      },
+      "pivotal": [
+        "joint"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "joint"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "joint": true
+      },
+      "pivotal": [
+        "joint"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "joint"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 59909.1935483871,
+        "quote": "Alice's taxable income for the year 2017 is $59909.1935483871."
+      },
+      "married": {
+        "value": true,
+        "quote": "Alice is a surviving spouse for the year 2017."
+      },
+      "joint": {
+        "value": null,
+        "quote": "Alice is a surviving spouse for the year 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

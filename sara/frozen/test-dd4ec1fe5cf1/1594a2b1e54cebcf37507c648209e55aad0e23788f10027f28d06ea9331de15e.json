@@ -1,0 +1,148 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice died on July 9th, 2014.",
+      "new": "Alice died on July 9th, 2016."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Evidência ou tipo inválido"
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice and Bob got married on Feb 3rd, 1992. Alice and Bob have a child, Charlie, born October 9th, 2000. Alice died on July 9th, 2016. From 2004 to 2017, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. From 2014 to 2017, Bob was entitled to a deduction for Charlie under section 151. Bob's income in 2016 was $553252.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Alice died on July 9th, 2016.",
+          "new": "Alice died on July 9th, 2015."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": true,
+              "v3": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": false,
+              "v3": false
+            },
+            "pivotal": [
+              "v1",
+              "v2",
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1",
+              "v2",
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Alice died on July 9th, 2016."
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": null,
+              "quote": null
+            },
+            "v4": {
+              "value": true,
+              "quote": "From 2004 to 2017, Bob furnished the costs of maintaining the home where he and Charlie lived during that time."
+            },
+            "v5": {
+              "value": true,
+              "quote": "Alice and Bob have a child, Charlie, born October 9th, 2000."
+            },
+            "v6": {
+              "value": true,
+              "quote": "From 2014 to 2017, Bob was entitled to a deduction for Charlie under section 151."
+            },
+            "v7": {
+              "value": true,
+              "quote": "From 2014 to 2017, Bob was entitled to a deduction for Charlie under section 151."
+            },
+            "v8": {
+              "value": true,
+              "quote": "From 2004 to 2017, Bob furnished the costs of maintaining the home where he and Charlie lived during that time."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Spouse died during the two years immediately preceding the taxable year (e.g., for 2016: death in 2014 or 2015)."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Taxpayer has not remarried during the taxable year (close of the year)."
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Joint return could have been made for the year in which the spouse died."
+              },
+              "v4": {
+                "type": "Bool",
+                "meaning": "Taxpayer maintains a household that constitutes the principal place of abode for a dependent (as defined in section 152) for the taxable year."
+              },
+              "v5": {
+                "type": "Bool",
+                "meaning": "The dependent is a child or stepchild of the taxpayer (relationship within 152(c) as used in §2(a)(1)(B))."
+              },
+              "v6": {
+                "type": "Bool",
+                "meaning": "The dependent qualifies as a dependent under section 152 (qualifying child or qualifying relative)."
+              },
+              "v7": {
+                "type": "Bool",
+                "meaning": "The taxpayer is entitled to a deduction under section 151 for the dependent for the taxable year."
+              },
+              "v8": {
+                "type": "Bool",
+                "meaning": "The taxpayer furnishes over half the cost of maintaining the household for the dependent (cost maintenance test)."
+              }
+            },
+            "target": "§2(a)(1)(B)",
+            "rule": [
+              "and",
+              "v1",
+              "v2",
+              "v3",
+              "v4",
+              "v5",
+              "v6",
+              "v7",
+              "v8"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

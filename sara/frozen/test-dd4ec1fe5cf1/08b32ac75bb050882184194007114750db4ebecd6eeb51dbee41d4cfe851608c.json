@@ -1,0 +1,150 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "§152. Dependent defined\n\n(a) In general\n\nFor purposes of this subtitle, the term \"dependent\" means-\n\n    (1) a qualifying child, or\n\n    (2) a qualifying relative.",
+      "new": "§152. Dependent defined\n\n(a) In general\n\nFor purposes of this subtitle, the term \"dependent\" means-\n\n    (2) a qualifying relative."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v2": true,
+          "v3": true,
+          "v4": true,
+          "v5": true,
+          "v6": true,
+          "v7": true
+        },
+        "pivotal": [
+          "v8"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v8"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v2": false,
+          "v3": false,
+          "v4": false,
+          "v5": false,
+          "v6": false,
+          "v7": false
+        },
+        "pivotal": [
+          "v5",
+          "v6",
+          "v7"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v5",
+          "v6",
+          "v7"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2015."
+        },
+        "v2": {
+          "value": null,
+          "quote": null
+        },
+        "v3": {
+          "value": null,
+          "quote": null
+        },
+        "v4": {
+          "value": null,
+          "quote": null
+        },
+        "v5": {
+          "value": null,
+          "quote": null
+        },
+        "v6": {
+          "value": null,
+          "quote": null
+        },
+        "v7": {
+          "value": null,
+          "quote": null
+        },
+        "v8": {
+          "value": true,
+          "quote": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2015."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Bob bears a qualifying relationship to Alice enabling him as a qualifying child under §152(c)(1)"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Bob and Alice reside in the same household for more than half the year (152(c)(1)(B))"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Bob's age is less than 25 (152(c)(3))"
+          },
+          "v4": {
+            "type": "Bool",
+            "meaning": "Bob has not filed a joint return with his spouse for the year (152(c)(1)(E))"
+          },
+          "v5": {
+            "type": "Bool",
+            "meaning": "Bob bears a qualifying relative relationship to Alice (152(d)(2))"
+          },
+          "v6": {
+            "type": "Bool",
+            "meaning": "Bob has no income for the calendar year (152(d)(1)(B))"
+          },
+          "v7": {
+            "type": "Bool",
+            "meaning": "Bob is not a qualifying child of Alice or any other taxpayer for the year (152(d)(1)(D))"
+          },
+          "v8": {
+            "type": "Bool",
+            "meaning": "Tax year is 2015 (for applying §152 tests)"
+          }
+        },
+        "target": "§152(a) Dependent defined; proposition tested: Bob is a dependent of Alice for tax year 2015 (i.e., Bob is a qualifying child under §152(c) or a qualifying relative under §152(d)).",
+        "rule": [
+          "and",
+          "v8",
+          [
+            "or",
+            [
+              "and",
+              "v1",
+              "v2",
+              "v3",
+              "v4"
+            ],
+            [
+              "and",
+              "v5",
+              "v6",
+              "v7"
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

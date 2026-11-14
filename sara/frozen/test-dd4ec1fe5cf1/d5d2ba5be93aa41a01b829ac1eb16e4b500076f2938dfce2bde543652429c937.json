@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(d) Married individuals filing separate returns\n\nThere is hereby imposed on the taxable income of every married individual (as defined in section 7703) who does not make a single return jointly with his spouse, a tax determined in accordance with the following:\n\n    (i) 15% of taxable income if the taxable income is not over $18,450;",
+      "new": "Alice has to pay $999.30 in taxes for the year 2017 under section 1(d)(i)."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Expressão inválida"
+    }
+  },
+  "edits": {}
+}

@@ -1,0 +1,19 @@
+{
+  "id": "2c4308e9bf948e808bc1ae8f3eb30a36b420d8286a5b26f4647210fe34c1fc41",
+  "original": true,
+  "pivotal": [
+    "married"
+  ],
+  "proposal": {
+    "old": "\"married\": {\"value\": false, \"quote\": \"Alice is not married\"},",
+    "new": "\"married\": {\"value\": true, \"quote\": \"Alice is married\"},",
+    "changes": [
+      {
+        "variable": "married",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "status": "no_edit"
+}

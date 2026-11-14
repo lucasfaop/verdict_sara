@@ -1,0 +1,179 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Bob is Alice's father.",
+      "new": "Bob is Alice's stepfather."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v2": true,
+          "v3": true
+        },
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v3"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v2": false,
+          "v3": false
+        },
+        "pivotal": [
+          "v2",
+          "v3"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v2",
+          "v3"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Bob is Alice's father."
+        },
+        "v2": {
+          "value": null,
+          "quote": null
+        },
+        "v3": {
+          "value": null,
+          "quote": null
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Bob bears a qualifying relationship to the taxpayer described in §152(d)(1)(A) (i.e., a qualifying relative relationship)"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Bob has no gross income for the calendar year 2015"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Bob is not a qualifying child of the taxpayer or of any other taxpayer for any taxable year beginning in 2015"
+          }
+        },
+        "target": "§152(d)(1)(D) applies to Bob for the year 2015",
+        "rule": [
+          "and",
+          "v1",
+          [
+            "and",
+            "v2",
+            "v3"
+          ]
+        ]
+      }
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "In 2015, Alice's income was $312. The exemption amount for Alice under section 151(d) for the year 2015 was $2000. Bob is Alice's stepfather.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Bob is Alice's stepfather.",
+          "new": "Bob has no income for the 2015 calendar year."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": true,
+              "v3": true
+            },
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": false,
+              "v3": false
+            },
+            "pivotal": [
+              "v2",
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v2",
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Bob is Alice's stepfather."
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": null,
+              "quote": null
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Bob bears a qualifying relationship to the taxpayer described in §152(d)(1)(A) (i.e., a qualifying relative relationship)"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Bob has no gross income for the calendar year 2015"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Bob is not a qualifying child of the taxpayer or of any other taxpayer for any taxable year beginning in 2015"
+              }
+            },
+            "target": "§152(d)(1)(D) applies to Bob for the year 2015",
+            "rule": [
+              "and",
+              "v1",
+              [
+                "and",
+                "v2",
+                "v3"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

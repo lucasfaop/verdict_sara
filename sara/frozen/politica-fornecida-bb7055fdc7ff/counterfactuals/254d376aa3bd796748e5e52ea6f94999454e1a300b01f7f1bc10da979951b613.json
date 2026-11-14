@@ -1,0 +1,25 @@
+{
+  "id": "254d376aa3bd796748e5e52ea6f94999454e1a300b01f7f1bc10da979951b613",
+  "original": false,
+  "pivotal": [
+    "resides",
+    "member"
+  ],
+  "proposal": {
+    "old": "{\"spouse\": {\"value\": false, \"quote\": \"Bob is Alice's father\"}, \"resides\": {\"value\": false, \"quote\": \"In 2015, Alice and Bob live in separate houses.\"}, \"member\": {\"value\": false, \"quote\": \"In 2015, Alice and Bob live in separate houses.\"}}",
+    "new": "{\"spouse\": {\"value\": false, \"quote\": \"Bob is Alice's father\"}, \"resides\": {\"value\": true, \"quote\": \"In 2015, Alice and Bob live in separate houses.\"}, \"member\": {\"value\": true, \"quote\": \"In 2015, Alice and Bob live in separate houses.\"}}",
+    "changes": [
+      {
+        "variable": "resides",
+        "before": false,
+        "after": true
+      },
+      {
+        "variable": "member",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "status": "no_edit"
+}

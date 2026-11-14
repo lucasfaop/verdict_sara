@@ -1,0 +1,73 @@
+{
+  "section": "3306(a)(1)(b)",
+  "program": {
+    "variables": {
+      "weeks": {
+        "type": "Int",
+        "meaning": "Distinct calendar weeks with at least one employee on a day of covered non-domestic employment in queried year."
+      },
+      "prior": {
+        "type": "Int",
+        "meaning": "Corresponding distinct weeks for preceding calendar year."
+      }
+    },
+    "rule": [
+      "or",
+      [
+        ">=",
+        "weeks",
+        10
+      ],
+      [
+        ">=",
+        "prior",
+        10
+      ]
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "prior": 0
+      },
+      "pivotal": [
+        "weeks"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "weeks"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {
+        "prior": 0
+      },
+      "pivotal": [
+        "weeks"
+      ],
+      "delta_e": [
+        "weeks"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "weeks": {
+        "value": 11,
+        "quote": "Alice has employed Bob on various occasions during the year 2017: - Jan 24 - Feb 4 - Mar 3 - Mar 19 - Apr 2 - May 9 - Oct 15 - Oct 25 - Nov 8 - Nov 22 - Dec 1 - Dec 3"
+      },
+      "prior": {
+        "value": null,
+        "quote": null
+      }
+    }
+  }
+}

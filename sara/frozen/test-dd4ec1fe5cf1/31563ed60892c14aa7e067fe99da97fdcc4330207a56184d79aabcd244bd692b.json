@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "the term \"exemption amount\" means $2,000.",
+      "new": "the term \"exemption amount\" means $0."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Evidência ou tipo inválido"
+    }
+  },
+  "edits": {}
+}

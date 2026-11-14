@@ -1,0 +1,89 @@
+{
+  "section": "63(b)",
+  "program": {
+    "variables": {
+      "itemizes": {
+        "type": "Bool",
+        "meaning": "Taxpayer elected itemized deductions."
+      },
+      "agi": {
+        "type": "Real",
+        "meaning": "Adjusted gross income of the taxpayer for the relevant year, dollars."
+      },
+      "standard": {
+        "type": "Real",
+        "meaning": "Standard deduction dollars for that taxpayer/year."
+      },
+      "personal": {
+        "type": "Real",
+        "meaning": "Total personal exemption deductions under section 151 in dollars."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        "not",
+        "itemizes"
+      ],
+      [
+        "=",
+        [
+          "-",
+          "agi",
+          "standard",
+          "personal"
+        ],
+        31200
+      ]
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "personal"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "personal"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "standard"
+      ],
+      "delta_e": [
+        "standard"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "itemizes": {
+        "value": false,
+        "quote": "Alice decides not to itemize her deductions."
+      },
+      "agi": {
+        "value": 33200,
+        "quote": "In 2017, Alice was paid $33200."
+      },
+      "standard": {
+        "value": 2000,
+        "quote": "deduction under section 63(c)(1) of $2000 for the year 2017"
+      },
+      "personal": {
+        "value": 0,
+        "quote": "no deduction under section 151."
+      }
+    }
+  }
+}

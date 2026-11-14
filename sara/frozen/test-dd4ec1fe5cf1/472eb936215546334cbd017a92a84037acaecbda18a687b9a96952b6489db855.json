@@ -1,0 +1,202 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice married Charlie on August 8th, 2018.",
+      "new": "Alice is Bob's mother."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v2"
+        ],
+        "delta_e": [
+          "v2"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Charlie is Bob's father since April 15th, 1995."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Dorothy is Bob's mother."
+        },
+        "v3": {
+          "value": false,
+          "quote": "Alice married Charlie on August 8th, 2018."
+        },
+        "v4": {
+          "value": false,
+          "quote": "Charlie is Bob's father since April 15th, 1995."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is the father or mother of Bob"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Bob is the father or mother of Alice"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Alice is an ancestor of Bob (excluding the parent relationship)"
+          },
+          "v4": {
+            "type": "Bool",
+            "meaning": "Bob is an ancestor of Alice (excluding the parent relationship)"
+          }
+        },
+        "target": "§152(d)(2)(C)",
+        "rule": [
+          "or",
+          "v1",
+          [
+            "or",
+            "v2",
+            [
+              "or",
+              "v3",
+              "v4"
+            ]
+          ]
+        ]
+      },
+      "old": "\"v2\": {\"value\": false, \"quote\": \"Dorothy is Bob's mother.\"}",
+      "new": "\"v2\": {\"value\": true, \"quote\": \"Dorothy is Bob's mother.\"}",
+      "changes": [
+        {
+          "variable": "v2",
+          "before": {
+            "value": false,
+            "quote": "Dorothy is Bob's mother."
+          },
+          "after": {
+            "value": true,
+            "quote": "Dorothy is Bob's mother."
+          }
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Charlie is Bob's father since April 15th, 1995. Dorothy is Bob's mother. Alice is Bob's mother.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(C) The father or mother, or an ancestor of either.",
+          "new": "(B) a brother, sister"
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice is Bob's mother."
+            },
+            "v2": {
+              "value": false,
+              "quote": "Alice is Bob's mother."
+            },
+            "v3": {
+              "value": false,
+              "quote": "Alice is Bob's mother."
+            },
+            "v4": {
+              "value": false,
+              "quote": "Alice is Bob's mother."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice is the father or mother of Bob"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Bob is the father or mother of Alice"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Alice is an ancestor of Bob (excluding the parent relationship)"
+              },
+              "v4": {
+                "type": "Bool",
+                "meaning": "Bob is an ancestor of Alice (excluding the parent relationship)"
+              }
+            },
+            "target": "§152(d)(2)(C)",
+            "rule": [
+              "or",
+              "v1",
+              [
+                "or",
+                "v2",
+                [
+                  "or",
+                  "v3",
+                  "v4"
+                ]
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

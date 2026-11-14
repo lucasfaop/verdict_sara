@@ -1,0 +1,58 @@
+{
+  "id": "9ef8828ddeb8b0df865c0619ac80c6846fe6e19f457924c4f945f4dd138b1d42",
+  "original": false,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice was paid $73200 in 2017 as an employee of the State of Maryland in Baltimore, Maryland, USA.",
+    "new": "Alice was paid $73200 in 2017 as an employee of a foreign government in Baltimore, Maryland, USA.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice was paid $73200 in 2017 as an employee of a foreign government in Baltimore, Maryland, USA.",
+  "text_sha256": "add5d0578bdf6516fe6152fb908dd21115746363067b875cf9e5048e61792a96",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": true,
+        "quote": "Alice was paid $73200 in 2017 as an employee of a foreign government in Baltimore, Maryland, USA."
+      }
+    }
+  },
+  "status": "edited"
+}

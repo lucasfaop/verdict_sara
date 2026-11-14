@@ -1,0 +1,77 @@
+{
+  "section": "152(d)(2)(h)",
+  "program": {
+    "variables": {
+      "spouse": {
+        "type": "Bool",
+        "meaning": "First person was spouse of second at any time during tax year."
+      },
+      "resides": {
+        "type": "Bool",
+        "meaning": "Both had same principal abode for tax year."
+      },
+      "member": {
+        "type": "Bool",
+        "meaning": "First person was member of second person's household for tax year."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        "not",
+        "spouse"
+      ],
+      "resides",
+      "member"
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "resides",
+        "member"
+      ],
+      "delta_e": [
+        "resides",
+        "member"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "resides",
+        "member"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "resides",
+        "member"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "spouse": {
+        "value": false,
+        "quote": "Bob is Alice's father"
+      },
+      "resides": {
+        "value": false,
+        "quote": "In 2015, Alice and Bob live in separate houses."
+      },
+      "member": {
+        "value": false,
+        "quote": "In 2015, Alice and Bob live in separate houses."
+      }
+    }
+  }
+}

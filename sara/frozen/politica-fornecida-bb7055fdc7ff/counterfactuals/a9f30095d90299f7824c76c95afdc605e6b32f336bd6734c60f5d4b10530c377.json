@@ -1,0 +1,81 @@
+{
+  "id": "a9f30095d90299f7824c76c95afdc605e6b32f336bd6734c60f5d4b10530c377",
+  "original": false,
+  "pivotal": [
+    "married"
+  ],
+  "proposal": {
+    "old": "Alice is married under section 7703 for the year 2017. Alice files a joint return with her spouse for 2017. Alice's and her spouse's taxable income for the year 2017 is $17330.",
+    "new": "Alice is not married under section 7703 for the year 2017. Alice files a single return for 2017. Alice's taxable income for the year 2017 is $17333.3333.",
+    "changes": [
+      {
+        "variable": "income",
+        "before": 17330,
+        "after": 17333.3333333333
+      },
+      {
+        "variable": "married",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice is not married under section 7703 for the year 2017. Alice files a single return for 2017. Alice's taxable income for the year 2017 is $17333.3333.",
+  "text_sha256": "ea2db467967b8ac337844a7f064432bbcea012579b1a69d99d0b00e2bd06c309",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "survivor": false,
+        "head": false
+      },
+      "pivotal": [
+        "survivor"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "survivor"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "survivor": true,
+        "head": false
+      },
+      "pivotal": [
+        "survivor"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "survivor"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 17333.3333,
+        "quote": "Alice's taxable income for the year 2017 is $17333.3333."
+      },
+      "married": {
+        "value": false,
+        "quote": "Alice is not married under section 7703 for the year 2017."
+      },
+      "survivor": {
+        "value": null,
+        "quote": null
+      },
+      "head": {
+        "value": null,
+        "quote": null
+      }
+    }
+  },
+  "status": "edited"
+}

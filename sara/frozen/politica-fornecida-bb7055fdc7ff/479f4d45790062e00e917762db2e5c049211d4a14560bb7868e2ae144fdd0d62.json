@@ -1,0 +1,53 @@
+{
+  "section": "63(c)(6)(b)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Taxpayer was a nonresident alien in the tax year."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": true
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": false
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": null,
+        "quote": "Alice was a nonresident alien from August 23rd, 2015 to September 15th, 2016."
+      }
+    }
+  }
+}

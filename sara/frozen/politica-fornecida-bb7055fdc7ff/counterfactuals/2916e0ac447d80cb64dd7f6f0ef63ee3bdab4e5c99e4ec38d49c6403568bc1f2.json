@@ -1,0 +1,62 @@
+{
+  "id": "2916e0ac447d80cb64dd7f6f0ef63ee3bdab4e5c99e4ec38d49c6403568bc1f2",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Charlie is Bob's father since April 15th, 2014. Alice married Bob on October 12th, 1992.",
+    "new": "Charlie is not Bob's father.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Charlie is not Bob's father.",
+  "text_sha256": "9f38541ec19274da8473a5867d41eba50102ee4be4cf8972c6ed1869ef12b830",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": true
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": false
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": null,
+        "quote": "Charlie is not Bob's father."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,70 @@
+{
+  "section": "68(b)(1)(b)",
+  "program": {
+    "variables": {
+      "head": {
+        "type": "Bool",
+        "meaning": "Taxpayer had head-of-household status for this tax year."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        "or",
+        [
+          "<",
+          2016,
+          2018
+        ],
+        [
+          ">",
+          2016,
+          2025
+        ]
+      ],
+      "head",
+      [
+        "=",
+        275000,
+        275000
+      ]
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "head"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "head"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "head"
+      ],
+      "delta_e": [
+        "head"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "head": {
+        "value": true,
+        "quote": "Alice is a head of household for the year 2016."
+      }
+    }
+  }
+}

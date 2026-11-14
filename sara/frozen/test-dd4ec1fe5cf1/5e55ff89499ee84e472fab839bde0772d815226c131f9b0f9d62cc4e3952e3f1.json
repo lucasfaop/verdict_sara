@@ -1,0 +1,226 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Alice has a son, Bob, who was born January 31st, 2014.",
+      "new": "Bob bears a relationship to Alice under section 152(c)(2)(B)."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v2_descendantOfAliceChild": false
+        },
+        "pivotal": [
+          "v1_childOfAlice"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1_childOfAlice"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {
+          "v2_descendantOfAliceChild": false
+        },
+        "pivotal": [
+          "v1_childOfAlice"
+        ],
+        "delta_e": [
+          "v1_childOfAlice"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1_childOfAlice": {
+          "value": true,
+          "quote": "Alice has a son, Bob, who was born January 31st, 2014."
+        },
+        "v2_descendantOfAliceChild": {
+          "value": null,
+          "quote": null
+        }
+      },
+      "program": {
+        "variables": {
+          "v1_childOfAlice": {
+            "type": "Bool",
+            "meaning": "Bob is the child of Alice (the taxpayer) as of the relevant tax year."
+          },
+          "v2_descendantOfAliceChild": {
+            "type": "Bool",
+            "meaning": "Bob is a descendant of one of Alice's children (i.e., a grandchild or deeper descendant) as of the relevant tax year."
+          }
+        },
+        "target": "§152(c)(2)(A) – Bob bears a relationship to the taxpayer (Alice) described as either a child of the taxpayer or a descendant of such a child.",
+        "rule": [
+          "or",
+          "v1_childOfAlice",
+          "v2_descendantOfAliceChild"
+        ]
+      },
+      "old": "Alice has a son, Bob, who was born January 31st, 2014.",
+      "new": "Alice has no children.",
+      "changes": [
+        {
+          "variable": "v1_childOfAlice",
+          "before": true,
+          "after": false
+        },
+        {
+          "variable": "v2_descendantOfAliceChild",
+          "before": null,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Bob bears a relationship to Alice under section 152(c)(2)(B).",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Bob bears a relationship to Alice under section 152(c)(2)(B).",
+          "new": "Replace 152(c)(2)(B) with 152(c)(2)(A)."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1_childOfAlice"
+            ],
+            "delta_e": [
+              "v1_childOfAlice"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1_childOfAlice"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1_childOfAlice"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1_childOfAlice": {
+              "value": false,
+              "quote": "Bob bears a relationship to Alice under section 152(c)(2)(B)."
+            },
+            "v2_descendantOfAliceChild": {
+              "value": false,
+              "quote": "Bob bears a relationship to Alice under section 152(c)(2)(B)."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1_childOfAlice": {
+                "type": "Bool",
+                "meaning": "Bob is the child of Alice (the taxpayer) as of the relevant tax year."
+              },
+              "v2_descendantOfAliceChild": {
+                "type": "Bool",
+                "meaning": "Bob is a descendant of one of Alice's children (i.e., a grandchild or deeper descendant) as of the relevant tax year."
+              }
+            },
+            "target": "§152(c)(2)(A) – Bob bears a relationship to the taxpayer (Alice) described as either a child of the taxpayer or a descendant of such a child.",
+            "rule": [
+              "or",
+              "v1_childOfAlice",
+              "v2_descendantOfAliceChild"
+            ]
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice has no children.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "For purposes of paragraph (1)(A), an individual bears a relationship to the taxpayer described in this paragraph if such individual is- (A) a child of the taxpayer or a descendant of such a child, or (B) a brother, sister, stepbrother, or stepsister of the taxpayer or a descendant of any such relative.",
+          "new": "Bob is the taxpayer's child."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1_childOfAlice"
+            ],
+            "delta_e": [
+              "v1_childOfAlice"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1_childOfAlice"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1_childOfAlice"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1_childOfAlice": {
+              "value": false,
+              "quote": "Alice has no children."
+            },
+            "v2_descendantOfAliceChild": {
+              "value": false,
+              "quote": "Alice has no children."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1_childOfAlice": {
+                "type": "Bool",
+                "meaning": "Bob is the child of Alice (the taxpayer) as of the relevant tax year."
+              },
+              "v2_descendantOfAliceChild": {
+                "type": "Bool",
+                "meaning": "Bob is a descendant of one of Alice's children (i.e., a grandchild or deeper descendant) as of the relevant tax year."
+              }
+            },
+            "target": "§152(c)(2)(A) – Bob bears a relationship to the taxpayer (Alice) described as either a child of the taxpayer or a descendant of such a child.",
+            "rule": [
+              "or",
+              "v1_childOfAlice",
+              "v2_descendantOfAliceChild"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

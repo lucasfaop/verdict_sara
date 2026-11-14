@@ -1,0 +1,181 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Bob has paid $4200 in cash to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018.",
+      "new": "Bob has paid $4200 in non-cash to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Bob has paid $4200 in cash to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Bob's status under 26 U.S.C. 3306(a)(3): the employer relationship for domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, where wages paid in cash for such service were at least $1,000 during the calendar year 2018 or the immediately preceding calendar year."
+          }
+        },
+        "target": "§3306(a)(3). Determine whether Bob is an employer under domestic service for calendar year 2018.",
+        "rule": "v1"
+      },
+      "old": "Bob has paid $4200 in cash to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018.",
+      "new": "Bob has paid $4200 in non-cash wages to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice has paid $3200 in cash to Bob for agricultural labor done from Feb 1st, 2017 to Sep 2nd, 2017. Bob has paid $4200 in non-cash to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "(3) Domestic service\n\nIn the case of domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, the term \"employer\" means, with respect to any calendar year, any person who during the calendar year or the preceding calendar year paid wages in cash of $1,000 or more for such service.",
+          "new": "(3) Domestic service\n\nIn the case of domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, the term \"employer\" means, with respect to any calendar year, any person who during the calendar year or the preceding calendar year paid wages of $1,000 or more for such service."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Bob has paid $4200 in non-cash to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Bob's status under 26 U.S.C. 3306(a)(3): the employer relationship for domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, where wages paid in cash for such service were at least $1,000 during the calendar year 2018 or the immediately preceding calendar year."
+              }
+            },
+            "target": "§3306(a)(3). Determine whether Bob is an employer under domestic service for calendar year 2018.",
+            "rule": "v1"
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice has paid $3200 in cash to Bob for agricultural labor done from Feb 1st, 2017 to Sep 2nd, 2017. Bob has paid $4200 in non-cash wages to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "§3306. Definitions\n(a) Employer\n(3) Domestic service\nIn the case of domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, the term \"employer\" means, with respect to any calendar year, any person who during the calendar year or the preceding calendar year paid wages in cash of $1,000 or more for such service.",
+          "new": "§3306. Definitions\n(a) Employer\n(3) Domestic service\nIn the case of domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, the term \"employer\" means, with respect to any calendar year, any person who during the calendar year or the preceding calendar year paid wages of $1,000 or more for such service."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Bob has paid $4200 in non-cash wages to Alice for domestic service in his home, done from Apr 1st, 2017 to Sep 2nd, 2018."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Bob's status under 26 U.S.C. 3306(a)(3): the employer relationship for domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, where wages paid in cash for such service were at least $1,000 during the calendar year 2018 or the immediately preceding calendar year."
+              }
+            },
+            "target": "§3306(a)(3). Determine whether Bob is an employer under domestic service for calendar year 2018.",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

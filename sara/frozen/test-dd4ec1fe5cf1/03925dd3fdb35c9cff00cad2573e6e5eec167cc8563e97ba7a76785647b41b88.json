@@ -1,0 +1,181 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice and Bob are not related, nor do they have relatives married to one another.",
+      "new": "Alice is Bob's sister-in-law."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Alice and Bob started living together on April 15th, 2014. Alice and Bob are not related, nor do they have relatives married to one another."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Whether, for the 2018 tax year, Alice bears a qualifying relative relationship to Bob under §152(d)(2)(G) (i.e., one of: son-in-law, daughter-in-law, father-in-law, mother-in-law, brother-in-law, or sister-in-law)."
+          }
+        },
+        "target": "§152. Dependent defined; Subsection (d) Qualifying relative; Paragraph (2) Relationship; Subparagraph (G) (lists in-law relationships). The proposition tested is that Alice bears a qualifying relative relationship to Bob for the year 2018.",
+        "rule": "v1"
+      },
+      "old": "Alice and Bob started living together on April 15th, 2014. Alice and Bob are not related, nor do they have relatives married to one another.",
+      "new": "Alice and Bob started living together on April 15th, 2014. Alice is Bob's sister-in-law, as Bob's brother married Alice in 2017.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice and Bob started living together on April 15th, 2014. Alice is Bob's sister-in-law.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(G) A son-in-law, daughter-in-law, father-in-law, mother-in-law, brother-in-law, or sister-in-law.",
+          "new": "(G) A cousin."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice is Bob's sister-in-law."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Whether, for the 2018 tax year, Alice bears a qualifying relative relationship to Bob under §152(d)(2)(G) (i.e., one of: son-in-law, daughter-in-law, father-in-law, mother-in-law, brother-in-law, or sister-in-law)."
+              }
+            },
+            "target": "§152. Dependent defined; Subsection (d) Qualifying relative; Paragraph (2) Relationship; Subparagraph (G) (lists in-law relationships). The proposition tested is that Alice bears a qualifying relative relationship to Bob for the year 2018.",
+            "rule": "v1"
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice and Bob started living together on April 15th, 2014. Alice is Bob's sister-in-law, as Bob's brother married Alice in 2017.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Alice is Bob's sister-in-law, as Bob's brother married Alice in 2017.",
+          "new": "Alice is Bob's cousin, as Bob's brother married Alice in 2017."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice is Bob's sister-in-law"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Whether, for the 2018 tax year, Alice bears a qualifying relative relationship to Bob under §152(d)(2)(G) (i.e., one of: son-in-law, daughter-in-law, father-in-law, mother-in-law, brother-in-law, or sister-in-law)."
+              }
+            },
+            "target": "§152. Dependent defined; Subsection (d) Qualifying relative; Paragraph (2) Relationship; Subparagraph (G) (lists in-law relationships). The proposition tested is that Alice bears a qualifying relative relationship to Bob for the year 2018.",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

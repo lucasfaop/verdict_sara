@@ -1,0 +1,19 @@
+{
+  "id": "8b47a8a193d8579a0858878089f58eea4bd35054de5d6bc4eb88291c92bb78f4",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Purpose of the specific plan or fund payment in the hypothesis was to provide a death benefit.",
+    "new": "Purpose of the specific plan or fund payment in the hypothesis was not to provide a death benefit.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Purpose of the specific plan or fund payment in the hypothesis was to provide a death benefit.",
+        "after": "Purpose of the specific plan or fund payment in the hypothesis was not to provide a death benefit."
+      }
+    ]
+  },
+  "status": "no_edit"
+}

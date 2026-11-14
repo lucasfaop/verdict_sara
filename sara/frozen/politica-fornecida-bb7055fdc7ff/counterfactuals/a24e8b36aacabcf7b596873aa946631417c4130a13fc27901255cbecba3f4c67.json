@@ -1,0 +1,58 @@
+{
+  "id": "a24e8b36aacabcf7b596873aa946631417c4130a13fc27901255cbecba3f4c67",
+  "original": true,
+  "pivotal": [
+    "income"
+  ],
+  "proposal": {
+    "old": "102268",
+    "new": "53500",
+    "changes": [
+      {
+        "variable": "income",
+        "before": 102268,
+        "after": 53500
+      }
+    ]
+  },
+  "text": "Alice's taxable income for the year 2017 is $53500. Alice is not married, is not a surviving spouse, and is not a head of household in 2017.",
+  "text_sha256": "20a195e20672a0eb41db380b1e212e72f426f7baa4bcb58feaa8c68d7f8b7e18",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "income"
+      ],
+      "delta_e": [
+        "income"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "income"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "income"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 53500,
+        "quote": "Alice's taxable income for the year 2017 is $53500."
+      }
+    }
+  },
+  "status": "edited"
+}

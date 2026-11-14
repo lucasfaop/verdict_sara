@@ -1,0 +1,49 @@
+{
+  "section": "3306(c)(11)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Employer for the service was a foreign government, including its consular or diplomatic service."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "employee of the State of Maryland in Baltimore, Maryland, USA"
+      }
+    }
+  }
+}

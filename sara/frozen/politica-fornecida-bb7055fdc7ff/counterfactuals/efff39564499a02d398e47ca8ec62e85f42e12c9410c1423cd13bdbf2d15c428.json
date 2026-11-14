@@ -1,0 +1,24 @@
+{
+  "id": "efff39564499a02d398e47ca8ec62e85f42e12c9410c1423cd13bdbf2d15c428",
+  "original": false,
+  "pivotal": [
+    "child"
+  ],
+  "proposal": {
+    "old": "Section 152(b)(2) applies to Bob as the dependent and Charlie as the taxpayer for 2018.\n\nCharlie married Dan on Feb 14th, 2018.",
+    "new": "In 2018, Bob is the taxpayer with Charlie as his qualifying child, and Charlie is not married to Dan in 2018.",
+    "changes": [
+      {
+        "variable": "child",
+        "before": false,
+        "after": true
+      },
+      {
+        "variable": "married_child",
+        "before": null,
+        "after": false
+      }
+    ]
+  },
+  "status": "no_edit"
+}

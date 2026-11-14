@@ -1,0 +1,70 @@
+{
+  "id": "f5ad4867838bb927fff90ace9ef340ce15d971c629f34848554b5585b57dc6a9",
+  "original": false,
+  "pivotal": [
+    "personal"
+  ],
+  "proposal": {
+    "old": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+    "new": "In 2017, Alice was paid $33400. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+    "changes": [
+      {
+        "variable": "agi",
+        "before": 31200,
+        "after": 33400
+      }
+    ]
+  },
+  "text": "In 2017, Alice was paid $33400. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+  "text_sha256": "2213d120d95429f5c29a9760cc06a8fc96ce3092d5eaf3af6717b6280d9971da",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "standard"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "standard"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "personal"
+      ],
+      "delta_e": [
+        "personal"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "itemizes": {
+        "value": false,
+        "quote": "Alice takes the standard deduction."
+      },
+      "agi": {
+        "value": 33400,
+        "quote": "In 2017, Alice was paid $33400."
+      },
+      "standard": {
+        "value": 2000,
+        "quote": "She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017,"
+      },
+      "personal": {
+        "value": 0,
+        "quote": "no deduction under section 151."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,57 @@
+{
+  "section": "63(f)(1)(a)",
+  "program": {
+    "variables": {
+      "birth_year": {
+        "type": "Int",
+        "meaning": "Calendar year of birth of the person named in the hypothesis. If a partial birth date leaves their age at year end uncertain, use null."
+      }
+    },
+    "rule": [
+      ">=",
+      [
+        "-",
+        2017,
+        "birth_year"
+      ],
+      65
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "birth_year"
+      ],
+      "delta_e": [
+        "birth_year"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "birth_year"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "birth_year"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "birth_year": {
+        "value": 1955,
+        "quote": "Bob was born March 3rd, 1955."
+      }
+    }
+  }
+}

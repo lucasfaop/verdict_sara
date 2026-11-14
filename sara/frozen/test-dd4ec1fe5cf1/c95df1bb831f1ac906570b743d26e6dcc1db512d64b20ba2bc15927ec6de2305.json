@@ -1,0 +1,128 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "In the case of domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, the term \"employer\" means, with respect to any calendar year, any person who during the calendar year or the preceding calendar year paid wages in cash of $1,000 or more for such service.",
+      "new": "In the case of domestic service or agricultural labor in a private home, local college club, or local chapter of a college fraternity or sorority, the term \"employer\" means, with respect to any calendar year, any person who during the calendar year or the preceding calendar year paid wages in cash of $1,000 or more for such service."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Bob has paid $4200 in cash to Alice for domestic service done from Apr 1st, 2017 to Sep 2nd, 2018 in his home."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice paid cash wages of domestic service (as defined in §3306(a)(3)) totaling at least $1,000 during the calendar year 2017 or the preceding calendar year (2016), for domestic service in a private home, local college club, or local chapter of a college fraternity or sorority."
+          }
+        },
+        "target": "§3306(a)(3) Domestic service; employer defined as a person who during the calendar year or the preceding calendar year paid wages in cash of $1,000 or more for such domestic service (private home, local college club, or local chapter).",
+        "rule": "v1"
+      },
+      "old": "Bob has paid $4200 in cash to Alice for domestic service done from Apr 1st, 2017 to Sep 2nd, 2018 in his home.",
+      "new": "Alice has paid $4200 in cash to Bob for domestic service done from Apr 1st, 2017 to Sep 2nd, 2018 in her home.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice has paid $3200 in cash to Bob for agricultural labor done from Feb 1st, 2017 to Sep 2nd, 2017. Alice has paid $4200 in cash to Bob for domestic service done from Apr 1st, 2017 to Sep 2nd, 2018 in her home.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "In the case of domestic service in a private home, local college club, or local chapter of a college fraternity or sorority, the term \"employer\" means, with respect to any calendar year, any person who during the calendar year or the preceding calendar year paid wages in cash of $1,000 or more for such service.",
+          "new": "Alice paid less than $1,000 in cash to Bob for domestic service in the 2017 calendar year."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": null
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice paid cash wages of domestic service (as defined in §3306(a)(3)) totaling at least $1,000 during the calendar year 2017 or the preceding calendar year (2016), for domestic service in a private home, local college club, or local chapter of a college fraternity or sorority."
+              }
+            },
+            "target": "§3306(a)(3) Domestic service; employer defined as a person who during the calendar year or the preceding calendar year paid wages in cash of $1,000 or more for such domestic service (private home, local college club, or local chapter).",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "aa3f632d7fc1c6691c8117245fb0d6029f233fd49b52886aea2abbcaba93ce20",
+  "original": true,
+  "pivotal": [
+    "personal"
+  ],
+  "proposal": {
+    "old": "\"personal\": {\"value\": 0, \"quote\": \"no deduction under section 151.\"}",
+    "new": "\"personal\": {\"value\": 1, \"quote\": \"no deduction under section 151.\"}",
+    "changes": [
+      {
+        "variable": "personal",
+        "before": 0,
+        "after": 1
+      }
+    ]
+  },
+  "status": "no_edit"
+}

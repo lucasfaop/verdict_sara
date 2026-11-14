@@ -1,0 +1,124 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice is a citizen of Venezuela, and Bob is an American citizen.",
+      "new": "Alice is an American employer."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Evidência ou tipo inválido"
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice has paid $3200 to Bob for work done from Feb 1st, 2017 to Sep 2nd, 2017, in Caracas, Venezuela. Alice is an American employer.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "(B) performed outside the United States (except in a contiguous country with which the United States has an agreement relating to unemployment compensation) by a citizen of the United States as an employee of an American employer, except-",
+          "new": "(B) performed outside the United States (except in a contiguous country with which the United States has an agreement relating to unemployment compensation) by a United States citizen (Bob) as an employee of an American employer, except-"
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": true,
+              "v4": false
+            },
+            "pivotal": [
+              "v5"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v5"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": false,
+              "v4": false
+            },
+            "pivotal": [
+              "v2"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v2"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "in Caracas, Venezuela"
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": true,
+              "quote": "Alice is an American employer."
+            },
+            "v4": {
+              "value": null,
+              "quote": null
+            },
+            "v5": {
+              "value": 2017,
+              "quote": "from Feb 1st, 2017 to Sep 2nd, 2017"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Employment performed outside the United States"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Employee is a citizen of the United States"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Employer is an American employer"
+              },
+              "v4": {
+                "type": "Bool",
+                "meaning": "Employment falls within an enumerated exemption under §3306(c) (i.e., would not be employment outside US)"
+              },
+              "v5": {
+                "type": "Int",
+                "meaning": "Tax year (e.g., 2017)"
+              }
+            },
+            "target": "§3306(c)(B) applies to employment outside the United States by a U.S. citizen as an employee of an American employer, subject to the enumerated exemptions in §3306(c)",
+            "rule": [
+              "and",
+              [
+                "=",
+                "v5",
+                2017
+              ],
+              "v1",
+              "v2",
+              "v3",
+              [
+                "not",
+                "v4"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

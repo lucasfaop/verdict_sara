@@ -1,0 +1,77 @@
+{
+  "section": "68(a)(2)",
+  "program": {
+    "variables": {
+      "itemized": {
+        "type": "Real",
+        "meaning": "Total otherwise allowable itemized deductions for year, before section 68 reduction."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        "or",
+        [
+          "<",
+          2016,
+          2018
+        ],
+        [
+          ">",
+          2016,
+          2025
+        ]
+      ],
+      [
+        "=",
+        [
+          "/",
+          [
+            "*",
+            80,
+            "itemized"
+          ],
+          100
+        ],
+        48000
+      ]
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "itemized"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "itemized"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "itemized"
+      ],
+      "delta_e": [
+        "itemized"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "itemized": {
+        "value": 60000,
+        "quote": "Alice is allowed itemized deductions of $60000 under section 63."
+      }
+    }
+  }
+}

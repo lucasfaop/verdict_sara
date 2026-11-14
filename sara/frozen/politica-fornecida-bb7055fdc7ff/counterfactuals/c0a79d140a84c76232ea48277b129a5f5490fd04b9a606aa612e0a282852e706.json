@@ -1,0 +1,58 @@
+{
+  "id": "c0a79d140a84c76232ea48277b129a5f5490fd04b9a606aa612e0a282852e706",
+  "original": false,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice has also paid $9832 into a retirement fund for Bob",
+    "new": "Alice has also paid $9832 into a retirement fund for Bob to provide a death benefit",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Alice has also paid $9832 into a retirement fund for Bob",
+        "after": "Alice has also paid $9832 into a retirement fund for Bob to provide a death benefit"
+      }
+    ]
+  },
+  "text": "Alice has paid $45252 to Bob for work done in the year 2017. In 2017, Alice has also paid $9832 into a retirement fund for Bob to provide a death benefit, and $5322 into life insurance for Charlie, who is Alice's father and has retired in 2016.",
+  "text_sha256": "f3d69af919c5a51aa0e78b8649dcc1eb8591ed40eb808a969b7a46f6a1d1913c",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": true,
+        "quote": "In 2017, Alice has also paid $9832 into a retirement fund for Bob to provide a death benefit"
+      }
+    }
+  },
+  "status": "edited"
+}

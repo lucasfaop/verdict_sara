@@ -1,0 +1,148 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(f) Aged or blind additional amounts\n\n    (1) Additional amounts for the aged\n\n    The taxpayer shall be entitled to an additional amount of $600-\n\n        (A) for himself if he has attained age 65 before the close of his taxable year, and\n\n        (B) for the spouse of the taxpayer if the spouse has attained age 65 before the close of the taxable year and an additional exemption is allowable to the taxpayer for such spouse under section 151(b).",
+      "new": "Change Alice's birth year from 1950 to 1953 (Alice born March 2, 1953), so she would be 64 at the end of 2017 and would not have attained age 65 before the close of her taxable year."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice was born March 2nd, 1950 and Bob was born March 3rd, 1955."
+        },
+        "v2": {
+          "value": true,
+          "quote": "In 2017, Alice was paid $33200."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's age at the close of her 2017 taxable year is at least 65"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "The taxable year for Alice is 2017 (i.e., the provision in §63(f)(1)(A) is being applied for 2017)"
+          }
+        },
+        "target": "§63(f)(1)(A) Additional amounts for the aged applies to the taxpayer for the 2017 taxable year",
+        "rule": [
+          "and",
+          "v1",
+          "v2"
+        ]
+      },
+      "old": "Alice was born March 2nd, 1950 and Bob was born March 3rd, 1955.",
+      "new": "Alice was born March 2nd, 1953 and Bob was born March 3rd, 1955.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Alice was born March 2nd, 1953 and Bob was born March 3rd, 1955.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Alice was born March 2nd, 1953",
+          "new": "Alice was born March 2nd, 1952"
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Alice was born March 2nd, 1953 and Bob was born March 3rd, 1955."
+            },
+            "v2": {
+              "value": true,
+              "quote": "In 2017, Alice was paid $33200."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's age at the close of her 2017 taxable year is at least 65"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "The taxable year for Alice is 2017 (i.e., the provision in §63(f)(1)(A) is being applied for 2017)"
+              }
+            },
+            "target": "§63(f)(1)(A) Additional amounts for the aged applies to the taxpayer for the 2017 taxable year",
+            "rule": [
+              "and",
+              "v1",
+              "v2"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

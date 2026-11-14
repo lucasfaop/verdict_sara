@@ -1,0 +1,61 @@
+{
+  "section": "3306(c)(10)(b)",
+  "program": {
+    "variables": {
+      "hospital": {
+        "type": "Bool",
+        "meaning": "Service performed for hospital employer."
+      },
+      "patient": {
+        "type": "Bool",
+        "meaning": "Worker was a patient of same hospital when services were performed."
+      }
+    },
+    "rule": [
+      "and",
+      "hospital",
+      "patient"
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "hospital"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "hospital"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "hospital"
+      ],
+      "delta_e": [
+        "hospital"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "hospital": {
+        "value": true,
+        "quote": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017."
+      },
+      "patient": {
+        "value": true,
+        "quote": "Alice was a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017."
+      }
+    }
+  }
+}

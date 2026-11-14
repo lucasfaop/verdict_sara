@@ -1,0 +1,260 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c).",
+      "new": "From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v5"
+        ],
+        "delta_e": [
+          "v5"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v5"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v5"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice died on July 9th, 2014."
+        },
+        "v2": {
+          "value": true,
+          "quote": "Alice died on July 9th, 2014."
+        },
+        "v3": {
+          "value": true,
+          "quote": "From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time."
+        },
+        "v4": {
+          "value": true,
+          "quote": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c)."
+        },
+        "v5": {
+          "value": false,
+          "quote": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c)."
+        },
+        "v6": {
+          "value": true,
+          "quote": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c)."
+        },
+        "v7": {
+          "value": true,
+          "quote": "In 2017, Bob earned $5254312."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Taxpayer is not married at the close of the taxable year"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Taxpayer is not a surviving spouse at the close of the taxable year"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Taxpayer maintains as home a household with Charlie as a dependent for more than half the year"
+          },
+          "v4": {
+            "type": "Bool",
+            "meaning": "Charlie is a dependent of the taxpayer (as defined in IRC 152)"
+          },
+          "v5": {
+            "type": "Bool",
+            "meaning": "Charlie is not the taxpayer's qualifying child (not described in IRC 152(c))"
+          },
+          "v6": {
+            "type": "Bool",
+            "meaning": "Taxpayer is entitled to a deduction for Charlie under IRC 151 for the taxable year"
+          },
+          "v7": {
+            "type": "Bool",
+            "meaning": "The taxable year is 2017"
+          }
+        },
+        "target": "§2(b)(1)(A)(ii) head of household test (as applied to a dependent) in 2017",
+        "rule": [
+          "and",
+          "v7",
+          "v1",
+          "v2",
+          "v3",
+          "v4",
+          "v5",
+          "v6"
+        ]
+      },
+      "old": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c).",
+      "new": "Charlie is not the taxpayer's qualifying child (not described in IRC 152(c)).",
+      "changes": [
+        {
+          "variable": "v5",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c). In 2017, Bob earned $5254312.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c).",
+          "new": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c)."
+        },
+        "verdict": {
+          "decision": null,
+          "error": "Evidência ou tipo inválido"
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. Charlie is not the taxpayer's qualifying child (not described in IRC 152(c)). In 2017, Bob earned $5254312.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "ii) any other person who is a dependent of the taxpayer, if the taxpayer is entitled to a deduction for the taxable year for such person under section 151,",
+          "new": "ii) any other person who is a dependent of the taxpayer, if the taxpayer is not entitled to a deduction for the taxable year for such person under section 151,"
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v4": true,
+              "v6": true
+            },
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v4": false,
+              "v6": false
+            },
+            "pivotal": [
+              "v4",
+              "v6"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v4",
+              "v6"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice died on July 9th, 2014."
+            },
+            "v2": {
+              "value": true,
+              "quote": "Alice died on July 9th, 2014."
+            },
+            "v3": {
+              "value": true,
+              "quote": "From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time."
+            },
+            "v4": {
+              "value": null,
+              "quote": "Charlie is not the taxpayer's qualifying child (not described in IRC 152(c))."
+            },
+            "v5": {
+              "value": true,
+              "quote": "Charlie is not the taxpayer's qualifying child (not described in IRC 152(c))."
+            },
+            "v6": {
+              "value": null,
+              "quote": "§151. Allowance of deductions"
+            },
+            "v7": {
+              "value": true,
+              "quote": "In 2017, Bob earned $5254312."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Taxpayer is not married at the close of the taxable year"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Taxpayer is not a surviving spouse at the close of the taxable year"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Taxpayer maintains as home a household with Charlie as a dependent for more than half the year"
+              },
+              "v4": {
+                "type": "Bool",
+                "meaning": "Charlie is a dependent of the taxpayer (as defined in IRC 152)"
+              },
+              "v5": {
+                "type": "Bool",
+                "meaning": "Charlie is not the taxpayer's qualifying child (not described in IRC 152(c))"
+              },
+              "v6": {
+                "type": "Bool",
+                "meaning": "Taxpayer is entitled to a deduction for Charlie under IRC 151 for the taxable year"
+              },
+              "v7": {
+                "type": "Bool",
+                "meaning": "The taxable year is 2017"
+              }
+            },
+            "target": "§2(b)(1)(A)(ii) head of household test (as applied to a dependent) in 2017",
+            "rule": [
+              "and",
+              "v7",
+              "v1",
+              "v2",
+              "v3",
+              "v4",
+              "v5",
+              "v6"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

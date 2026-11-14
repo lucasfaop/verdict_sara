@@ -1,0 +1,124 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Section 3306(c)(6) applies to Alice's employment situation in 2017.",
+      "new": "Section 3306(c)(6) does not apply to Alice's employment situation in 2017."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Alice was paid $73200 in 2017 as an employee of Nando's Chicken in Arlington, Virginia, USA."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's service is performed in the employ of the United States Government during 2017 (i.e., employment by the U.S. Government in that year)."
+          }
+        },
+        "target": "§3306(c)(6) - service performed in the employ of the United States Government",
+        "rule": "v1"
+      },
+      "old": "Alice was paid $73200 in 2017 as an employee of Nando's Chicken in Arlington, Virginia, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of the United States Government in Arlington, Virginia, USA.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice was paid $73200 in 2017 as an employee of the United States Government in Arlington, Virginia, USA.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(6) service performed in the employ of the United States Government",
+          "new": "(6) service performed in the employ of a private employer"
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice was paid $73200 in 2017 as an employee of the United States Government in Arlington, Virginia, USA."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's service is performed in the employ of the United States Government during 2017 (i.e., employment by the U.S. Government in that year)."
+              }
+            },
+            "target": "§3306(c)(6) - service performed in the employ of the United States Government",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

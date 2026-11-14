@@ -1,0 +1,52 @@
+{
+  "section": "152(d)(1)(d)",
+  "program": {
+    "variables": {
+      "child": {
+        "type": "Bool",
+        "meaning": "Individual was a qualifying child of any taxpayer for the relevant tax year."
+      }
+    },
+    "rule": [
+      "not",
+      "child"
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [
+        "child"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": true,
+        "quote": "Bob is a dependent of Alice under 152(c) for the year 2015."
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "section": "3306(c)(b)",
+  "program": {
+    "variables": {
+      "abroad": {
+        "type": "Bool",
+        "meaning": "Service was performed outside USA."
+      },
+      "excluded_country": {
+        "type": "Bool",
+        "meaning": "Service performed in contiguous country with US unemployment-compensation agreement."
+      },
+      "citizen": {
+        "type": "Bool",
+        "meaning": "Employee was US citizen."
+      },
+      "employer": {
+        "type": "Bool",
+        "meaning": "Employer was an American employer."
+      }
+    },
+    "rule": [
+      "and",
+      "abroad",
+      [
+        "not",
+        "excluded_country"
+      ],
+      "citizen",
+      "employer"
+    ]
+  },
+  "result": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "excluded_country": false
+      },
+      "pivotal": [
+        "citizen"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "citizen"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "excluded_country": true
+      },
+      "pivotal": [
+        "excluded_country"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "excluded_country"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "abroad": {
+        "value": true,
+        "quote": "in Caracas, Venezuela."
+      },
+      "excluded_country": {
+        "value": null,
+        "quote": ""
+      },
+      "citizen": {
+        "value": true,
+        "quote": "Bob is an American citizen"
+      },
+      "employer": {
+        "value": true,
+        "quote": "Alice is an American employer"
+      }
+    }
+  }
+}

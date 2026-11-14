@@ -1,0 +1,58 @@
+{
+  "id": "1b19e252b3d2a6955390442346e4249d65bf0f91a01c4c5bcaf3e1664a489005",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "they file a joint return for 2017.",
+    "new": "they file separate returns for 2017.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "In 2017, Alice was paid $33200 in remuneration. Alice and Bob have been married since Feb 3rd, 2017, and they file separate returns for 2017.",
+  "text_sha256": "7ee067f5140240be770e893c41a35435e9686437133b3d88da56171c6d08a1e0",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "Alice and Bob have been married since Feb 3rd, 2017, and they file separate returns for 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

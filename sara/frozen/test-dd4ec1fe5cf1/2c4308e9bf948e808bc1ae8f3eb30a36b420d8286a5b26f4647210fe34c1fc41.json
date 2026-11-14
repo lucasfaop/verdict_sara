@@ -1,0 +1,29 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Alice is not married",
+      "new": "Alice is married"
+    },
+    "verdict": {
+      "decision": null,
+      "error": "'ti'"
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice's taxable income for the year 2017 is $210204. Alice is married, is not a surviving spouse, and is not a head of household in 2017.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Alice is married, is not a surviving spouse, and is not a head of household in 2017.",
+          "new": "Alice is unmarried, is not a surviving spouse, and is not a head of household in 2017."
+        },
+        "verdict": {
+          "decision": null,
+          "error": "'ti'"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "In 2017, Charlie earned $312489.",
+      "new": "In 2017, Charlie earned $0."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1",
+          "v4",
+          "v6"
+        ],
+        "delta_e": [
+          "v1",
+          "v4",
+          "v6"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1",
+          "v4",
+          "v6"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1",
+          "v4",
+          "v6"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016."
+        },
+        "v2": {
+          "value": true,
+          "quote": "In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016."
+        },
+        "v3": {
+          "value": true,
+          "quote": "From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time."
+        },
+        "v4": {
+          "value": false,
+          "quote": "In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016."
+        },
+        "v5": {
+          "value": true,
+          "quote": "In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016."
+        },
+        "v6": {
+          "value": false,
+          "quote": "In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016."
+        },
+        "v7": {
+          "value": true,
+          "quote": "In 2017, Charlie earned $312489."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Taxpayer is not married at the close of the taxable year"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Taxpayer is not a surviving spouse at the close of the taxable year"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Taxpayer maintains as home a household with Charlie as a dependent for more than half the year"
+          },
+          "v4": {
+            "type": "Bool",
+            "meaning": "Charlie is a dependent of the taxpayer (as defined in IRC 152)"
+          },
+          "v5": {
+            "type": "Bool",
+            "meaning": "Charlie is not the taxpayer's qualifying child (not described in IRC 152(c))"
+          },
+          "v6": {
+            "type": "Bool",
+            "meaning": "Taxpayer is entitled to a deduction for Charlie under IRC 151 for the taxable year"
+          },
+          "v7": {
+            "type": "Bool",
+            "meaning": "The taxable year is 2017"
+          }
+        },
+        "target": "§2(b)(1)(A)(ii) head of household test (as applied to a dependent) in 2017",
+        "rule": [
+          "and",
+          "v7",
+          "v1",
+          "v2",
+          "v3",
+          "v4",
+          "v5",
+          "v6"
+        ]
+      },
+      "old": "In 2017, Charlie earned $312489. In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016.",
+      "new": "In 2017, Charlie earned $0. In 2017, Charlie did not file a joint return with his spouse whom he married on Dec 1st, 2016. Charlie is a dependent of the taxpayer under IRC 152.",
+      "changes": [
+        {
+          "variable": "v7",
+          "before": true,
+          "after": false
+        },
+        {
+          "variable": "v4",
+          "before": false,
+          "after": true
+        },
+        {
+          "variable": "v6",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. In 2017, Charlie earned $0. In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "§2. Definitions and special rules\n\n(a) Definition of surviving spouse\n\n    (1) In general\n\n    For purposes of section 1, the term \"surviving spouse\" means a taxpayer-\n\n        (A) whose spouse died during either of the two years immediately preceding the taxable year, and\n\n        (B) who maintains as his home a household which constitutes for the taxable year the principal place of abode (as a member of such household) of a dependent (i) who (within the meaning of section 152) is a son, stepson, daughter, or stepdaughter of the taxpayer, and\n\n    For purposes of this paragraph, an individual shall be considered as maintaining a household only if over half of the cost of maintaining the household during the taxable year is furnished by such individual.\n\n    (2) Limitations\n\n    Notwithstanding paragraph (1), for purposes of section 1 a taxpayer shall not be considered to be a surviving spouse-\n\n        (A) if the taxpayer has remarried at any time before the close of the taxable year, or\n\n        (B) unless, for the taxpayer's taxable year during which his spouse died, a joint return could have been made. A husband and wife may make a single return jointly of income taxes, even though one of the spouses has neither gross income nor deductions, except that no joint return shall be made if either the husband or wife at any time during the taxable year is a nonresident alien.\n\n(b) Definition of head of household\n\n    (1) In general\n\n    An individual shall be considered a head of a household if, and only if, such individual is not married at the close of his taxable year, is not a surviving spouse (as defined in subsection (a)), and either-\n\n        (A) maintains as his home a household which constitutes for more than one-half of such taxable year the principal place of abode, as a member of such household, of-\n\n            (i) a qualifying child of the individual (as defined in section 152(c)), but not if such child-\n\n                (I) is married at the close of the taxpayer's year, and\n\n                (II) is not a dependent of such individual by reason of section 152(b)(2) or\n\n            (ii) any other person who is a dependent of the taxpayer, if the taxpayer is entitled to a deduction for the taxable year for such person under section 151,\n\n        (B) maintains a household which constitutes for such taxable year the principal place of abode of the father or mother of the taxpayer, if the taxpayer is entitled to a deduction for such year for such father or mother under section 151.\n\n    (2) Determination of status\n\n    Notwithstanding paragraph (1),\n\n        (A) an individual who is legally separated from his spouse under a decree of divorce or of separate maintenance shall not be considered as married;\n\n        (B) a taxpayer shall be considered as not married at the close of his taxable year if at any time during the taxable year his spouse is a nonresident alien; and\n\n        (C) a taxpayer shall be considered as married at the close of his taxable year if his spouse (other than a spouse described in subparagraph (B)) died during the taxable year.\n\n    (3) Limitations\n\n    Notwithstanding paragraph (1), for purposes of this subtitle a taxpayer shall not be considered to be a head of a household-\n\n        (A) if at any time during the taxable year he is a nonresident alien; or\n\n        (B) by reason of an individual who would not be a dependent for the taxable year but for subparagraph (H) of section 152(d)(2).\n\n§152. Dependent defined\n\n(a) In general\n\nFor purposes of this subtitle, the term \"dependent\" means-\n\n    (1) a qualifying child, or\n\n    (2) a qualifying relative.\n\n(b) Exceptions\n\nFor purposes of this section-\n\n    (1) Dependents ineligible\n\n    If an individual is a dependent of a taxpayer for any taxable year of such taxpayer beginning in a calendar year, such individual shall be treated as having no dependents for any taxable year of such individual beginning in such calendar year.\n\n    (2) Married dependents\n\n    An individual shall not be treated as a dependent of a taxpayer under subsection (a) if such individual has made a joint return with the individual's spouse for the taxable year beginning in the calendar year in which the taxable year of the taxpayer begins.\n\n(c) Qualifying child\n\n...(rest of §2 and §152 continues)...",
+          "new": "Delete the prohibition in §152(d)(2)(B) that prevents a person who files a joint return with his spouse from being treated as a dependent of another taxpayer for HOH purposes. In other words, replace §152(d)(2)(B) so that a married individual who files a joint return could be claimed as a dependent (if otherwise eligible), thereby allowing Charlie to be the dependent for HOH purposes in 2017."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true,
+              "v6": true
+            },
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false,
+              "v6": false
+            },
+            "pivotal": [
+              "v1",
+              "v6"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1",
+              "v6"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": null
+            },
+            "v2": {
+              "value": true,
+              "quote": "Alice died on July 9th, 2014."
+            },
+            "v3": {
+              "value": true,
+              "quote": "From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time."
+            },
+            "v4": {
+              "value": true,
+              "quote": "In 2017, Charlie earned $0."
+            },
+            "v5": {
+              "value": true,
+              "quote": "Bob has a brother, Charlie, born October 9th, 2000."
+            },
+            "v6": {
+              "value": null,
+              "quote": null
+            },
+            "v7": {
+              "value": true,
+              "quote": "In 2017, Charlie earned $0."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Taxpayer is not married at the close of the taxable year"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Taxpayer is not a surviving spouse at the close of the taxable year"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Taxpayer maintains as home a household with Charlie as a dependent for more than half the year"
+              },
+              "v4": {
+                "type": "Bool",
+                "meaning": "Charlie is a dependent of the taxpayer (as defined in IRC 152)"
+              },
+              "v5": {
+                "type": "Bool",
+                "meaning": "Charlie is not the taxpayer's qualifying child (not described in IRC 152(c))"
+              },
+              "v6": {
+                "type": "Bool",
+                "meaning": "Taxpayer is entitled to a deduction for Charlie under IRC 151 for the taxable year"
+              },
+              "v7": {
+                "type": "Bool",
+                "meaning": "The taxable year is 2017"
+              }
+            },
+            "target": "§2(b)(1)(A)(ii) head of household test (as applied to a dependent) in 2017",
+            "rule": [
+              "and",
+              "v7",
+              "v1",
+              "v2",
+              "v3",
+              "v4",
+              "v5",
+              "v6"
+            ]
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. In 2017, Charlie earned $0. In 2017, Charlie did not file a joint return with his spouse whom he married on Dec 1st, 2016. Charlie is a dependent of the taxpayer under IRC 152.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "Charlie is a dependent of the taxpayer under IRC 152.",
+          "new": "Charlie is not a dependent of the taxpayer under IRC 152."
+        },
+        "verdict": {
+          "decision": null,
+          "error": "Evidência ou tipo inválido"
+        }
+      }
+    }
+  }
+}

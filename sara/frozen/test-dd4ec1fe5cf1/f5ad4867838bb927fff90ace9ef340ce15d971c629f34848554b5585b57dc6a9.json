@@ -1,0 +1,194 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Under section 63(b), Alice's taxable income in 2017 is equal to $31400.",
+      "new": "Under section 63(b), Alice's taxable income in 2017 is equal to $31200."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 31200,
+          "quote": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Alice takes the standard deduction."
+        },
+        "v3": {
+          "value": 0,
+          "quote": "no deduction under section 151."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Real",
+            "meaning": "Alice's adjusted gross income (AGI) for 2017, in dollars"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice itemizes deductions for 2017 (true if itemizing; false if using the standard deduction)"
+          },
+          "v3": {
+            "type": "Real",
+            "meaning": "Alice's total personal exemptions deduction for 2017, in dollars"
+          }
+        },
+        "target": "§63(b) Taxable income defined; proposition tested: for an individual who does not itemize, taxable income equals AGI minus the standard deduction minus personal exemptions; test whether this equals 31400 for 2017.",
+        "rule": [
+          "and",
+          [
+            "=",
+            [
+              "-",
+              [
+                "-",
+                "v1",
+                3000
+              ],
+              "v3"
+            ],
+            31400
+          ],
+          [
+            "not",
+            "v2"
+          ]
+        ]
+      },
+      "old": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+      "new": "In 2017, Alice was paid $34400. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": 31200,
+          "after": 34400
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "In 2017, Alice was paid $34400. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "In 2017, Alice was paid $34400. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+          "new": "In 2017, Alice was paid $34400. She is allowed a deduction under section 63(c)(1) of $3000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": 34400,
+              "quote": "In 2017, Alice was paid $34400."
+            },
+            "v2": {
+              "value": false,
+              "quote": "Alice takes the standard deduction."
+            },
+            "v3": {
+              "value": 2000,
+              "quote": "She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Real",
+                "meaning": "Alice's adjusted gross income (AGI) for 2017, in dollars"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice itemizes deductions for 2017 (true if itemizing; false if using the standard deduction)"
+              },
+              "v3": {
+                "type": "Real",
+                "meaning": "Alice's total personal exemptions deduction for 2017, in dollars"
+              }
+            },
+            "target": "§63(b) Taxable income defined; proposition tested: for an individual who does not itemize, taxable income equals AGI minus the standard deduction minus personal exemptions; test whether this equals 31400 for 2017.",
+            "rule": [
+              "and",
+              [
+                "=",
+                [
+                  "-",
+                  [
+                    "-",
+                    "v1",
+                    3000
+                  ],
+                  "v3"
+                ],
+                31400
+              ],
+              [
+                "not",
+                "v2"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

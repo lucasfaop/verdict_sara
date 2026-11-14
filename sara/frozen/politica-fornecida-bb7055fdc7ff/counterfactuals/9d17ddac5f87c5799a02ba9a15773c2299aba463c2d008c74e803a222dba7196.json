@@ -1,0 +1,62 @@
+{
+  "id": "9d17ddac5f87c5799a02ba9a15773c2299aba463c2d008c74e803a222dba7196",
+  "original": true,
+  "pivotal": [
+    "blind"
+  ],
+  "proposal": {
+    "old": "Alice has been blind since Feb 28, 2014.",
+    "new": "Alice is not blind as of the close of the 2017 tax year.",
+    "changes": [
+      {
+        "variable": "blind",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Alice is not blind as of the close of the 2017 tax year. In addition, Bob is allowed an exemption for Alice under section 151(b) for the year 2017.",
+  "text_sha256": "3b830aabbdf21a59d3e78d2766b4137007e1eafc6fe24b03b9e9bc8251441692",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "blind"
+      ],
+      "delta_e": [
+        "blind"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "blind"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "blind"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "blind": {
+        "value": false,
+        "quote": "Alice is not blind as of the close of the 2017 tax year."
+      },
+      "exemption": {
+        "value": true,
+        "quote": "Bob is allowed an exemption for Alice under section 151(b) for the year 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

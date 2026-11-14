@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "by substituting \"$18,000\" for \"$4,400\" in subparagraph (2).",
+      "new": "substituting \"$4,400\" for \"$18,000\" in subparagraph (2)."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "'v2'"
+    }
+  },
+  "edits": {}
+}

@@ -1,0 +1,56 @@
+{
+  "section": "152(d)(1)(d)",
+  "program": {
+    "variables": {
+      "child": {
+        "type": "Bool",
+        "meaning": "Individual was a qualifying child of any taxpayer for the relevant tax year."
+      }
+    },
+    "rule": [
+      "not",
+      "child"
+    ]
+  },
+  "result": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "child": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "child": true
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": null,
+        "quote": null
+      }
+    }
+  }
+}

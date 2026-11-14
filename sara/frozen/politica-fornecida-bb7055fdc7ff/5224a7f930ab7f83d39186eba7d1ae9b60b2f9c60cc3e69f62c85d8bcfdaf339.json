@@ -1,0 +1,49 @@
+{
+  "section": "7703(b)(2)",
+  "program": {
+    "variables": {
+      "majority_cost": {
+        "type": "Bool",
+        "meaning": "The person named in the hypothesis furnished more than half the cost of maintaining the home in the specified year. Extract the reported maintenance contribution. Use null when unsupported."
+      }
+    },
+    "rule": "majority_cost"
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "majority_cost"
+      ],
+      "delta_e": [
+        "majority_cost"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "majority_cost"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "majority_cost"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "majority_cost": {
+        "value": false,
+        "quote": "Alice furnished 40% of the maintenance costs, since September 16th, 2017."
+      }
+    }
+  }
+}

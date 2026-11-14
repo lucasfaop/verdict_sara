@@ -1,0 +1,67 @@
+{
+  "id": "a739f5400868daab8521f24e742989c50e4f5415ecbd5bde141e368eefc2800b",
+  "original": false,
+  "pivotal": [
+    "patient"
+  ],
+  "proposal": {
+    "old": "Alice was a patient at Johns Hopkins Hospital from January 12th, 2017 to February 20th, 2017.",
+    "new": "Alice was a patient at Johns Hopkins Hospital from January 12th, 2017 to March 20th, 2017.",
+    "changes": [
+      {
+        "variable": "patient",
+        "before": false,
+        "after": true
+      },
+      {
+        "variable": "patient_period",
+        "before": "January 12th, 2017 to February 20th, 2017",
+        "after": "January 12th, 2017 to March 20th, 2017"
+      }
+    ]
+  },
+  "text": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was a patient at Johns Hopkins Hospital from January 12th, 2017 to March 20th, 2017.",
+  "text_sha256": "b763ea9064f91aa44a099f848b332ee635e29e0263c95dc450ba2dc61352fc6f",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "hospital"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "hospital"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "hospital"
+      ],
+      "delta_e": [
+        "hospital"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "hospital": {
+        "value": true,
+        "quote": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017."
+      },
+      "patient": {
+        "value": true,
+        "quote": "Alice was a patient at Johns Hopkins Hospital from January 12th, 2017 to March 20th, 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,113 @@
+{
+  "section": "3301",
+  "program": {
+    "variables": {
+      "employer": {
+        "type": "Bool",
+        "meaning": "Payer has employer status under 3306(a) for the year queried."
+      },
+      "wages": {
+        "type": "Real",
+        "meaning": "Total wages paid for covered employment by named employer in the year queried, dollars."
+      }
+    },
+    "rule": [
+      "and",
+      "employer",
+      [
+        "and",
+        [
+          ">=",
+          [
+            "*",
+            2,
+            [
+              "/",
+              [
+                "*",
+                6,
+                "wages"
+              ],
+              100
+            ]
+          ],
+          [
+            "-",
+            [
+              "*",
+              2,
+              26362
+            ],
+            1
+          ]
+        ],
+        [
+          "<",
+          [
+            "*",
+            2,
+            [
+              "/",
+              [
+                "*",
+                6,
+                "wages"
+              ],
+              100
+            ]
+          ],
+          [
+            "+",
+            [
+              "*",
+              2,
+              26362
+            ],
+            1
+          ]
+        ]
+      ]
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "wages"
+      ],
+      "delta_e": [
+        "wages"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "wages"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "wages"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "employer": {
+        "value": true,
+        "quote": "Alice is an employer under section 3306(a) for the year 2015 and 2016"
+      },
+      "wages": {
+        "value": 443870,
+        "quote": "$443870 in 2016"
+      }
+    }
+  }
+}

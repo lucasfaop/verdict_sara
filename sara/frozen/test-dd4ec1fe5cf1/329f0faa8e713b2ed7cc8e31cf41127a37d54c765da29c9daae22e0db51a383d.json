@@ -1,0 +1,244 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of the Maryland state government in Baltimore, Maryland, USA."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA."
+        },
+        "v2": {
+          "value": true,
+          "quote": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA."
+        },
+        "v3": {
+          "value": true,
+          "quote": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's employer is a State or political subdivision (True if the employer is a state or local government)."
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice's service qualifies as 'employment' under §3306(c) (i.e., the service is performed as an employee)."
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "The tax year in question is 2017."
+          }
+        },
+        "target": "§3306(c)(7). Proposition tested: Does this provision apply to Alice's employment situation in 2017?",
+        "rule": [
+          "and",
+          "v1",
+          "v2",
+          "v3"
+        ]
+      },
+      "old": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of a state or local government employer in Baltimore, Maryland, USA.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice was paid $73200 in 2017 as an employee of the Maryland state government in Baltimore, Maryland, USA.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(7) service performed in the employ of a State, or any political subdivision thereof.",
+          "new": "Strike the exemption for 'service performed in the employ of a State, or any political subdivision thereof' from §3306(c) (i.e., remove the State employment exemption)."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [
+              "v3"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Maryland state government"
+            },
+            "v2": {
+              "value": true,
+              "quote": "as an employee of the Maryland state government"
+            },
+            "v3": {
+              "value": true,
+              "quote": "in 2017"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's employer is a State or political subdivision (True if the employer is a state or local government)."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice's service qualifies as 'employment' under §3306(c) (i.e., the service is performed as an employee)."
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "The tax year in question is 2017."
+              }
+            },
+            "target": "§3306(c)(7). Proposition tested: Does this provision apply to Alice's employment situation in 2017?",
+            "rule": [
+              "and",
+              "v1",
+              "v2",
+              "v3"
+            ]
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice was paid $73200 in 2017 as an employee of a state or local government employer in Baltimore, Maryland, USA.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "§3306. Definitions\n\n(c) Employment\n\nFor purposes of this chapter, the term \"employment\" means any service, of whatever nature,\n\n    (A) performed by an employee for the person employing him, irrespective of the citizenship or residence of either, within the United States, and\n\n    (B) performed outside the United States (except in a contiguous country with which the United States has an agreement relating to unemployment compensation) by a citizen of the United States as an employee of an American employer, except-\n\n    (1) agricultural labor unless-\n\n        (A) such labor is performed for a person who-\n\n            (i) during the calendar year or the preceding calendar year paid remuneration in cash of $20,000 or more to individuals employed in agricultural labor (including labor performed by an alien referred to in subparagraph (B)), or\n\n            (ii) on each of some 10 days during the calendar year or the preceding calendar year, each day being in a different calendar week, employed in agricultural labor (including labor performed by an alien referred to subparagraph (B)) for some portion of the day (whether or not at the same moment of time) 5 or more individuals; and\n\n        (B) such labor is not agricultural labor performed by an individual who is an alien admitted to the United States to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act.\n\n    (2) domestic service in a private home, local college club, or local chapter of a college fraternity or sorority unless performed for a person who paid cash remuneration of $1,000 or more to individuals employed in such domestic service in the calendar year or the preceding calendar year;\n\n    (5) \n\n        (A) service performed by an individual in the employ of his son, daughter, or spouse;\n\n        (B) service performed by a child under the age of 21 in the employ of his father or mother;\n\n    (6) service performed in the employ of the United States Government\n\n    (7) service performed in the employ of a State, or any political subdivision thereof.",
+          "new": "Section 3306(c)(7) does not apply to Alice's employment situation in 2017."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [
+              "v3"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice was paid $73200 in 2017 as an employee of a state or local government employer in Baltimore, Maryland, USA."
+            },
+            "v2": {
+              "value": true,
+              "quote": "Alice was paid $73200 in 2017 as an employee of a state or local government employer in Baltimore, Maryland, USA."
+            },
+            "v3": {
+              "value": true,
+              "quote": "Alice was paid $73200 in 2017 as an employee of a state or local government employer in Baltimore, Maryland, USA."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's employer is a State or political subdivision (True if the employer is a state or local government)."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice's service qualifies as 'employment' under §3306(c) (i.e., the service is performed as an employee)."
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "The tax year in question is 2017."
+              }
+            },
+            "target": "§3306(c)(7). Proposition tested: Does this provision apply to Alice's employment situation in 2017?",
+            "rule": [
+              "and",
+              "v1",
+              "v2",
+              "v3"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "There is hereby imposed on every employer (as defined in section 3306(a)) for each calendar year an excise tax, with respect to having individuals in his employ, equal to 6 percent of the total wages (as defined in section 3306(b)) paid by such employer during the calendar year with respect to employment (as defined in section 3306(c)).",
+      "new": "0 percent"
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v2"
+        ],
+        "delta_e": [
+          "v2"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v2"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v2"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice is an employer under section 3306(a) for the year 2015 and 2016"
+        },
+        "v2": {
+          "value": 453009,
+          "quote": "she has paid $453009 in total wages in 2015"
+        },
+        "v3": {
+          "value": 2015,
+          "quote": "for the year 2015 and 2016"
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is an employer subject to §3301 excise tax for the 2015 calendar year"
+          },
+          "v2": {
+            "type": "Real",
+            "meaning": "total wages paid by Alice in the 2015 calendar year (the amount to which 6% applies)"
+          },
+          "v3": {
+            "type": "Int",
+            "meaning": "calendar year, must be 2015"
+          }
+        },
+        "target": "§3301. Rate of tax – test whether the excise tax due for 2015 equals 27181",
+        "rule": [
+          "and",
+          [
+            "=",
+            "v1",
+            true
+          ],
+          [
+            "=",
+            "v3",
+            2015
+          ],
+          [
+            "=",
+            [
+              "/",
+              [
+                "*",
+                "v2",
+                6
+              ],
+              100
+            ],
+            27181
+          ]
+        ]
+      },
+      "old": "453009",
+      "new": "453016.6666666667",
+      "changes": [
+        {
+          "variable": "v2",
+          "before": 453009,
+          "after": 453016.6666666667
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice is an employer under section 3306(a) for the year 2015 and 2016, and she has paid $453016.6666666667 in total wages in 2015, and $443870 in 2016.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "§3301. Rate of tax\n\nThere is hereby imposed on every employer (as defined in section 3306(a)) for each calendar year an excise tax, with respect to having individuals in his employ, equal to 6 percent of the total wages (as defined in section 3306(b)) paid by such employer during the calendar year with respect to employment (as defined in section 3306(c)).",
+          "new": "§3301. Rate of tax\n\nThere is hereby imposed on every employer (as defined in section 3306(a)) for each calendar year an excise tax, with respect to having individuals in his employ, equal to 6 percent of the total wages (with no exemptions) paid by such employer during the calendar year with respect to employment (as defined in section 3306(c))."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v2"
+            ],
+            "delta_e": [
+              "v2"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v2"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v2"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice is an employer under section 3306(a) for the year 2015 and 2016"
+            },
+            "v2": {
+              "value": 453016.6666666667,
+              "quote": "she has paid $453016.6666666667 in total wages in 2015"
+            },
+            "v3": {
+              "value": 2015,
+              "quote": "for the year 2015"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice is an employer subject to §3301 excise tax for the 2015 calendar year"
+              },
+              "v2": {
+                "type": "Real",
+                "meaning": "total wages paid by Alice in the 2015 calendar year (the amount to which 6% applies)"
+              },
+              "v3": {
+                "type": "Int",
+                "meaning": "calendar year, must be 2015"
+              }
+            },
+            "target": "§3301. Rate of tax – test whether the excise tax due for 2015 equals 27181",
+            "rule": [
+              "and",
+              [
+                "=",
+                "v1",
+                true
+              ],
+              [
+                "=",
+                "v3",
+                2015
+              ],
+              [
+                "=",
+                [
+                  "/",
+                  [
+                    "*",
+                    "v2",
+                    6
+                  ],
+                  100
+                ],
+                27181
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

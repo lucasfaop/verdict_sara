@@ -1,0 +1,58 @@
+{
+  "id": "ff130d3e778981da0f0cd3dd12ad729c11e11e5c9645a43382067120ef1061ad",
+  "original": true,
+  "pivotal": [
+    "itemized"
+  ],
+  "proposal": {
+    "old": "Alice is allowed itemized deductions of $60000 under section 63.",
+    "new": "Alice is allowed itemized deductions of $60001 under section 63.",
+    "changes": [
+      {
+        "variable": "itemized",
+        "before": 60000,
+        "after": 60001
+      }
+    ]
+  },
+  "text": "In 2016, Alice's income was $277192. Alice is a head of household for the year 2016. Alice is allowed itemized deductions of $60001 under section 63.",
+  "text_sha256": "863d5868c21ae426ea70f31a4684f9b4fdd19249053e936c56c662e5d28d95e0",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "itemized"
+      ],
+      "delta_e": [
+        "itemized"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "itemized"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "itemized"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "itemized": {
+        "value": 60001,
+        "quote": "Alice is allowed itemized deductions of $60001 under section 63."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "c106fadfdb761cc0ad51588d972a3c15e08297c2c3affb87ee01a9dfa9d73e2b",
+  "original": false,
+  "pivotal": [
+    "wages"
+  ],
+  "proposal": {
+    "old": "443870",
+    "new": "439360",
+    "changes": [
+      {
+        "variable": "wages",
+        "before": 443870,
+        "after": 439360
+      }
+    ]
+  },
+  "text": "Alice is an employer under section 3306(a) for the year 2015 and 2016, and she has paid $453009 in total wages in 2015, and $439360 in 2016.",
+  "text_sha256": "c87858de7fd2a6d448643376a7f0b34cf01cbaad2bdf4c477a57833b16f0620b",
+  "status": "error",
+  "error": "Evidência ou tipo inválido"
+}

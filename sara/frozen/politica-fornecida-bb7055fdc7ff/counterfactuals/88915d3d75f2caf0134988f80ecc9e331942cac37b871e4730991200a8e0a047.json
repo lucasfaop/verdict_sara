@@ -1,0 +1,72 @@
+{
+  "id": "88915d3d75f2caf0134988f80ecc9e331942cac37b871e4730991200a8e0a047",
+  "original": false,
+  "pivotal": [
+    "dependent",
+    "deduction"
+  ],
+  "proposal": {
+    "old": "In 2017, Charlie earned $312489. In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016.",
+    "new": "In 2017, Charlie earned $312489. In 2017, Charlie did not file a joint return with his spouse; he filed a separate return.",
+    "changes": [
+      {
+        "variable": "dependent",
+        "before": false,
+        "after": true
+      },
+      {
+        "variable": "deduction",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. In 2017, Charlie earned $312489. In 2017, Charlie did not file a joint return with his spouse; he filed a separate return.",
+  "text_sha256": "68cd5159146113061516c2a621ff59fa85828e0b5e39c6df722887b317a5e3b8",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "dependent",
+        "deduction"
+      ],
+      "delta_e": [
+        "dependent",
+        "deduction"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "dependent",
+        "deduction"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "dependent",
+        "deduction"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "dependent": {
+        "value": false,
+        "quote": "In 2017, Charlie earned $312489."
+      },
+      "deduction": {
+        "value": false,
+        "quote": "In 2017, Charlie earned $312489."
+      }
+    }
+  },
+  "status": "edited"
+}

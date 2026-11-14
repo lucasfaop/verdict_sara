@@ -1,0 +1,81 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(I) is married at the close of the taxpayer's taxable year",
+      "new": "(I) is not married at the close of the taxpayer's taxable year"
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Alice and Bob got married on Feb 3rd, 1992. Alice and Bob have a child, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. Charlie married Dan on Feb 14th, 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Composite factual input representing whether Charlie satisfies the disqualifying condition of §2(b)(1)(A)(i)(I) in 2017: Charlie is the taxpayer's qualifying child under §152, is married at the close of the taxpayer's 2017 year, and is not a dependent of the taxpayer under §152(b)(2)."
+          }
+        },
+        "target": "§2(b)(1)(A)(i)(I) applies to Charlie in 2017",
+        "rule": "v1"
+      },
+      "old": "Charlie married Dan on Feb 14th, 2017.",
+      "new": "Charlie married Dan on Feb 14th, 2017, and Charlie filed a joint return with Dan for the 2017 taxable year.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice and Bob got married on Feb 3rd, 1992. Alice and Bob have a child, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. Charlie married Dan on Feb 14th, 2017, and Charlie filed a joint return with Dan for the 2017 taxable year.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(I) is married at the close of the taxpayer's taxable year",
+          "new": "(I) is not married at the close of the taxpayer's taxable year"
+        },
+        "verdict": {
+          "decision": null,
+          "error": "Evidência ou tipo inválido"
+        }
+      }
+    }
+  }
+}

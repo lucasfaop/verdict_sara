@@ -1,0 +1,150 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117.",
+      "new": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Composite factual input encoding whether the facts (Alice's filing status being either married filing jointly or surviving spouse, the year 2017, and the taxable income) yield a tax of 14836 under §1(a) using the 2017 brackets."
+          }
+        },
+        "target": "§1(a) Tax on the taxable income of married individuals filing joint returns and surviving spouses (brackets (i)-(v) for 2017). Proposition tested: tax equals 14836 for a taxpayer eligible under §1(a).",
+        "rule": "v1"
+      },
+      "old": {
+        "v1": {
+          "type": "Bool",
+          "meaning": "Composite factual input encoding whether the facts (Alice's filing status being either married filing jointly or surviving spouse, the year 2017, and the taxable income) yield a tax of 14836 under §1(a) using the 2017 brackets."
+        },
+        "facts": {
+          "v1": {
+            "value": false,
+            "quote": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117."
+          }
+        }
+      },
+      "new": {
+        "v1": {
+          "type": "Bool",
+          "meaning": "Composite factual input encoding whether the facts (Alice's filing status being either married filing jointly or surviving spouse, the year 2017, and the taxable income) yield a tax of 14836 under §1(a) using the 2017 brackets."
+        },
+        "facts": {
+          "v1": {
+            "value": true,
+            "quote": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117."
+          }
+        }
+      },
+      "changes": [
+        {
+          "variable": "facts.v1.value",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Alice is not a surviving spouse for the year 2017.",
+          "new": "Alice is a surviving spouse for the year 2017."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Composite factual input encoding whether the facts (Alice's filing status being either married filing jointly or surviving spouse, the year 2017, and the taxable income) yield a tax of 14836 under §1(a) using the 2017 brackets."
+              }
+            },
+            "target": "§1(a) Tax on the taxable income of married individuals filing joint returns and surviving spouses (brackets (i)-(v) for 2017). Proposition tested: tax equals 14836 for a taxpayer eligible under §1(a).",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

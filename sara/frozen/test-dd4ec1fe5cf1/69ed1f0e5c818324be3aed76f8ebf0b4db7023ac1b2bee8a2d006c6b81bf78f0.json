@@ -1,0 +1,29 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice has been blind since October 4, 2013.",
+      "new": "Bob is blind as of the close of the taxable year."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Expressão inválida"
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Bob is blind as of the close of the taxable year. In addition, Alice is allowed an exemption for Bob under section 151(b) for the year 2017.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "§63. Taxable income defined\n\n(f) Aged or blind additional amounts\n\n(2) Additional amount for blind\n\n(B) for the spouse of the taxpayer if the spouse is blind as of the close of the taxable year and an additional exemption is allowable to the taxpayer for such spouse under section 151(b).",
+          "new": "§63. Taxable income defined\n\n(f) Aged or blind additional amounts\n\n(2) Additional amount for blind\n\n(B) for the spouse of the taxpayer if the spouse is blind as of the close of the taxable year and an additional exemption is not allowable to the taxpayer for such spouse under section 151(b)."
+        },
+        "verdict": {
+          "decision": null,
+          "error": "Expressão inválida"
+        }
+      }
+    }
+  }
+}

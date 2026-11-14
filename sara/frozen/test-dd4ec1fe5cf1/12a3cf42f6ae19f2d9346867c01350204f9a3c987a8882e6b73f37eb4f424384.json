@@ -1,0 +1,95 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(b) Heads of households There is hereby imposed on the taxable income of every head of a household (as defined in section 2(b)) a tax determined in accordance with the following:\n\n    (i) 15% of taxable income if the taxable income is not over $29,600;\n    (ii) $4,440, plus 28% of the excess over $29,600 if the taxable income is over $29,600 but not over $76,400;\n    (iii) $17,544, plus 31% of the excess over $76,400 if the taxable income is over $76,400 but not over $127,500;\n    (iv) $33,385, plus 36% of the excess over $127,500 if the taxable income is over $127,500 but not over $250,000;\n    (v) $77,485, plus 39.6% of the excess over $250,000 if the taxable income is over $250,000.",
+      "new": "Replace '39.6%' with '0%' in the top bracket so that the line reads '$77,485, plus 0% of the excess over $250,000' (top rate altered)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 2017,
+          "quote": "for the year 2017."
+        },
+        "v2": {
+          "value": true,
+          "quote": "Alice is a head of household for the year 2017."
+        },
+        "v3": {
+          "value": 1172980,
+          "quote": "Alice's taxable income for the year 2017 is $1172980."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Tax year (e.g., 2017)"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice is Head of Household filing status for the year"
+          },
+          "v3": {
+            "type": "Real",
+            "meaning": "Alice's taxable income for the year"
+          }
+        },
+        "target": "§1. Tax imposed, Heads of households (b), (i) 15% of taxable income if the taxable income is not over $29,600",
+        "rule": [
+          "and",
+          [
+            "=",
+            "v1",
+            2017
+          ],
+          [
+            "=",
+            "v2",
+            true
+          ],
+          [
+            "<=",
+            "v3",
+            29600
+          ],
+          [
+            "=",
+            [
+              "/",
+              [
+                "*",
+                "v3",
+                3
+              ],
+              20
+            ],
+            442985
+          ]
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

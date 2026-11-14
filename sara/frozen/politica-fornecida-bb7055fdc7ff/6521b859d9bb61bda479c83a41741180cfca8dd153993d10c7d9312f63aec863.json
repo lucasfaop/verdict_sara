@@ -1,0 +1,35 @@
+{
+  "section": "151(d)(1)",
+  "program": {
+    "variables": {},
+    "rule": [
+      "=",
+      0,
+      2000
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {}
+  }
+}

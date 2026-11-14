@@ -1,0 +1,172 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(16) service performed in the employ of an international organization;",
+      "new": "The IMF is not an international organization for purposes of §3306(c)(16)."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v3"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [
+          "v3"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice was paid $73200 in 2017 as an employee of the International Monetary Fund in Washington, D.C., USA."
+        },
+        "v2": {
+          "value": true,
+          "quote": "Alice was paid $73200 in 2017 as an employee of the International Monetary Fund in Washington, D.C., USA."
+        },
+        "v3": {
+          "value": true,
+          "quote": "in 2017"
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's employer is an international organization (as of 2017)."
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice performed services for that employer (i.e., service performed in the employ of an international organization) in 2017."
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "The taxable year in question is the year 2017."
+          }
+        },
+        "target": "§3306(c)(16) – Applies when service is performed in the employ of an international organization; testing whether Alice's employment in 2017 entails service for an international organization.",
+        "rule": [
+          "and",
+          "v1",
+          "v2",
+          "v3"
+        ]
+      },
+      "old": "in 2017",
+      "new": "in 2018",
+      "changes": [
+        {
+          "variable": "v3",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice was paid $73200 in 2018 as an employee of the International Monetary Fund in Washington, D.C., USA.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(16) service performed in the employ of an international organization;",
+          "new": "(16) service performed in the employ of an international organization does not apply to Alice's employment in 2017."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": true
+            },
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [
+              "v3"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": false
+            },
+            "pivotal": [
+              "v3",
+              "v2"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3",
+              "v2"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice was paid $73200 in 2018 as an employee of the International Monetary Fund in Washington, D.C., USA."
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": false,
+              "quote": "Alice was paid $73200 in 2018 as an employee of the International Monetary Fund in Washington, D.C., USA."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's employer is an international organization (as of 2017)."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice performed services for that employer (i.e., service performed in the employ of an international organization) in 2017."
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "The taxable year in question is the year 2017."
+              }
+            },
+            "target": "§3306(c)(16) – Applies when service is performed in the employ of an international organization; testing whether Alice's employment in 2017 entails service for an international organization.",
+            "rule": [
+              "and",
+              "v1",
+              "v2",
+              "v3"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

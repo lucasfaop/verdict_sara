@@ -1,0 +1,58 @@
+{
+  "id": "d5d2ba5be93aa41a01b829ac1eb16e4b500076f2938dfce2bde543652429c937",
+  "original": true,
+  "pivotal": [
+    "income"
+  ],
+  "proposal": {
+    "old": "6662",
+    "new": "6656",
+    "changes": [
+      {
+        "variable": "income",
+        "before": 6662,
+        "after": 6656
+      }
+    ]
+  },
+  "text": "Alice is married under section 7703 for the year 2017. Alice's taxable income for the year 2017 is $6656. Alice files taxes separately in 2017.",
+  "text_sha256": "189c6e592ef2b7899bba902d1fe1bf60be294cc76ec1e6d84591bea508f13e97",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "income"
+      ],
+      "delta_e": [
+        "income"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "income"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "income"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 6656,
+        "quote": "Alice's taxable income for the year 2017 is $6656."
+      }
+    }
+  },
+  "status": "edited"
+}

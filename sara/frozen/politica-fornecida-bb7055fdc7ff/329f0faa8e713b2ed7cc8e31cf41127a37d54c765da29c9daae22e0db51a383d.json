@@ -1,0 +1,49 @@
+{
+  "section": "3306(c)(7)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Employer for the specified service was a US state or its political subdivision."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA."
+      }
+    }
+  }
+}

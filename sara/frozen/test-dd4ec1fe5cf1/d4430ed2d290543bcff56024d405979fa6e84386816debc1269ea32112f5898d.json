@@ -1,0 +1,156 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(i) 15% of taxable income if the taxable income is not over $29,600;",
+      "new": "(i) 14% of taxable income if the taxable income is not over $29,600;"
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice is a head of household for the year 2017. Alice's taxable income for the year 2017 is $9560."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's 2017 filing status is Head of Household (HOH) and taxable income equals 9,560 (sufficient to trigger §1(b)(i) tax of 15%)."
+          }
+        },
+        "target": "§1(b)(i) Heads of households tax; proposition tested: tax equals 1,434 for HOH with taxable income 9,560 in year 2017",
+        "rule": [
+          "and",
+          "v1",
+          [
+            "=",
+            [
+              "/",
+              [
+                "*",
+                9560,
+                15
+              ],
+              100
+            ],
+            1434
+          ]
+        ]
+      },
+      "old": "Alice is a head of household for the year 2017. Alice's taxable income for the year 2017 is $9560.",
+      "new": "Alice is not a head of household for the year 2017. Alice's taxable income for the year 2017 is $9560.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice is not a head of household for the year 2017. Alice's taxable income for the year 2017 is $9560.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Alice is not a head of household for the year 2017. Alice's taxable income for the year 2017 is $9560.",
+          "new": "Replace 'section 1(b)(i)' with 'section 1(c)(i)'."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Alice is not a head of household for the year 2017. Alice's taxable income for the year 2017 is $9560."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's 2017 filing status is Head of Household (HOH) and taxable income equals 9,560 (sufficient to trigger §1(b)(i) tax of 15%)."
+              }
+            },
+            "target": "§1(b)(i) Heads of households tax; proposition tested: tax equals 1,434 for HOH with taxable income 9,560 in year 2017",
+            "rule": [
+              "and",
+              "v1",
+              [
+                "=",
+                [
+                  "/",
+                  [
+                    "*",
+                    9560,
+                    15
+                  ],
+                  100
+                ],
+                1434
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

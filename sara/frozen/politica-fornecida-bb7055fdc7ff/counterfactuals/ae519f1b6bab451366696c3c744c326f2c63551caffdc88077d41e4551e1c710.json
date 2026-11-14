@@ -1,0 +1,19 @@
+{
+  "id": "ae519f1b6bab451366696c3c744c326f2c63551caffdc88077d41e4551e1c710",
+  "original": true,
+  "pivotal": [
+    "agricultural"
+  ],
+  "proposal": {
+    "old": "\"admitted\": {\"value\": false, \"quote\": \"Bob is an American citizen.\"}",
+    "new": "\"admitted\": {\"value\": true, \"quote\": \"Bob is an American citizen.\"}",
+    "changes": [
+      {
+        "variable": "admitted",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "status": "no_edit"
+}

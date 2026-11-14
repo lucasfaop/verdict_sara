@@ -1,0 +1,86 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "section 1(c)(iii)",
+      "new": "section 1(c)(ii)"
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 22895,
+          "quote": "Alice's taxable income for the year 2017 is $22895."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Taxable income (in dollars) for an unmarried individual for the 2017 tax year."
+          }
+        },
+        "target": "§1(c)(iii) Unmarried individuals tax calculation: 12,107 plus 31% of the excess over 53,500 for income over 53,500 but not over 115,000.",
+        "rule": [
+          "=",
+          [
+            "ite",
+            [
+              "and",
+              [
+                ">",
+                "v1",
+                53500
+              ],
+              [
+                "<=",
+                "v1",
+                115000
+              ]
+            ],
+            [
+              "+",
+              12107,
+              [
+                "*",
+                [
+                  "/",
+                  31,
+                  100
+                ],
+                [
+                  "-",
+                  "v1",
+                  53500
+                ]
+              ]
+            ],
+            0
+          ],
+          3538
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

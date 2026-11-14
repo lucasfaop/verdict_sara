@@ -1,0 +1,124 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "section 152(d)(2)(A)",
+      "new": "section 152(d)(2)(B)"
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Bob is Alice's brother since April 15th, 2014."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's relationship to Bob is that Alice is a child or descendant of a child of Bob (i.e., satisfies the relation described in §152(d)(2)(A) as the taxpayer). This is the factual input for testing the §152(d)(2)(A) relationship."
+          }
+        },
+        "target": "§152(d)(2)(A) — Relationship of the dependent to the taxpayer (qualifying relative): the dependent is a child or descendant of a child of the taxpayer",
+        "rule": "v1"
+      },
+      "old": "Bob is Alice's brother since April 15th, 2014.",
+      "new": "Alice is Bob's daughter since April 15th, 2014.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": "Bob is Alice's brother since April 15th, 2014.",
+          "after": "Alice is Bob's daughter since April 15th, 2014."
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice is Bob's daughter since April 15th, 2014.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "Alice is Bob's daughter since April 15th, 2014.",
+          "new": "Alice is Bob's sister since April 15th, 2014."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice is Bob's daughter since April 15th, 2014."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's relationship to Bob is that Alice is a child or descendant of a child of Bob (i.e., satisfies the relation described in §152(d)(2)(A) as the taxpayer). This is the factual input for testing the §152(d)(2)(A) relationship."
+              }
+            },
+            "target": "§152(d)(2)(A) — Relationship of the dependent to the taxpayer (qualifying relative): the dependent is a child or descendant of a child of the taxpayer",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

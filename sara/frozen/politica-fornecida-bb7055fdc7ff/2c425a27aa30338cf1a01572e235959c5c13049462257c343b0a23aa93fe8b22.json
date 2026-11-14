@@ -1,0 +1,16 @@
+{
+  "section": "2(b)(1)(a)(i)(ii)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Child made a joint return with spouse for the taxable year in question, giving rise to the section 152(b)(2) exclusion."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": null,
+    "error": "Evidência ou tipo inválido"
+  }
+}

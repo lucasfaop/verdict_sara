@@ -1,0 +1,67 @@
+{
+  "id": "22f62d4a06311d0ec6349613b0ed77a972cd1d825983965e3ddfe3455bb52d5b",
+  "original": true,
+  "pivotal": [
+    "dependent"
+  ],
+  "proposal": {
+    "old": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c).",
+    "new": "From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c).",
+    "changes": [
+      {
+        "variable": "dependent",
+        "before": true,
+        "after": false
+      },
+      {
+        "variable": "deduction",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c). In 2017, Bob earned $5254312.",
+  "text_sha256": "133a5d4df738db7db8a393199faa2dd17692346ff383b19101cd1f5343f885da",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "deduction"
+      ],
+      "delta_e": [
+        "deduction"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "deduction"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "deduction"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "dependent": {
+        "value": true,
+        "quote": "From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time."
+      },
+      "deduction": {
+        "value": false,
+        "quote": "From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c)."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,61 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(3) Limitations\n\n    Notwithstanding paragraph (1), for purposes of this subtitle a taxpayer shall not be considered to be a head of a household-\n\n        (A) if at any time during the taxable year he is a nonresident alien;",
+      "new": "Bob remained a nonresident alien during the 2019 taxable year."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": true
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": false
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": null,
+          "quote": "Bob was a nonresident alien until Feb 12, 2018."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Bob was a nonresident alien at any time during the 2019 tax year."
+          }
+        },
+        "target": "§2(b)(3)(A) Notwithstanding paragraph (1), for purposes of this subtitle a taxpayer shall not be considered to be a head of a household if at any time during the taxable year the taxpayer is a nonresident alien.",
+        "rule": "v1"
+      }
+    }
+  },
+  "edits": {}
+}

@@ -1,0 +1,133 @@
+{
+  "section": "1(a)(iv)",
+  "program": {
+    "variables": {
+      "income": {
+        "type": "Real",
+        "meaning": "Taxable income in dollars of the taxpayer for the year in the hypothesis."
+      }
+    },
+    "rule": [
+      "or",
+      [
+        "and",
+        [
+          ">",
+          "income",
+          140000
+        ],
+        [
+          "<=",
+          "income",
+          250000
+        ],
+        [
+          "and",
+          [
+            ">=",
+            [
+              "*",
+              2,
+              [
+                "+",
+                [
+                  "/",
+                  3592850,
+                  100
+                ],
+                [
+                  "/",
+                  [
+                    "*",
+                    360,
+                    [
+                      "-",
+                      "income",
+                      140000
+                    ]
+                  ],
+                  1000
+                ]
+              ]
+            ],
+            [
+              "-",
+              [
+                "*",
+                2,
+                220295
+              ],
+              1
+            ]
+          ],
+          [
+            "<",
+            [
+              "*",
+              2,
+              [
+                "+",
+                [
+                  "/",
+                  3592850,
+                  100
+                ],
+                [
+                  "/",
+                  [
+                    "*",
+                    360,
+                    [
+                      "-",
+                      "income",
+                      140000
+                    ]
+                  ],
+                  1000
+                ]
+              ]
+            ],
+            [
+              "+",
+              [
+                "*",
+                2,
+                220295
+              ],
+              1
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 615572,
+        "quote": "Alice's taxable income for the year 2017 is $615572."
+      }
+    }
+  }
+}

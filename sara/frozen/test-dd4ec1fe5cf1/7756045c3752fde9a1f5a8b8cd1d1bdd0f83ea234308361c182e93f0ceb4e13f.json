@@ -1,0 +1,181 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "§1. Tax imposed (a) Married individuals filing joint returns and surviving spouses There is hereby imposed on the taxable income of- (1) every married individual (as defined in section 7703) who makes a single return jointly with his spouse, and (2) every surviving spouse (as defined in section 2(a)), a tax determined in accordance with the following: (i) 15% of taxable income if the taxable income is not over $36,900; (ii) $5,535, plus 28% of the excess over $36,900 if the taxable income is over $36,900 but not over $89,150; (iii) $20,165, plus 31% of the excess over $89,150 if the taxable income is over $89,150 but not over $140,000; (iv) $35,928.50, plus 36% of the excess over $140,000 if the taxable income is over $140,000 but not over $250,000; (v) $75,528.50, plus 39.6% of the excess over $250,000 if the taxable income is over $250,000.",
+      "new": "Alice has to pay $65,445 in taxes for the year 2017 under section 1(c)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 210204,
+          "quote": "Alice's taxable income for the year 2017 is $210204."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Alice is not married, is not a surviving spouse, and is not a head of household in 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Real",
+            "meaning": "Taxable income of Alice for the 2017 tax year (assuming she files as a married individual filing jointly or as surviving spouse, i.e., eligibility under §1(a))"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice is a married individual filing a joint return with her spouse (or a surviving spouse) for the 2017 tax year, i.e., eligible under §1(a)"
+          }
+        },
+        "target": "§1. Tax imposed; test of the §1(a) bracket formula for 2017 and the proposition that the tax equals 65445 given taxable income v1 and eligibility v2",
+        "rule": [
+          "and",
+          "v2",
+          [
+            "=",
+            [
+              "ite",
+              [
+                "<=",
+                "v1",
+                36900
+              ],
+              [
+                "*",
+                [
+                  "/",
+                  3,
+                  20
+                ],
+                "v1"
+              ],
+              [
+                "ite",
+                [
+                  "<=",
+                  "v1",
+                  89150
+                ],
+                [
+                  "+",
+                  5535,
+                  [
+                    "*",
+                    [
+                      "/",
+                      7,
+                      25
+                    ],
+                    [
+                      "-",
+                      "v1",
+                      36900
+                    ]
+                  ]
+                ],
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v1",
+                    140000
+                  ],
+                  [
+                    "+",
+                    20165,
+                    [
+                      "*",
+                      [
+                        "/",
+                        31,
+                        100
+                      ],
+                      [
+                        "-",
+                        "v1",
+                        89150
+                      ]
+                    ]
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v1",
+                      250000
+                    ],
+                    [
+                      "+",
+                      [
+                        "/",
+                        151057,
+                        2
+                      ],
+                      [
+                        "*",
+                        [
+                          "/",
+                          9,
+                          25
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          140000
+                        ]
+                      ]
+                    ],
+                    [
+                      "+",
+                      [
+                        "/",
+                        151057,
+                        2
+                      ],
+                      [
+                        "*",
+                        [
+                          "/",
+                          99,
+                          250
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          250000
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            65445
+          ]
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

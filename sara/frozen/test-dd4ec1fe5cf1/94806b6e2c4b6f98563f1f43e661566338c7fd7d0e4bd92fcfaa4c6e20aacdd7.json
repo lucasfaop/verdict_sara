@@ -1,0 +1,75 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "A) $300,000 in the case of a joint return or a surviving spouse (as defined in section 2(a)),",
+      "new": "A) $275,000 in the case of a joint return or a surviving spouse (as defined in section 2(a)),"
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "In 2016, Alice's income was $567192. Alice is a surviving spouse for the year 2016."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's status as head of household for the 2016 tax year (true if Alice is head of household in 2016)."
+          }
+        },
+        "target": "§68. Overall limitation on itemized deductions; (b) Applicable amount; (1) Head of household: $275,000; proposition tested: 'Alice's applicable amount for 2016 is $275,000.'",
+        "rule": [
+          "=",
+          [
+            "ite",
+            "v1",
+            275000,
+            0
+          ],
+          275000
+        ]
+      },
+      "old": "false",
+      "new": "true",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": "false",
+          "after": "true"
+        }
+      ]
+    }
+  },
+  "edits": {}
+}

@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "the exemption amount shall be reduced by the applicable percentage.",
+      "new": "the exemption amount shall be increased by the applicable percentage."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Expressão inválida"
+    }
+  },
+  "edits": {}
+}

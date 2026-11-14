@@ -1,0 +1,62 @@
+{
+  "id": "f2948c222809f6e16d134176831e9819bfc09e9e2501287c20cd40d77a6f0140",
+  "original": false,
+  "pivotal": [
+    "child"
+  ],
+  "proposal": {
+    "old": "Alice has a brother, Bob",
+    "new": "Alice is the child of Bob",
+    "changes": [
+      {
+        "variable": "child",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice is the child of Bob, who was born January 31st, 2014.",
+  "text_sha256": "319c8b0227c64386f66987c436c478a5fb17284de096e820f3418027f5352e77",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [
+        "child"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": true,
+        "quote": "Alice is the child of Bob"
+      },
+      "desc": {
+        "value": false,
+        "quote": "Alice is the child of Bob"
+      }
+    }
+  },
+  "status": "edited"
+}

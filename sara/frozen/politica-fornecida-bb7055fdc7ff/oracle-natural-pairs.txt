@@ -1,0 +1,6 @@
+s152_c_2_A_pos true false
+s152_d_2_A_neg false true
+s68_b_1_B_pos true false
+s3306_c_7_neg false true
+s2_b_1_A_i_I_neg false true
+s3306_c_6_pos true false

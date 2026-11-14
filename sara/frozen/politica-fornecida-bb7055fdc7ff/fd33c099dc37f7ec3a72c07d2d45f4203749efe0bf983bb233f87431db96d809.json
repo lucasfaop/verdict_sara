@@ -1,0 +1,16 @@
+{
+  "section": "2(b)(3)(a)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Named taxpayer was a nonresident alien at any point in the tax year."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": null,
+    "error": "Evidência ou tipo inválido"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Bob died September 16th, 2017.",
+      "new": null
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Alice and Bob got married on April 5th, 2012. Bob died September 16th, 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is legally separated from her spouse by a decree of divorce or separate maintenance at any time during the 2018 tax year"
+          }
+        },
+        "target": "§7703(a)(1) applies to Alice for the year 2018",
+        "rule": [
+          "not",
+          "v1"
+        ]
+      },
+      "old": "\"Alice and Bob got married on April 5th, 2012. Bob died September 16th, 2017.\"",
+      "new": "\"Alice and Bob got married on April 5th, 2012. Bob died September 16th, 2018. They obtained a divorce on January 15, 2018.\"",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {}
+}

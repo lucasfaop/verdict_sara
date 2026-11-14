@@ -1,0 +1,74 @@
+{
+  "id": "507111aa37c5180132adfa88e9b848d8876184fe33fff59123d45c1b40e5985e",
+  "original": true,
+  "pivotal": [
+    "parent",
+    "ancestor"
+  ],
+  "proposal": {
+    "old": "Bob is Alice's son since April 15th, 2014.",
+    "new": "Bob is not Alice's son.",
+    "changes": [
+      {
+        "variable": "parent",
+        "before": true,
+        "after": false
+      },
+      {
+        "variable": "ancestor",
+        "before": null,
+        "after": false
+      }
+    ]
+  },
+  "text": "Bob is not Alice's son.",
+  "text_sha256": "6ab08e4e7ac79bc8ae0a6fe04d7771c9f0575e467e703c661b5c696480999d9a",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "parent": true,
+        "ancestor": false
+      },
+      "pivotal": [
+        "parent"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "parent"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "parent": false,
+        "ancestor": false
+      },
+      "pivotal": [
+        "ancestor"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "ancestor"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "parent": {
+        "value": null,
+        "quote": "Bob is not Alice's son."
+      },
+      "ancestor": {
+        "value": null,
+        "quote": "Bob is not Alice's son."
+      }
+    }
+  },
+  "status": "edited"
+}

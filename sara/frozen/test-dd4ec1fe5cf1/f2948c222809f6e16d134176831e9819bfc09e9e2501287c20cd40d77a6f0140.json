@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(2) Relationship\n\n    For purposes of paragraph (1)(A), an individual bears a relationship to the taxpayer described in this paragraph if such individual is-\n\n        (A) a child of the taxpayer or a descendant of such a child, or\n\n        (B) a brother, sister, stepbrother, or stepsister of the taxpayer or a descendant of any such relative.",
+      "new": "Bob is Alice's son."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "'v1_childOfAlice'"
+    }
+  },
+  "edits": {}
+}

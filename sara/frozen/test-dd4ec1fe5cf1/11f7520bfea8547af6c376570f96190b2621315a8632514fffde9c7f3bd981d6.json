@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(C) $250,000 in the case of an individual who is not married and who is not a surviving spouse or head of household, and",
+      "new": "(C) $250,001 in the case of an individual who is not married and who is not a surviving spouse or head of household, and"
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Evidência ou tipo inválido"
+    }
+  },
+  "edits": {}
+}

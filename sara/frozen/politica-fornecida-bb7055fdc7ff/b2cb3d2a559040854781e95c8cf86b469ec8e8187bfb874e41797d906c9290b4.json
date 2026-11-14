@@ -1,0 +1,73 @@
+{
+  "section": "152(d)(2)(h)",
+  "program": {
+    "variables": {
+      "spouse": {
+        "type": "Bool",
+        "meaning": "First person was spouse of second at any time during tax year."
+      },
+      "resides": {
+        "type": "Bool",
+        "meaning": "Both had same principal abode for tax year."
+      },
+      "member": {
+        "type": "Bool",
+        "meaning": "First person was member of second person's household for tax year."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        "not",
+        "spouse"
+      ],
+      "resides",
+      "member"
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "resides"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "resides"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "resides"
+      ],
+      "delta_e": [
+        "resides"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "spouse": {
+        "value": false,
+        "quote": "Alice and Bob are not married."
+      },
+      "resides": {
+        "value": true,
+        "quote": "Alice and Bob started living together on April 15th, 2014."
+      },
+      "member": {
+        "value": true,
+        "quote": "Alice and Bob started living together on April 15th, 2014."
+      }
+    }
+  }
+}

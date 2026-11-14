@@ -1,0 +1,119 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "From 1973 to 2019, the Walter Brown Family Trust II was considered to be a business trust.",
+      "new": "From 1973 to 2021, the Walter Brown Family Trust II was considered to be a business trust."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": true
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": false
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": null,
+          "quote": "From 1973 to 2019, the Walter Brown Family Trust II was considered to be a business trust."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Walter Brown Family Trust II is an estate or trust for the 2021 tax year (i.e., the taxpayer's status is an estate or trust)."
+          }
+        },
+        "target": "63(c)(6)(D) – Standard deduction not allowed for estates or trusts; applies when the taxpayer is an estate or trust for the taxable year.",
+        "rule": "v1"
+      }
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "From 1973 to 2021, the Walter Brown Family Trust II was considered to be a business trust.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(D) an estate or trust, common trust fund, or partnership, the standard deduction shall be zero.",
+          "new": "(D) an estate or trust (excluding business trusts), common trust fund, or partnership, the standard deduction shall be zero."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "From 1973 to 2021, the Walter Brown Family Trust II was considered to be a business trust."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Walter Brown Family Trust II is an estate or trust for the 2021 tax year (i.e., the taxpayer's status is an estate or trust)."
+              }
+            },
+            "target": "63(c)(6)(D) – Standard deduction not allowed for estates or trusts; applies when the taxpayer is an estate or trust for the taxable year.",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

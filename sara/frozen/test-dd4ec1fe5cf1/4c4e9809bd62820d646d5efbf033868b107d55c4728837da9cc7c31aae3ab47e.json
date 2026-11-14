@@ -1,0 +1,72 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "In the case of a taxable year beginning after December 31, 2017, and before January 1, 2026, the term \"exemption amount\" means zero.",
+      "new": "In the case of a taxable year beginning after December 31, 2017, and before January 1, 2026, the term \"exemption amount\" means $2,000."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 2018,
+          "quote": "Alice is entitled to an exemption under section 151(b) for the year 2018."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Taxable year start year (YYYY) for Alice's taxable year"
+          }
+        },
+        "target": "§151. Exemption amount; (d)(5) Special rules for taxable years 2018 through 2025: exemption amount means zero.",
+        "rule": [
+          "and",
+          [
+            ">=",
+            "v1",
+            2018
+          ],
+          [
+            "<=",
+            "v1",
+            2025
+          ]
+        ]
+      },
+      "old": null,
+      "new": null,
+      "changes": []
+    }
+  },
+  "edits": {}
+}

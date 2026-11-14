@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(v) $75,528.50, plus 39.6% of the excess over $250,000 if the taxable income is over $250,000.",
+      "new": "1(a)(i)"
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Expressão inválida"
+    }
+  },
+  "edits": {}
+}

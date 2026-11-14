@@ -1,0 +1,29 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615572.",
+      "new": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615572."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Expressão inválida"
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615572.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615572.",
+          "new": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615000."
+        },
+        "verdict": {
+          "decision": null,
+          "error": "Expressão inválida"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(7) service performed in the employ of a State, or any political subdivision thereof.",
+      "new": "(7) service performed in the employ of the United States Government."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v2": true
+        },
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v3"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v2": false
+        },
+        "pivotal": [
+          "v2"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v2"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "employee of the State of Maryland"
+        },
+        "v2": {
+          "value": null,
+          "quote": null
+        },
+        "v3": {
+          "value": true,
+          "quote": "in 2017"
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's employer is a State or political subdivision (True if the employer is a state or local government)."
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice's service qualifies as 'employment' under §3306(c) (i.e., the service is performed as an employee)."
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "The tax year in question is 2017."
+          }
+        },
+        "target": "§3306(c)(7). Proposition tested: Does this provision apply to Alice's employment situation in 2017?",
+        "rule": [
+          "and",
+          "v1",
+          "v2",
+          "v3"
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

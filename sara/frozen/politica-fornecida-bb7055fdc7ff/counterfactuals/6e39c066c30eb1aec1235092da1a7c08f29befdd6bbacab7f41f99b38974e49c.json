@@ -1,0 +1,58 @@
+{
+  "id": "6e39c066c30eb1aec1235092da1a7c08f29befdd6bbacab7f41f99b38974e49c",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice is a surviving spouse for 2017.",
+    "new": "Alice is not a surviving spouse for 2017.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Alice is a surviving spouse for 2017.",
+        "after": "Alice is not a surviving spouse for 2017."
+      }
+    ]
+  },
+  "text": "In 2017, Alice was paid $33200. Alice is not a surviving spouse for 2017.",
+  "text_sha256": "1bad6ef0f064c9a997460debb0f6e7a7184100815b020e706366b7e7dbdc7574",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "Alice is not a surviving spouse for 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

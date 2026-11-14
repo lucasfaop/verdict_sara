@@ -1,0 +1,419 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice is married under section 7703 for the year 2017. Alice files a joint return with her spouse for 2017. Alice's and her spouse's taxable income for the year 2017 is $17330.",
+      "new": "Alice and her spouse have to pay $2600 in taxes for the year 2017 under section 1(a)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1",
+          "v2"
+        ],
+        "delta_e": [
+          "v1",
+          "v2"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1",
+          "v2"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1",
+          "v2"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice is married under section 7703 for the year 2017."
+        },
+        "v2": {
+          "value": 17330,
+          "quote": "Alice's and her spouse's taxable income for the year 2017 is $17330."
+        },
+        "v3": {
+          "value": 2017,
+          "quote": "Alice's and her spouse's taxable income for the year 2017 is $17330."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Marital status of the taxpayer as of close of 2017 (per §7703)."
+          },
+          "v2": {
+            "type": "Real",
+            "meaning": "Taxable income for the 2017 tax year."
+          },
+          "v3": {
+            "type": "Int",
+            "meaning": "Tax year (2017)."
+          }
+        },
+        "target": "§1(c) Unmarried individuals tax schedule for 2017",
+        "rule": [
+          "and",
+          [
+            "=",
+            "v3",
+            2017
+          ],
+          [
+            "not",
+            "v1"
+          ],
+          [
+            "=",
+            [
+              "ite",
+              [
+                "<=",
+                "v2",
+                22100
+              ],
+              [
+                "*",
+                [
+                  "/",
+                  3,
+                  20
+                ],
+                "v2"
+              ],
+              [
+                "ite",
+                [
+                  "<=",
+                  "v2",
+                  53500
+                ],
+                [
+                  "+",
+                  3315,
+                  [
+                    "*",
+                    [
+                      "/",
+                      7,
+                      25
+                    ],
+                    [
+                      "-",
+                      "v2",
+                      22100
+                    ]
+                  ]
+                ],
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v2",
+                    115000
+                  ],
+                  [
+                    "+",
+                    120107,
+                    [
+                      "*",
+                      [
+                        "/",
+                        31,
+                        100
+                      ],
+                      [
+                        "-",
+                        "v2",
+                        53500
+                      ]
+                    ]
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v2",
+                      250000
+                    ],
+                    [
+                      "+",
+                      31172,
+                      [
+                        "*",
+                        [
+                          "/",
+                          9,
+                          25
+                        ],
+                        [
+                          "-",
+                          "v2",
+                          115000
+                        ]
+                      ]
+                    ],
+                    [
+                      "+",
+                      79772,
+                      [
+                        "*",
+                        [
+                          "/",
+                          99,
+                          250
+                        ],
+                        [
+                          "-",
+                          "v2",
+                          250000
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            2600
+          ]
+        ]
+      },
+      "old": "\"v1\": {\"value\": true, \"quote\": \"Alice is married under section 7703 for the year 2017.\"}, \"v2\": {\"value\": 17330, \"quote\": \"Alice's and her spouse's taxable income for the year 2017 is $17330.\"}",
+      "new": "\"v1\": {\"value\": false, \"quote\": \"Alice is not married under section 7703 for the year 2017.\"}, \"v2\": {\"value\": 17333.333333333334, \"quote\": \"Alice's and her spouse's taxable income for the year 2017 is $17333.333333333334.\"}",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": "true",
+          "after": "false"
+        },
+        {
+          "variable": "v2",
+          "before": "17330",
+          "after": "17333.333333333334"
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice and her spouse have to pay $2600 in taxes for the year 2017 under section 1(a).",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "§1. Tax imposed (a) Married individuals filing joint returns and surviving spouses There is hereby imposed on the taxable income of- (1) every married individual (as defined in section 7703) who makes a single return jointly with his spouse, and (2) every surviving spouse (as defined in section 2(a))",
+          "new": "section 1(a)"
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": 17333.333333
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": 250027.777777
+            },
+            "pivotal": [
+              "v1",
+              "v2"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1",
+              "v2"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice and her spouse have to pay $2600 in taxes for the year 2017 under section 1(a)."
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": 2017,
+              "quote": "the year 2017 under section 1(a)"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Marital status of the taxpayer as of close of 2017 (per §7703)."
+              },
+              "v2": {
+                "type": "Real",
+                "meaning": "Taxable income for the 2017 tax year."
+              },
+              "v3": {
+                "type": "Int",
+                "meaning": "Tax year (2017)."
+              }
+            },
+            "target": "§1(c) Unmarried individuals tax schedule for 2017",
+            "rule": [
+              "and",
+              [
+                "=",
+                "v3",
+                2017
+              ],
+              [
+                "not",
+                "v1"
+              ],
+              [
+                "=",
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v2",
+                    22100
+                  ],
+                  [
+                    "*",
+                    [
+                      "/",
+                      3,
+                      20
+                    ],
+                    "v2"
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v2",
+                      53500
+                    ],
+                    [
+                      "+",
+                      3315,
+                      [
+                        "*",
+                        [
+                          "/",
+                          7,
+                          25
+                        ],
+                        [
+                          "-",
+                          "v2",
+                          22100
+                        ]
+                      ]
+                    ],
+                    [
+                      "ite",
+                      [
+                        "<=",
+                        "v2",
+                        115000
+                      ],
+                      [
+                        "+",
+                        120107,
+                        [
+                          "*",
+                          [
+                            "/",
+                            31,
+                            100
+                          ],
+                          [
+                            "-",
+                            "v2",
+                            53500
+                          ]
+                        ]
+                      ],
+                      [
+                        "ite",
+                        [
+                          "<=",
+                          "v2",
+                          250000
+                        ],
+                        [
+                          "+",
+                          31172,
+                          [
+                            "*",
+                            [
+                              "/",
+                              9,
+                              25
+                            ],
+                            [
+                              "-",
+                              "v2",
+                              115000
+                            ]
+                          ]
+                        ],
+                        [
+                          "+",
+                          79772,
+                          [
+                            "*",
+                            [
+                              "/",
+                              99,
+                              250
+                            ],
+                            [
+                              "-",
+                              "v2",
+                              250000
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                2600
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

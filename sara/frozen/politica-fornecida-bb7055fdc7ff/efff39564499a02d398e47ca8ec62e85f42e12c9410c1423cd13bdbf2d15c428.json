@@ -1,0 +1,84 @@
+{
+  "section": "2(b)(1)(a)(i)",
+  "program": {
+    "variables": {
+      "child": {
+        "type": "Bool",
+        "meaning": "Named person was taxpayer's qualifying child under 152(c)."
+      },
+      "married_child": {
+        "type": "Bool",
+        "meaning": "Child married at close of taxpayer's tax year."
+      },
+      "joint_child": {
+        "type": "Bool",
+        "meaning": "Child made joint spousal return triggering 152(b)(2) exclusion."
+      }
+    },
+    "rule": [
+      "and",
+      "child",
+      [
+        "not",
+        [
+          "and",
+          "married_child",
+          "joint_child"
+        ]
+      ]
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {
+        "married_child": false,
+        "joint_child": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [
+        "child"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "married_child": true,
+        "joint_child": true
+      },
+      "pivotal": [
+        "child",
+        "married_child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child",
+        "married_child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": false,
+        "quote": "Section 152(b)(2) applies to Bob as the dependent and Charlie as the taxpayer for 2018."
+      },
+      "married_child": {
+        "value": null,
+        "quote": "Charlie married Dan on Feb 14th, 2018."
+      },
+      "joint_child": {
+        "value": null,
+        "quote": "Section 152(b)(2) applies to Bob as the dependent and Charlie as the taxpayer for 2018."
+      }
+    }
+  }
+}

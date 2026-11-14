@@ -1,0 +1,52 @@
+{
+  "section": "68(b)(1)(c)",
+  "program": {
+    "variables": {
+      "married": {
+        "type": "Bool",
+        "meaning": "Taxpayer was married at the legally relevant time in the specified tax year."
+      },
+      "survivor": {
+        "type": "Bool",
+        "meaning": "Taxpayer had surviving-spouse status for this tax year."
+      },
+      "head": {
+        "type": "Bool",
+        "meaning": "Taxpayer had head-of-household status for this tax year."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        "or",
+        [
+          "<",
+          2016,
+          2018
+        ],
+        [
+          ">",
+          2016,
+          2025
+        ]
+      ],
+      [
+        "not",
+        "married"
+      ],
+      [
+        "not",
+        "survivor"
+      ],
+      [
+        "not",
+        "head"
+      ],
+      true
+    ]
+  },
+  "result": {
+    "decision": null,
+    "error": "Evidência ou tipo inválido"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017.",
+      "new": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was not a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's service is performed in the employ of a hospital and Alice is a patient of that hospital in 2017"
+          }
+        },
+        "target": "§3306(c)(10)(B) applies to service performed in the employ of a hospital by a patient of such hospital (Alice, 2017)",
+        "rule": "v1"
+      },
+      "old": "Alice was a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017.",
+      "new": "Alice was not a patient at Johns Hopkins Hospital during March 2017.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was not a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Alice was not a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017.",
+          "new": "Alice was a patient at Johns Hopkins Hospital during March 2017."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was not a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's service is performed in the employ of a hospital and Alice is a patient of that hospital in 2017"
+              }
+            },
+            "target": "§3306(c)(10)(B) applies to service performed in the employ of a hospital by a patient of such hospital (Alice, 2017)",
+            "rule": "v1"
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was not a patient at Johns Hopkins Hospital during March 2017.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "(B) service performed in the employ of a hospital, if such service is performed by a patient of such hospital;",
+          "new": "(B) service performed in the employ of a hospital."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Alice was not a patient at Johns Hopkins Hospital during March 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's service is performed in the employ of a hospital and Alice is a patient of that hospital in 2017"
+              }
+            },
+            "target": "§3306(c)(10)(B) applies to service performed in the employ of a hospital by a patient of such hospital (Alice, 2017)",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

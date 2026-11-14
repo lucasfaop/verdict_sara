@@ -1,0 +1,156 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(11) service performed in the employ of a foreign government (including service as a consular or other officer or employee or a nondiplomatic representative);",
+      "new": "Section 3306(c)(7) applies to Alice's employment situation in 2017."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v2"
+        ],
+        "delta_e": [
+          "v2"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v2"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v2"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 2017,
+          "quote": "Alice was paid $73200 in 2017 as an employee of the State of Maryland in Baltimore, Maryland, USA."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Alice was paid $73200 in 2017 as an employee of the State of Maryland in Baltimore, Maryland, USA."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Year of Alice's employment (calendar year)."
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice's employer is a foreign government or instrumentality (including consular or nondiplomatic representative)."
+          }
+        },
+        "target": "§3306(c)(11): service performed in the employ of a foreign government (including service as a consular or other officer or employee or a nondiplomatic representative); proposition tested: whether Alice's employment in 2017 falls within this category.",
+        "rule": [
+          "and",
+          [
+            "=",
+            "v1",
+            2017
+          ],
+          "v2"
+        ]
+      },
+      "old": "Alice was paid $73200 in 2017 as an employee of the State of Maryland in Baltimore, Maryland, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of the Government of France in Baltimore, Maryland, USA.",
+      "changes": [
+        {
+          "variable": "v2",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice was paid $73200 in 2017 as an employee of the Government of France in Baltimore, Maryland, USA.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(11) service performed in the employ of a foreign government (including service as a consular or other officer or employee or a nondiplomatic representative);",
+          "new": "(11) service performed in the employ of a private employer"
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": 2017,
+              "quote": "in 2017"
+            },
+            "v2": {
+              "value": true,
+              "quote": "Government of France"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Int",
+                "meaning": "Year of Alice's employment (calendar year)."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice's employer is a foreign government or instrumentality (including consular or nondiplomatic representative)."
+              }
+            },
+            "target": "§3306(c)(11): service performed in the employ of a foreign government (including service as a consular or other officer or employee or a nondiplomatic representative); proposition tested: whether Alice's employment in 2017 falls within this category.",
+            "rule": [
+              "and",
+              [
+                "=",
+                "v1",
+                2017
+              ],
+              "v2"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

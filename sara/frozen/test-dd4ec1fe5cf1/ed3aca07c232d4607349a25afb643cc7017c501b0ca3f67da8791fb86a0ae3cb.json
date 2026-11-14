@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(i) 15% of taxable income if the taxable income is not over $18,450;",
+      "new": "Replace '(i) 15% of taxable income if the taxable income is not over $18,450;' with '(iii) $10,082.50, plus 31% of the excess over $44,575 if the taxable income is over $44,575 but not over $70,000;'"
+    },
+    "verdict": {
+      "decision": null,
+      "error": "'v2'"
+    }
+  },
+  "edits": {}
+}

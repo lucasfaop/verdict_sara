@@ -1,0 +1,62 @@
+{
+  "id": "557e54a52c72596511ce3f244364ce1c11b0ea1ceb61afe14412d178a0bc6e9c",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Charlie married Dan on Feb 14th, 2017.",
+    "new": "Charlie did not marry Dan on or before December 31, 2017.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Charlie married Dan on Feb 14th, 2017.",
+        "after": "Charlie did not marry Dan on or before December 31, 2017."
+      }
+    ]
+  },
+  "text": "Alice and Bob got married on Feb 3rd, 1992. Alice and Bob have a child, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. Charlie did not marry Dan on or before December 31, 2017.",
+  "text_sha256": "8c0be81d1435434c4c93a56e0baaa422086f1e8fe043cb00c26c75c714d68809",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": true
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": false
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": null,
+        "quote": null
+      }
+    }
+  },
+  "status": "edited"
+}

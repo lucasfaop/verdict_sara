@@ -1,0 +1,86 @@
+[
+  {
+    "name": "s152_c_2_A_pos",
+    "hypothesis": "Bob bears a relationship to Alice under section 152(c)(2)(A).",
+    "old": "son,",
+    "new": "brother,",
+    "ids": [
+      "5e55ff89499ee84e472fab839bde0772d815226c131f9b0f9d62cc4e3952e3f1",
+      "f2948c222809f6e16d134176831e9819bfc09e9e2501287c20cd40d77a6f0140"
+    ],
+    "policy": [
+      true,
+      false
+    ]
+  },
+  {
+    "name": "s152_d_2_A_neg",
+    "hypothesis": "Alice bears a relationship to Bob under section 152(d)(2)(A).",
+    "old": "brother",
+    "new": "father",
+    "ids": [
+      "5436c4fb4184888eacd50fbfd0d19981fafd93ea9c23ffb6c96e751f33d44291",
+      "c75c2cb33ad5d020477c817b0f10f37a3e9690b6e2d9f5e195086dccdf319025"
+    ],
+    "policy": [
+      false,
+      true
+    ]
+  },
+  {
+    "name": "s68_b_1_B_pos",
+    "hypothesis": "Under section 68(b)(1)(B), Alice's applicable amount for 2016 is equal to $275000.",
+    "old": "head of household",
+    "new": "surviving spouse",
+    "ids": [
+      "553a85b662dc16979fbc0c8f3338de67aff212eeb44d30d405f6cd980bea7010",
+      "94806b6e2c4b6f98563f1f43e661566338c7fd7d0e4bd92fcfaa4c6e20aacdd7"
+    ],
+    "policy": [
+      true,
+      false
+    ]
+  },
+  {
+    "name": "s3306_c_7_neg",
+    "hypothesis": "Section 3306(c)(7) applies to Alice's employment situation in 2017.",
+    "old": "Bertha's Mussels",
+    "new": "the State of Maryland",
+    "ids": [
+      "329f0faa8e713b2ed7cc8e31cf41127a37d54c765da29c9daae22e0db51a383d",
+      "44473a8cd34d638eb25bcc7b2396196131a2551b2bbde0ce125cb8f28bc22861"
+    ],
+    "policy": [
+      false,
+      true
+    ]
+  },
+  {
+    "name": "s2_b_1_A_i_I_neg",
+    "hypothesis": "Section 2(b)(1)(A)(i)(I) applies to Charlie in 2017.",
+    "old": "2018.",
+    "new": "2017.",
+    "ids": [
+      "226ab5020339bd2d2c2901e37e534cf5a50198306feed512dc03cfea1a7795b5",
+      "557e54a52c72596511ce3f244364ce1c11b0ea1ceb61afe14412d178a0bc6e9c"
+    ],
+    "policy": [
+      false,
+      true
+    ]
+  },
+  {
+    "name": "s3306_c_6_pos",
+    "hypothesis": "Section 3306(c)(6) applies to Alice's employment situation in 2017.",
+    "old": "the United States Government",
+    "new": "Nando's Chicken",
+    "ids": [
+      "a8e3b12c848274fcf878b19e601a833b41ae4cb90db590c2be197c60c7909ca8",
+      "e2e5d9323903b2088bb1e7750c87f0da87edffffb37f7135462ed8c839a659c9"
+    ],
+    "policy": [
+      null,
+      false
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "\"(I) is married at the close of the taxpayer's taxable year, and (II) is not a dependent of such individual by reason of section 152(b)(2)\"",
+      "new": "\"(I) is married at the close of the taxpayer's taxable year\""
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Evidência ou tipo inválido"
+    }
+  },
+  "edits": {}
+}

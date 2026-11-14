@@ -1,0 +1,185 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Jan 24 - Feb 4 - Mar 3 - Mar 19 - Apr 2 - May 9 - Oct 15 - Oct 25 - Nov 8 - Nov 22 - Dec 1 - Dec 3",
+      "new": "Bob was employed on 9 days in 2017"
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice has employed Bob on various occasions during the year 2017: - Jan 24 - Feb 4 - Mar 3 - Mar 19 - Apr 2 - May 9 - Oct 15 - Oct 25 - Nov 8 - Nov 22 - Dec 1 - Dec 3"
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice satisfies the 3306(a)(1)(B) 10-day employment test for the 2017 calendar year (i.e., there are at least ten days in 2017 or the preceding calendar year on which Alice employed at least one individual for any portion of the day)."
+          }
+        },
+        "target": "§3306(a)(1)(B) applies to Alice for the year 2017",
+        "rule": "v1"
+      },
+      "old": "Alice has employed Bob on various occasions during the year 2017: - Jan 24 - Feb 4 - Mar 3 - Mar 19 - Apr 2 - May 9 - Oct 15 - Oct 25 - Nov 8 - Nov 22 - Dec 1 - Dec 3",
+      "new": "Alice has employed Bob on various occasions during the year 2017: - Jan 24 - Feb 4 - Mar 3 - Apr 2 - May 9 - Oct 25 - Nov 8 - Nov 22 - Dec 1",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice has employed Bob on various occasions during the year 2017: - Bob was employed on 9 days in 2017",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Bob was employed on 9 days in 2017",
+          "new": "Bob was employed on 10 days in 2017"
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Bob was employed on 9 days in 2017"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice satisfies the 3306(a)(1)(B) 10-day employment test for the 2017 calendar year (i.e., there are at least ten days in 2017 or the preceding calendar year on which Alice employed at least one individual for any portion of the day)."
+              }
+            },
+            "target": "§3306(a)(1)(B) applies to Alice for the year 2017",
+            "rule": "v1"
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Alice has employed Bob on various occasions during the year 2017: - Jan 24 - Feb 4 - Mar 3 - Apr 2 - May 9 - Oct 25 - Nov 8 - Nov 22 - Dec 1",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "Jan 24 - Feb 4",
+          "new": "Jan 24"
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": "Alice has employed Bob on various occasions during the year 2017: - Jan 24 - Feb 4 - Mar 3 - Apr 2 - May 9 - Oct 25 - Nov 8 - Nov 22 - Dec 1"
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice satisfies the 3306(a)(1)(B) 10-day employment test for the 2017 calendar year (i.e., there are at least ten days in 2017 or the preceding calendar year on which Alice employed at least one individual for any portion of the day)."
+              }
+            },
+            "target": "§3306(a)(1)(B) applies to Alice for the year 2017",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

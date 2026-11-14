@@ -1,0 +1,58 @@
+{
+  "id": "36a886230aa7208cef4a641b2c7946459e7bc20b91edec39eb85632646f35b3e",
+  "original": true,
+  "pivotal": [
+    "income"
+  ],
+  "proposal": {
+    "old": "Alice's taxable income for the year 2017 is $28864.",
+    "new": "Alice's taxable income for the year 2017 is $18450.",
+    "changes": [
+      {
+        "variable": "income",
+        "before": 28864,
+        "after": 18450
+      }
+    ]
+  },
+  "text": "Alice is married under section 7703 for the year 2017. Alice's taxable income for the year 2017 is $18450. Alice files a separate return.",
+  "text_sha256": "88952edc3d8092fa499ebc09249935ca6f1951341be7b8a36e4ce2b3ca97b6d5",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "income"
+      ],
+      "delta_e": [
+        "income"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "income"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "income"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 18450,
+        "quote": "Alice's taxable income for the year 2017 is $18450."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,67 @@
+{
+  "section": "152(a)",
+  "program": {
+    "variables": {
+      "child": {
+        "type": "Bool",
+        "meaning": "Individual is a qualifying child of the taxpayer for that year (including stated section 152(c)(1) status)."
+      },
+      "relative": {
+        "type": "Bool",
+        "meaning": "Individual is a qualifying relative of the taxpayer in that year under 152(d)."
+      }
+    },
+    "rule": [
+      "or",
+      "child",
+      "relative"
+    ]
+  },
+  "result": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "child": true,
+        "relative": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "child": false,
+        "relative": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": null,
+        "quote": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2015."
+      },
+      "relative": {
+        "value": null,
+        "quote": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2015."
+      }
+    }
+  }
+}

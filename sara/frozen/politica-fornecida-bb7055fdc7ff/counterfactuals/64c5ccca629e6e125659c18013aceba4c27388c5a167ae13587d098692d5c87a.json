@@ -1,0 +1,62 @@
+{
+  "id": "64c5ccca629e6e125659c18013aceba4c27388c5a167ae13587d098692d5c87a",
+  "original": true,
+  "pivotal": [
+    "head"
+  ],
+  "proposal": {
+    "old": "Alice is a head of household for the year 2017.",
+    "new": "Alice is not a head of household for the year 2017.",
+    "changes": [
+      {
+        "variable": "head",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice is not a head of household for the year 2017. Alice's taxable income for the year 2017 is $97407.",
+  "text_sha256": "99057b344f3e1bfd3fe33b87b709c158dcb3f7142deefd28b9ec0c1be19d059c",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "head"
+      ],
+      "delta_e": [
+        "head"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "head"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "head"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 97407,
+        "quote": "Alice's taxable income for the year 2017 is $97407."
+      },
+      "head": {
+        "value": false,
+        "quote": "Alice is not a head of household for the year 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

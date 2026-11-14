@@ -1,0 +1,174 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(C) $250,000 in the case of an individual who is not married and who is not a surviving spouse or head of household, and",
+      "new": "(C) $250,000 in the case of an individual who is not married and who is not a surviving spouse or not a head of household, and"
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [
+          "v3"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v3"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice is a head of household for the year 2016."
+        },
+        "v2": {
+          "value": true,
+          "quote": "Alice is a head of household for the year 2016."
+        },
+        "v3": {
+          "value": false,
+          "quote": "Alice is a head of household for the year 2016."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is unmarried as of 2016-12-31 (close of the 2016 tax year) per section 7703."
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice is not a surviving spouse as of 2016-12-31 (per section 2(a))."
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Alice is not a head of household as of 2016-12-31 (per section 2(b))."
+          }
+        },
+        "target": "§68(b)(1)(C) applicability—applicable amount for an individual who is not married and is not a surviving spouse or head of household for the 2016 tax year.",
+        "rule": [
+          "and",
+          "v1",
+          "v2",
+          "v3"
+        ]
+      },
+      "old": "Alice is a head of household for the year 2016.",
+      "new": "Alice is not a head of household for the year 2016.",
+      "changes": [
+        {
+          "variable": "v3",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "In 2016, Alice's income was $567192. Alice is not a head of household for the year 2016.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "In 2016, Alice's income was $567192. Alice is not a head of household for the year 2016.",
+          "new": "In 2016, Alice's income was $567192. Alice is not married for the year 2016."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true,
+              "v2": true
+            },
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false,
+              "v2": false
+            },
+            "pivotal": [
+              "v1",
+              "v2"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1",
+              "v2"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": null
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": true,
+              "quote": "Alice is not a head of household for the year 2016."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice is unmarried as of 2016-12-31 (close of the 2016 tax year) per section 7703."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice is not a surviving spouse as of 2016-12-31 (per section 2(a))."
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Alice is not a head of household as of 2016-12-31 (per section 2(b))."
+              }
+            },
+            "target": "§68(b)(1)(C) applicability—applicable amount for an individual who is not married and is not a surviving spouse or head of household for the 2016 tax year.",
+            "rule": [
+              "and",
+              "v1",
+              "v2",
+              "v3"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "section": "2(b)(1)(a)(i)",
+  "program": {
+    "variables": {
+      "child": {
+        "type": "Bool",
+        "meaning": "Named person was taxpayer's qualifying child under 152(c)."
+      },
+      "married_child": {
+        "type": "Bool",
+        "meaning": "Child married at close of taxpayer's tax year."
+      },
+      "joint_child": {
+        "type": "Bool",
+        "meaning": "Child made joint spousal return triggering 152(b)(2) exclusion."
+      }
+    },
+    "rule": [
+      "and",
+      "child",
+      [
+        "not",
+        [
+          "and",
+          "married_child",
+          "joint_child"
+        ]
+      ]
+    ]
+  },
+  "result": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "married_child": false,
+        "joint_child": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "married_child": true,
+        "joint_child": true
+      },
+      "pivotal": [
+        "married_child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "married_child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": true,
+        "quote": "Alice and Bob have a child, Charlie, born October 9th, 2000."
+      },
+      "married_child": {
+        "value": null,
+        "quote": ""
+      },
+      "joint_child": {
+        "value": null,
+        "quote": ""
+      }
+    }
+  }
+}

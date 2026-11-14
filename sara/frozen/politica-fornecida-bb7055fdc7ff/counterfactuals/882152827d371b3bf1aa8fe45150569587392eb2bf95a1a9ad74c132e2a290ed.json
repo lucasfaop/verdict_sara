@@ -1,0 +1,58 @@
+{
+  "id": "882152827d371b3bf1aa8fe45150569587392eb2bf95a1a9ad74c132e2a290ed",
+  "original": false,
+  "pivotal": [
+    "birth_year"
+  ],
+  "proposal": {
+    "old": "Bob was born March 3rd, 1955.",
+    "new": "Bob was born March 3rd, 1952.",
+    "changes": [
+      {
+        "variable": "birth_year",
+        "before": 1955,
+        "after": 1952
+      }
+    ]
+  },
+  "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Alice was born March 2nd, 1950 and Bob was born March 3rd, 1952.",
+  "text_sha256": "d0c1b4243e22f2f4b37e2d5b5d0396d7430425fd6d1b9c2c81dcac5eb0c8ba73",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "birth_year"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "birth_year"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "birth_year"
+      ],
+      "delta_e": [
+        "birth_year"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "birth_year": {
+        "value": 1952,
+        "quote": "Bob was born March 3rd, 1952."
+      }
+    }
+  },
+  "status": "edited"
+}

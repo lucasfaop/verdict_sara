@@ -1,0 +1,53 @@
+{
+  "section": "2(b)(1)(a)(i)(ii)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Child made a joint return with spouse for the taxable year in question, giving rise to the section 152(b)(2) exclusion."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": true
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "fact": false
+      },
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": null,
+        "quote": "Charlie married Dan on Feb 14th, 2018."
+      }
+    }
+  }
+}

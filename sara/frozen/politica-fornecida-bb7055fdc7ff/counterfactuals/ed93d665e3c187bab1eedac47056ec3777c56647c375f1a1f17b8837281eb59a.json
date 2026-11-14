@@ -1,0 +1,66 @@
+{
+  "id": "ed93d665e3c187bab1eedac47056ec3777c56647c375f1a1f17b8837281eb59a",
+  "original": true,
+  "pivotal": [
+    "joint"
+  ],
+  "proposal": {
+    "old": "Alice files a separate return.",
+    "new": "Alice files a joint return.",
+    "changes": [
+      {
+        "variable": "joint",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice is married under section 7703 for the year 2017. Alice's taxable income for the year 2017 is $554313. Alice files a joint return.",
+  "text_sha256": "260f0fa7ba9454df45af4cf60cb8aac6a63b8bfda81140f1c05c46d4d46f9169",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "joint"
+      ],
+      "delta_e": [
+        "joint"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "joint"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "joint"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "income": {
+        "value": 554313,
+        "quote": "Alice's taxable income for the year 2017 is $554313."
+      },
+      "married": {
+        "value": true,
+        "quote": "Alice is married under section 7703 for the year 2017."
+      },
+      "joint": {
+        "value": true,
+        "quote": "Alice files a joint return."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,18 @@
+{
+  "supplied_policy": {
+    "correct": 75,
+    "total": 100,
+    "abstain_or_error": 24,
+    "accuracy": 0.75
+  },
+  "paired_vs_frozen": {
+    "direct_correct": 85,
+    "verdict_correct": 45,
+    "positive_recovered": 25,
+    "positive_lost": 5,
+    "new_false_positive": 0,
+    "previously_correct_now_wrong_or_missing": 7,
+    "supplied_true_positive": 36,
+    "supplied_false_positive": 1
+  }
+}

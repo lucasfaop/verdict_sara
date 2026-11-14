@@ -1,0 +1,58 @@
+{
+  "id": "a2cdf23de34a9057d9c71215799af67c800354bd8dcbe39b77ac0191f2085433",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice and Bob got married on April 5th, 2012.",
+    "new": "Alice and Bob got married on April 5th, 2013.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Alice and Bob got married on April 5th, 2012.",
+        "after": "Alice and Bob got married on April 5th, 2013."
+      }
+    ]
+  },
+  "text": "Alice and Bob got married on April 5th, 2013. Bob died September 16th, 2017.",
+  "text_sha256": "1b6c5385d16e201d66e6246e562e1a6887bb9376652d33fc0b8bc616ab557601",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "Alice and Bob got married on April 5th, 2013."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(v) $37,764.25, plus 39.6% of the excess over $125,000 if the taxable income is over $125,000",
+      "new": "(v) $37,764.25, plus 39.0% of the excess over $125,000 if the taxable income is over $125,000"
+    },
+    "verdict": {
+      "decision": null,
+      "error": "'v2'"
+    }
+  },
+  "edits": {}
+}

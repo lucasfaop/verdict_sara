@@ -1,0 +1,152 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(1) the determination of whether an individual is married shall be made as of the close of his taxable year; except that if his spouse dies during his taxable year such determination shall be made as of the time of such death;",
+      "new": "(1) the determination of whether an individual is married shall be made as of the date of the individual's marriage; except that if his spouse dies during his taxable year such determination shall be made as of the time of such death."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 2012,
+          "quote": "Alice and Bob got married on April 5th, 2012."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Bob died September 16th, 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Year of Alice's taxable year being tested (e.g., 2012)"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Spouse died during the taxable year (true if death occurred in that year)"
+          }
+        },
+        "target": "§7703. Determination of marital status; §7703(a)(1) Determination of marital status (as of the close of the taxpayer's taxable year; exception if spouse dies during the taxable year, in which case as of time of death).",
+        "rule": [
+          "=",
+          "v1",
+          2012
+        ]
+      },
+      "old": "Alice and Bob got married on April 5th, 2012.",
+      "new": "Alice and Bob got married on April 5th, 2013.",
+      "changes": [
+        {
+          "variable": "marriage_date_Alice_Bob",
+          "before": "April 5th, 2012",
+          "after": "April 5th, 2013"
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice and Bob got married on April 5th, 2013. Bob died September 16th, 2017.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "§7703. Determination of marital status\n\n(a) General rule\n\n    (1) the determination of whether an individual is married shall be made as of the close of his taxable year; except that if his spouse dies during his taxable year such determination shall be made as of the time of such death.",
+          "new": null
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": 2012
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": 0
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": null
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Int",
+                "meaning": "Year of Alice's taxable year being tested (e.g., 2012)"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Spouse died during the taxable year (true if death occurred in that year)"
+              }
+            },
+            "target": "§7703. Determination of marital status; §7703(a)(1) Determination of marital status (as of the close of the taxpayer's taxable year; exception if spouse dies during the taxable year, in which case as of time of death).",
+            "rule": [
+              "=",
+              "v1",
+              2012
+            ]
+          }
+        }
+      }
+    }
+  }
+}

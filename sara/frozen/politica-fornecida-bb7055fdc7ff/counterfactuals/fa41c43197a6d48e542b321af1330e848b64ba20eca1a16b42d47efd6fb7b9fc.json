@@ -1,0 +1,58 @@
+{
+  "id": "fa41c43197a6d48e542b321af1330e848b64ba20eca1a16b42d47efd6fb7b9fc",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Bob died September 16th, 2017.",
+    "new": "Bob and Alice divorced on September 16th, 2017.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice and Bob got married on April 5th, 2012. Bob and Alice divorced on September 16th, 2017.",
+  "text_sha256": "d4a9cf90d66038e0bf184b59a63b235226acbe424ff3adaa58ff974e3fda6d30",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "Bob and Alice divorced on September 16th, 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

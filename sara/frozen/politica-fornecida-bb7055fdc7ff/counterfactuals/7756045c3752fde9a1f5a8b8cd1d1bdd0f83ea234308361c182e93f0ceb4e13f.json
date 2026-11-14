@@ -1,0 +1,25 @@
+{
+  "id": "7756045c3752fde9a1f5a8b8cd1d1bdd0f83ea234308361c182e93f0ceb4e13f",
+  "original": false,
+  "pivotal": [
+    "income",
+    "survivor"
+  ],
+  "proposal": {
+    "old": "\"facts\": {\"income\": {\"value\": 210204, \"quote\": \"Alice's taxable income for the year 2017 is $210204.\"}, \"married\": {\"value\": false, \"quote\": \"Alice is not married\"}, \"joint\": {\"value\": false, \"quote\": \"Alice is not married\"}, \"survivor\": {\"value\": false, \"quote\": \"is not a surviving spouse\"}}",
+    "new": "\"facts\": {\"income\": {\"value\": 221990, \"quote\": \"Alice's taxable income for the year 2017 is $221990.\"}, \"married\": {\"value\": false, \"quote\": \"Alice is not married\"}, \"joint\": {\"value\": false, \"quote\": \"Alice is not married\"}, \"survivor\": {\"value\": true, \"quote\": \"is a surviving spouse\"}}",
+    "changes": [
+      {
+        "variable": "income",
+        "before": 210204,
+        "after": 221990
+      },
+      {
+        "variable": "survivor",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "status": "no_edit"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "3fd2c54b7a115c86ba537a3230ffb3c1f1b0af8bcb07e74f157b33f7be0fb50d",
+  "original": false,
+  "pivotal": [
+    "admitted"
+  ],
+  "proposal": {
+    "old": "Bob is a Mexican citizen who was admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act",
+    "new": "Bob is a Mexican citizen who was not admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act",
+    "changes": [
+      {
+        "variable": "admitted",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice has paid $3200 to Bob for agricultural labor done from Feb 1st, 2017 to Sep 2nd, 2017, in Stanley, Wisconsin, USA. Alice is an american citizen, and Bob is a Mexican citizen who was not admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act.",
+  "text_sha256": "0221adb9898408afff2dbc920386b72b5ec708b6cba944d78a179cb9a0fb4e14",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "agricultural"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "agricultural"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "agricultural"
+      ],
+      "delta_e": [
+        "agricultural"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "agricultural": {
+        "value": true,
+        "quote": "for agricultural labor done from Feb 1st, 2017 to Sep 2nd, 2017"
+      },
+      "admitted": {
+        "value": false,
+        "quote": "Bob is a Mexican citizen who was not admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act"
+      }
+    }
+  },
+  "status": "edited"
+}

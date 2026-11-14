@@ -1,0 +1,74 @@
+{
+  "id": "ad9a1d00f51e1bf0cb218772128844bdd6797a66eb4e70b7d739ef6ea8c1a668",
+  "original": false,
+  "pivotal": [
+    "employer"
+  ],
+  "proposal": {
+    "old": "Alice is a citizen of Venezuela",
+    "new": "Alice is an American employer",
+    "changes": [
+      {
+        "variable": "employer",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice has paid $3200 to Bob for work done from Feb 1st, 2017 to Sep 2nd, 2017, in Caracas, Venezuela. Alice is an American employer, and Bob is an American citizen.",
+  "text_sha256": "6ae3ba98080705ffd8b8ade6b17f0895a9a9ec9f3119512a3cb7be33c99e120f",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "excluded_country": false
+      },
+      "pivotal": [
+        "citizen"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "citizen"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "excluded_country": true
+      },
+      "pivotal": [
+        "excluded_country"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "excluded_country"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "abroad": {
+        "value": true,
+        "quote": "in Caracas, Venezuela"
+      },
+      "excluded_country": {
+        "value": null,
+        "quote": null
+      },
+      "citizen": {
+        "value": true,
+        "quote": "Bob is an American citizen"
+      },
+      "employer": {
+        "value": true,
+        "quote": "Alice is an American employer"
+      }
+    }
+  },
+  "status": "edited"
+}

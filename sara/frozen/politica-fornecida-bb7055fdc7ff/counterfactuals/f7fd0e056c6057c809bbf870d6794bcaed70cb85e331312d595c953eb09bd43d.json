@@ -1,0 +1,62 @@
+{
+  "id": "f7fd0e056c6057c809bbf870d6794bcaed70cb85e331312d595c953eb09bd43d",
+  "original": true,
+  "pivotal": [
+    "hospital"
+  ],
+  "proposal": {
+    "old": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017.",
+    "new": "Alice was paid $200 in March 2017 for services performed at a clinic in March 2017.",
+    "changes": [
+      {
+        "variable": "hospital",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice was paid $200 in March 2017 for services performed at a clinic in March 2017. Alice was a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017.",
+  "text_sha256": "772c6339a0aba4f3a4fd338e02b9135e98ad1189e3d1ea57eb606b30f6b38bf6",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "hospital"
+      ],
+      "delta_e": [
+        "hospital"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "hospital"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "hospital"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "hospital": {
+        "value": false,
+        "quote": "Alice was paid $200 in March 2017 for services performed at a clinic in March 2017."
+      },
+      "patient": {
+        "value": true,
+        "quote": "Alice was a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "08b32ac75bb050882184194007114750db4ebecd6eeb51dbee41d4cfe851608c",
+  "original": true,
+  "pivotal": [
+    "child"
+  ],
+  "proposal": {
+    "old": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2015.",
+    "new": "Alice has a son, Bob, who does not satisfy section 152(c)(1) for the year 2015, and Bob is not a qualifying relative of Alice for the year 2015.",
+    "changes": [
+      {
+        "variable": "child",
+        "before": true,
+        "after": false
+      },
+      {
+        "variable": "relative",
+        "before": null,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice has a son, Bob, who does not satisfy section 152(c)(1) for the year 2015, and Bob is not a qualifying relative of Alice for the year 2015.",
+  "text_sha256": "fd3106198d94345e82eb278176c84a7e16e2d6e99e574fe4f3a846a8e73a9a1c",
+  "status": "error",
+  "error": "Evidência ou tipo inválido"
+}

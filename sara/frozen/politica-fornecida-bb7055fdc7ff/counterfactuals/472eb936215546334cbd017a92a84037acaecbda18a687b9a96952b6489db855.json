@@ -1,0 +1,19 @@
+{
+  "id": "472eb936215546334cbd017a92a84037acaecbda18a687b9a96952b6489db855",
+  "original": false,
+  "pivotal": [
+    "parent"
+  ],
+  "proposal": {
+    "old": "\"parent\": {\"value\": false, \"quote\": \"Alice married Charlie on August 8th, 2018.\"},",
+    "new": "\"parent\": {\"value\": true, \"quote\": \"Alice is Bob's parent (mother) through marriage to Charlie as of August 8th, 2018.\"},",
+    "changes": [
+      {
+        "variable": "parent",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "status": "no_edit"
+}

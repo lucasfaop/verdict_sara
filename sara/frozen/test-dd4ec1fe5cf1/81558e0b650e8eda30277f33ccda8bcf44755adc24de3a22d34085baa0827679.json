@@ -1,0 +1,190 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "$77,485, plus 39.6% of the excess over $250,000 if the taxable income is over $250,000.",
+      "new": "In §1(b)(v), replace '39.6%' with '42.79%'."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 554313,
+          "quote": "Alice's taxable income for the year 2017 is $554313."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Alice is married under section 7703 for the year 2017."
+        },
+        "v3": {
+          "value": 2017,
+          "quote": "for the year 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Taxable income for year 2017 in dollars (Alice)"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice is head of household filing status for year 2017"
+          },
+          "v3": {
+            "type": "Int",
+            "meaning": "Tax year (e.g., 2017)"
+          }
+        },
+        "target": "§1(b) Heads of households tax computation for 2017 tested against tax = 207772",
+        "rule": [
+          "and",
+          [
+            "=",
+            "v3",
+            2017
+          ],
+          [
+            "=",
+            "v2",
+            true
+          ],
+          [
+            "=",
+            [
+              "ite",
+              [
+                "<=",
+                "v1",
+                29600
+              ],
+              [
+                "*",
+                [
+                  "/",
+                  3,
+                  20
+                ],
+                "v1"
+              ],
+              [
+                "ite",
+                [
+                  "<=",
+                  "v1",
+                  76400
+                ],
+                [
+                  "+",
+                  4440,
+                  [
+                    "*",
+                    [
+                      "/",
+                      7,
+                      25
+                    ],
+                    [
+                      "-",
+                      "v1",
+                      29600
+                    ]
+                  ]
+                ],
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v1",
+                    127500
+                  ],
+                  [
+                    "+",
+                    17544,
+                    [
+                      "*",
+                      [
+                        "/",
+                        31,
+                        100
+                      ],
+                      [
+                        "-",
+                        "v1",
+                        76400
+                      ]
+                    ]
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v1",
+                      250000
+                    ],
+                    [
+                      "+",
+                      33385,
+                      [
+                        "*",
+                        [
+                          "/",
+                          9,
+                          25
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          127500
+                        ]
+                      ]
+                    ],
+                    [
+                      "+",
+                      77485,
+                      [
+                        "*",
+                        [
+                          "/",
+                          99,
+                          250
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          250000
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            207772
+          ]
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

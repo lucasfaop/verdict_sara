@@ -1,0 +1,29 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2015.",
+      "new": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2014."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Expressão inválida"
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2014.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2014.",
+          "new": "Bob does not satisfy section 152(c)(1) for the year 2014."
+        },
+        "verdict": {
+          "decision": null,
+          "error": "Expressão inválida"
+        }
+      }
+    }
+  }
+}

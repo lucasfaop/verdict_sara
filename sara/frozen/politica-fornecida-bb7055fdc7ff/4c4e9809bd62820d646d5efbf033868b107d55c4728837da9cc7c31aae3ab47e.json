@@ -1,0 +1,33 @@
+{
+  "section": "151(d)(5)",
+  "program": {
+    "variables": {
+      "year": {
+        "type": "Int",
+        "meaning": "Tax year of the exemption or deduction described in the narrative."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        ">=",
+        "year",
+        2018
+      ],
+      [
+        "<=",
+        "year",
+        2025
+      ],
+      [
+        "=",
+        0,
+        0
+      ]
+    ]
+  },
+  "result": {
+    "decision": null,
+    "error": "Evidência ou tipo inválido"
+  }
+}

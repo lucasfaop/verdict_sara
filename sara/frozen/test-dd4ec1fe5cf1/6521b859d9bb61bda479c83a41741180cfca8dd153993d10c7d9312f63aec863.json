@@ -1,0 +1,66 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(d) Exemption amount\n\n    (1) In general\n\n    Except as otherwise provided in this subsection, the term \"exemption amount\" means $2,000.\n\n    (2) Exemption amount disallowed in case of certain dependents",
+      "new": "(d) Exemption amount\n\n    (1) In general\n\n    Except as otherwise provided in this subsection, the term \"exemption amount\" means $0.\n\n    (2) Exemption amount disallowed in case of certain dependents"
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Alice is entitled to an exemption under section 151(b) for the year 2015."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Taxable year begins in 2018 through 2025 (i.e., the year falls within the 2018-2025 special exemption rule for §151(d)(5))"
+          }
+        },
+        "target": "§151. Exemption amount; (5) Special rules for taxable years 2018 through 2025: In the case of a taxable year beginning after December 31, 2017, and before January 1, 2026, the term \"exemption amount\" means zero.",
+        "rule": "v1"
+      },
+      "old": "\"value\": false",
+      "new": "\"value\": true",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {}
+}

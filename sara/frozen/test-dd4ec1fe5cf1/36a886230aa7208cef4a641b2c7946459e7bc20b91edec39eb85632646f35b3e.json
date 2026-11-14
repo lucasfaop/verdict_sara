@@ -1,0 +1,250 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(d) Married individuals filing separate returns\n\nThere is hereby imposed on the taxable income of every married individual (as defined in section 7703) who does not make a single return jointly with his spouse, a tax determined in accordance with the following:\n\n    (i) 15% of taxable income if the taxable income is not over $18,450;\n    (ii) $2,767.50, plus 28% of the excess over $18,450 if the taxable income is over $18,450 but not over $44,575;",
+      "new": "Alice has to pay $5,683.42 in taxes for the year 2017 under section 1(d)(ii)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 28864,
+          "quote": "Alice's taxable income for the year 2017 is $28864."
+        },
+        "v2": {
+          "value": 2017,
+          "quote": "for the year 2017."
+        },
+        "v3": {
+          "value": true,
+          "quote": "Alice files a separate return."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Real",
+            "meaning": "Alice's taxable income in dollars for the 2017 tax year"
+          },
+          "v2": {
+            "type": "Int",
+            "meaning": "Tax year (e.g., 2017)"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Alice's filing status is married filing separately under §1(d)"
+          }
+        },
+        "target": "§1(d)(ii) - Tax for married individuals filing separate returns: 2,767.50 plus 28% of the excess over $18,450, applicable when taxable income is over $18,450 but not over $44,575",
+        "rule": [
+          "and",
+          [
+            "=",
+            [
+              "+",
+              [
+                "/",
+                5535,
+                2
+              ],
+              [
+                "/",
+                [
+                  "*",
+                  7,
+                  [
+                    "-",
+                    "v1",
+                    18450
+                  ]
+                ],
+                25
+              ]
+            ],
+            5683
+          ],
+          [
+            "=",
+            "v2",
+            2017
+          ],
+          [
+            "=",
+            "v3",
+            true
+          ],
+          [
+            ">",
+            "v1",
+            18450
+          ],
+          [
+            "<=",
+            "v1",
+            44575
+          ]
+        ]
+      },
+      "old": "Alice's taxable income for the year 2017 is $28864.",
+      "new": "Alice's taxable income for the year 2017 is $28862.50.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": 28864,
+          "after": 28862.5
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice is married under section 7703 for the year 2017. Alice's taxable income for the year 2017 is $28862.50. Alice files a separate return.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(ii) $2,767.50, plus 28% of the excess over $18,450 if the taxable income is over $18,450 but not over $44,575;",
+          "new": "(ii) $2,767.50, plus 28% of the excess over $18,451 if the taxable income is over $18,451 but not over $44,575;"
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": 28862.5,
+              "quote": "Alice's taxable income for the year 2017 is $28862.50."
+            },
+            "v2": {
+              "value": 2017,
+              "quote": "for the year 2017"
+            },
+            "v3": {
+              "value": true,
+              "quote": "Alice files a separate return."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Real",
+                "meaning": "Alice's taxable income in dollars for the 2017 tax year"
+              },
+              "v2": {
+                "type": "Int",
+                "meaning": "Tax year (e.g., 2017)"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Alice's filing status is married filing separately under §1(d)"
+              }
+            },
+            "target": "§1(d)(ii) - Tax for married individuals filing separate returns: 2,767.50 plus 28% of the excess over $18,450, applicable when taxable income is over $18,450 but not over $44,575",
+            "rule": [
+              "and",
+              [
+                "=",
+                [
+                  "+",
+                  [
+                    "/",
+                    5535,
+                    2
+                  ],
+                  [
+                    "/",
+                    [
+                      "*",
+                      7,
+                      [
+                        "-",
+                        "v1",
+                        18450
+                      ]
+                    ],
+                    25
+                  ]
+                ],
+                5683
+              ],
+              [
+                "=",
+                "v2",
+                2017
+              ],
+              [
+                "=",
+                "v3",
+                true
+              ],
+              [
+                ">",
+                "v1",
+                18450
+              ],
+              [
+                "<=",
+                "v1",
+                44575
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

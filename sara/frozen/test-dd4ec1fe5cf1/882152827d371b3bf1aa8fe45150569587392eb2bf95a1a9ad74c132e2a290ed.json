@@ -1,0 +1,148 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "The taxpayer shall be entitled to an additional amount of $600- (A) for himself if he has attained age 65 before the close of his taxable year",
+      "new": "Bob turned 65 before the close of 2017."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "Bob was born March 3rd, 1955."
+        },
+        "v2": {
+          "value": true,
+          "quote": "In 2017, Alice was paid $33200."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Bob's age at the close of his 2017 taxable year is at least 65 (i.e., Bob has attained age 65 before the close of the taxable year)."
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "The taxable year in question is 2017."
+          }
+        },
+        "target": "§63(f)(1)(A) of §63 – Aged or blind additional amounts; test whether the taxpayer is entitled to the additional amount for the aged in the 2017 taxable year (i.e., Bob qualifies if age >= 65 before year end).",
+        "rule": [
+          "and",
+          "v1",
+          "v2"
+        ]
+      },
+      "old": "Bob was born March 3rd, 1955.",
+      "new": "Bob was born March 3rd, 1952.",
+      "changes": [
+        {
+          "variable": "Bob_birth_date",
+          "before": "Bob was born March 3rd, 1955.",
+          "after": "Bob was born March 3rd, 1952."
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Alice was born March 2nd, 1950 and Bob was born March 3rd, 1952.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "Bob was born March 3rd, 1952.",
+          "new": "Bob was born March 3rd, 1953."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Bob was born March 3rd, 1952."
+            },
+            "v2": {
+              "value": true,
+              "quote": "In 2017, Alice was paid $33200."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Bob's age at the close of his 2017 taxable year is at least 65 (i.e., Bob has attained age 65 before the close of the taxable year)."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "The taxable year in question is 2017."
+              }
+            },
+            "target": "§63(f)(1)(A) of §63 – Aged or blind additional amounts; test whether the taxpayer is entitled to the additional amount for the aged in the 2017 taxable year (i.e., Bob qualifies if age >= 65 before year end).",
+            "rule": [
+              "and",
+              "v1",
+              "v2"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

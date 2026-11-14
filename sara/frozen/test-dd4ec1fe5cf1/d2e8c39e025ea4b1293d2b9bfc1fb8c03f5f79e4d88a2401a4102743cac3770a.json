@@ -1,0 +1,70 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(B) $4,400 in the case of a head of household (as defined in section 2(b))",
+      "new": "(7) Special rules for taxable years 2018 through 2025 - (i) Paragraph (2) shall be applied by substituting \"$18,000\" for \"$4,400\" in subparagraph (B)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": null,
+          "quote": "In 2019, Alice was paid $33200. Alice is a head of household for 2019."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "factual input with entity, date and units"
+          }
+        },
+        "target": "63(c)(7)(i) Special Rule: for taxable years 2018-2025, substitute 18,000 for 4,400 in subparagraph (B) (head of household). Proposition tested: In taxable year 2019, the head-of-household basic standard deduction equals 4,400 (the pre-2018 value).",
+        "rule": [
+          "=",
+          [
+            "ite",
+            [
+              "and",
+              [
+                ">=",
+                2019,
+                2018
+              ],
+              [
+                "<=",
+                2019,
+                2025
+              ]
+            ],
+            18000,
+            4400
+          ],
+          4400
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

@@ -1,0 +1,119 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice was a nonresident alien from August 23rd, 2015 to September 15th, 2016.",
+      "new": "Alice is a resident alien for 2017."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": true
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": false
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": null,
+          "quote": "In 2017, Alice was paid $33200. Alice and Bob got married on Feb 3rd, 2017. Alice was a nonresident alien from August 23rd, 2015 to September 15th, 2016."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is a nonresident alien for the 2017 tax year (status triggering §63(c)(6)(B) not to be eligible for the standard deduction)."
+          }
+        },
+        "target": "§63(c)(6)(B) applies to Alice for 2017",
+        "rule": "v1"
+      }
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "In 2017, Alice was paid $33200. Alice and Bob got married on Feb 3rd, 2017. Alice is a resident alien for 2017.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "(6) Certain individuals, etc., not eligible for standard deduction\nIn the case of-\n    (A) a married individual filing a separate return where either spouse itemizes deductions,\n    (B) a nonresident alien individual, or\n    (D) an estate or trust, common trust fund, or partnership,\nThe standard deduction shall be zero.",
+          "new": "Alice is a nonresident alien for 2017."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Alice is a resident alien for 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice is a nonresident alien for the 2017 tax year (status triggering §63(c)(6)(B) not to be eligible for the standard deduction)."
+              }
+            },
+            "target": "§63(c)(6)(B) applies to Alice for 2017",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

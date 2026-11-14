@@ -1,0 +1,61 @@
+{
+  "section": "63(f)(2)(b)",
+  "program": {
+    "variables": {
+      "blind": {
+        "type": "Bool",
+        "meaning": "Spouse of named taxpayer was blind at year end (or at death if spouse died in that year)."
+      },
+      "exemption": {
+        "type": "Bool",
+        "meaning": "Spousal exemption under 151(b) was allowable for that spouse and year."
+      }
+    },
+    "rule": [
+      "and",
+      "blind",
+      "exemption"
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "blind"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "blind"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "blind"
+      ],
+      "delta_e": [
+        "blind"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "blind": {
+        "value": true,
+        "quote": "Alice has been blind since Feb 28, 2014."
+      },
+      "exemption": {
+        "value": true,
+        "quote": "In addition, Bob is allowed an exemption for Alice under section 151(b) for the year 2017."
+      }
+    }
+  }
+}

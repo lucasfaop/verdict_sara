@@ -1,0 +1,58 @@
+{
+  "id": "94806b6e2c4b6f98563f1f43e661566338c7fd7d0e4bd92fcfaa4c6e20aacdd7",
+  "original": false,
+  "pivotal": [
+    "head"
+  ],
+  "proposal": {
+    "old": "Alice is a surviving spouse for the year 2016.",
+    "new": "Alice is a head of household for the year 2016.",
+    "changes": [
+      {
+        "variable": "head",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "In 2016, Alice's income was $567192. Alice is a head of household for the year 2016.",
+  "text_sha256": "2e04e424e8463d03a3d439f3ef5e40d047c50e5282c0810f9096962531d93796",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "head"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "head"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "head"
+      ],
+      "delta_e": [
+        "head"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "head": {
+        "value": true,
+        "quote": "Alice is a head of household for the year 2016."
+      }
+    }
+  },
+  "status": "edited"
+}

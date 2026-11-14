@@ -1,0 +1,58 @@
+{
+  "id": "329f0faa8e713b2ed7cc8e31cf41127a37d54c765da29c9daae22e0db51a383d",
+  "original": false,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA.",
+    "new": "Alice was paid $73200 in 2017 as an employee of the Maryland State Government in Baltimore, Maryland, USA.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice was paid $73200 in 2017 as an employee of the Maryland State Government in Baltimore, Maryland, USA.",
+  "text_sha256": "9a340cb8936f4d3d97b8a39c9217e966ef7bd6075246cbcfb2d3006f5ae539cb",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": true,
+        "quote": "Alice was paid $73200 in 2017 as an employee of the Maryland State Government in Baltimore, Maryland, USA."
+      }
+    }
+  },
+  "status": "edited"
+}

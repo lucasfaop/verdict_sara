@@ -1,0 +1,62 @@
+{
+  "id": "ca1766c355db2a9dba5efba78e90748544a90a94ee3f186ee50bcd04d549c5b4",
+  "original": false,
+  "pivotal": [
+    "child"
+  ],
+  "proposal": {
+    "old": "Bob is a dependent of Alice under 152(c) for the year 2015.",
+    "new": "Bob is not a dependent of Alice under 152(c) for the year 2015.",
+    "changes": [
+      {
+        "variable": "child",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "In 2015, Alice's income was $312. The exemption amount for Alice under section 151(d) for the year 2015 was $2000. Alice is Bob's mother, and Bob is not a dependent of Alice under 152(c) for the year 2015.",
+  "text_sha256": "69a6b6cfd32bdef980c6e7006a5be7390f4f9023c6674e161f842cbe1a119700",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "child": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "child": true
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": null,
+        "quote": "Bob is not a dependent of Alice under 152(c) for the year 2015."
+      }
+    }
+  },
+  "status": "edited"
+}

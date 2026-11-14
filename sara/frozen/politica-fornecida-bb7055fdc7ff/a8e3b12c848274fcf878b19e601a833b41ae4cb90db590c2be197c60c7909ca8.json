@@ -1,0 +1,16 @@
+{
+  "section": "3306(c)(6)",
+  "program": {
+    "variables": {
+      "fact": {
+        "type": "Bool",
+        "meaning": "Employer for the specified service was the US federal government."
+      }
+    },
+    "rule": "fact"
+  },
+  "result": {
+    "decision": null,
+    "error": "'facts'"
+  }
+}

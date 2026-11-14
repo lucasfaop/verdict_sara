@@ -1,0 +1,71 @@
+{
+  "id": "c75c2cb33ad5d020477c817b0f10f37a3e9690b6e2d9f5e195086dccdf319025",
+  "original": true,
+  "pivotal": [
+    "child"
+  ],
+  "proposal": {
+    "old": "Bob is Alice's father since April 15th, 2014.",
+    "new": "Bob is not Alice's father.",
+    "changes": [
+      {
+        "variable": "child",
+        "before": true,
+        "after": false
+      },
+      {
+        "variable": "desc",
+        "before": null,
+        "after": false
+      }
+    ]
+  },
+  "text": "Bob is not Alice's father.",
+  "text_sha256": "e0512d56ff30fa9ea7c93eaff555d5e4e4b787a47139745d18a14b70685aa114",
+  "after": {
+    "decision": null,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "desc": true
+      },
+      "pivotal": [
+        "desc"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "desc"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "desc": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": false,
+        "quote": "Bob is not Alice's father."
+      },
+      "desc": {
+        "value": null,
+        "quote": null
+      }
+    }
+  },
+  "status": "edited"
+}

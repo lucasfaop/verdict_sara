@@ -1,0 +1,26 @@
+{
+  "direct": {
+    "correct": 85,
+    "abstain_or_error": 0,
+    "verdict_edits": 37,
+    "verdict_comparable": 37,
+    "verdict_flips": 22,
+    "direct_edits": 37,
+    "direct_comparable": 37,
+    "direct_flips": 21,
+    "total": 100,
+    "accuracy": 0.85
+  },
+  "verdict": {
+    "correct": 45,
+    "abstain_or_error": 42,
+    "verdict_edits": 37,
+    "verdict_comparable": 26,
+    "verdict_flips": 20,
+    "direct_edits": 37,
+    "direct_comparable": 13,
+    "direct_flips": 7,
+    "total": 100,
+    "accuracy": 0.45
+  }
+}

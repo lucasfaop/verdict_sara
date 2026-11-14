@@ -1,0 +1,132 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "for the spouse of the taxpayer if the spouse is blind as of the close of the taxable year and an additional exemption is allowable to the taxpayer for such spouse under section 151(b).",
+      "new": "for the spouse of the taxpayer if the spouse is blind as of the close of the taxable year and the taxpayer is not entitled to an additional exemption for such spouse under section 151(b)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": false,
+          "quote": "In 2017, Alice was paid $33200."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Bob is the taxpayer; tax year 2017; spouse is blind at the close of the taxable year; Bob and spouse file a separate return (not a joint return); spouse has no gross income and is not a dependent of another taxpayer."
+          }
+        },
+        "target": "§63(f)(2)(B) – Additional amount for blind spouse (as defined in section 63) applies to the taxpayer if the spouse is blind as of the close of the taxable year and an additional exemption is allowable to the taxpayer for such spouse under section 151(b).",
+        "rule": [
+          "=",
+          "v1",
+          true
+        ]
+      },
+      "old": "In 2017, Alice was paid $33200.",
+      "new": "In 2017, Alice had no gross income.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "In 2017, Alice had no gross income. Alice and Bob have been married since Feb 3rd, 2017. Alice has been blind since Feb 28, 2014. In addition, Bob is allowed an exemption for Alice under section 151(b) for the year 2017.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(2) Additional amount for blind\nThe taxpayer shall be entitled to an additional amount of $600-\n(A) for himself if he is blind at the close of the taxable year, and\n(B) for the spouse of the taxpayer if the spouse is blind as of the close of the taxable year and an additional exemption is allowable to the taxpayer for such spouse under section 151(b).",
+          "new": "Alice is not blind as of the close of the taxable year."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "In 2017, Alice had no gross income. Alice and Bob have been married since Feb 3rd, 2017. Alice has been blind since Feb 28, 2014. In addition, Bob is allowed an exemption for Alice under section 151(b) for the year 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Bob is the taxpayer; tax year 2017; spouse is blind at the close of the taxable year; Bob and spouse file a separate return (not a joint return); spouse has no gross income and is not a dependent of another taxpayer."
+              }
+            },
+            "target": "§63(f)(2)(B) – Additional amount for blind spouse (as defined in section 63) applies to the taxpayer if the spouse is blind as of the close of the taxable year and an additional exemption is allowable to the taxpayer for such spouse under section 151(b).",
+            "rule": [
+              "=",
+              "v1",
+              true
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "44340e26519acd770b012f21f9188dd9743a807c25ef886388f6ad5ed25169ce",
+  "original": false,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice and Bob file separate returns in 2017.",
+    "new": "Alice and Bob file joint returns in 2017.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Alice and Bob file separate returns in 2017.",
+        "after": "Alice and Bob file joint returns in 2017."
+      }
+    ]
+  },
+  "text": "In 2017, Alice was paid $33200 in remuneration. Alice and Bob have been married since Feb 3rd, 2017. Alice and Bob file joint returns in 2017.",
+  "text_sha256": "0109b95beaa9cf2314542af1c150cba4b9684829a17e7b2537d61b15533035ea",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": true,
+        "quote": "Alice and Bob file joint returns in 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "226ab5020339bd2d2c2901e37e534cf5a50198306feed512dc03cfea1a7795b5",
+  "original": false,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Charlie married Dan on Feb 14th, 2018.",
+    "new": "Charlie married Dan on Feb 14th, 2017.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice and Bob got married on Feb 3rd, 1992. Alice and Bob have a child, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. Charlie married Dan on Feb 14th, 2017.",
+  "text_sha256": "823849ac001d5f06c63d81bbdcac32562a0cb4ef9996457ca8eb0f5fb014d73b",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": true,
+        "quote": "Charlie married Dan on Feb 14th, 2017."
+      }
+    }
+  },
+  "status": "edited"
+}

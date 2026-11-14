@@ -1,0 +1,66 @@
+{
+  "id": "5436c4fb4184888eacd50fbfd0d19981fafd93ea9c23ffb6c96e751f33d44291",
+  "original": false,
+  "pivotal": [
+    "child"
+  ],
+  "proposal": {
+    "old": "Bob is Alice's brother since April 15th, 2014.",
+    "new": "Alice is Bob's child since April 15th, 2014.",
+    "changes": [
+      {
+        "variable": "child",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice is Bob's child since April 15th, 2014.",
+  "text_sha256": "0f0ee53d001387772df5148a4ec40637ad1e36107ed5d85a82b99f55cae671c2",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "desc": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {
+        "desc": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [
+        "child"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": true,
+        "quote": "Alice is Bob's child since April 15th, 2014."
+      },
+      "desc": {
+        "value": null,
+        "quote": null
+      }
+    }
+  },
+  "status": "edited"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "44473a8cd34d638eb25bcc7b2396196131a2551b2bbde0ce125cb8f28bc22861",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice was paid $73200 in 2017 as an employee of the State of Maryland in Baltimore, Maryland, USA.",
+    "new": "Alice was paid $73200 in 2017 as an employee of a private company in Maryland.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": true,
+        "after": false
+      }
+    ]
+  },
+  "text": "Alice was paid $73200 in 2017 as an employee of a private company in Maryland.",
+  "text_sha256": "2eccafdac4dc1f325bbcdbe602e13b591006d304f4d78157634884e03b0ee72e",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "Alice was paid $73200 in 2017 as an employee of a private company in Maryland."
+      }
+    }
+  },
+  "status": "edited"
+}

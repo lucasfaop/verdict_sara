@@ -1,0 +1,58 @@
+{
+  "section": "151(d)(5)",
+  "program": {
+    "variables": {
+      "year": {
+        "type": "Int",
+        "meaning": "Tax year of the exemption or deduction described in the narrative."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        ">=",
+        "year",
+        2018
+      ],
+      [
+        "<=",
+        "year",
+        2025
+      ],
+      [
+        "=",
+        2000,
+        0
+      ]
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "year": {
+        "value": 2018,
+        "quote": "Alice is entitled to an exemption under section 151(b) for the year 2018."
+      }
+    }
+  }
+}

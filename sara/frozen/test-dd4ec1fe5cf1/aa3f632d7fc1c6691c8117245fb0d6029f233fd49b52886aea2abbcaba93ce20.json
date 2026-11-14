@@ -1,0 +1,301 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice decides not to itemize her deductions.",
+      "new": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $0 for the year 2017, and no deduction under section 151. Alice decides not to itemize her deductions."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {
+          "v3": false,
+          "v4": true,
+          "v5": false
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v4": true,
+          "v5": false
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 31200,
+          "quote": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151."
+        },
+        "v2": {
+          "value": 0,
+          "quote": "no deduction under section 151."
+        },
+        "v3": {
+          "value": null,
+          "quote": null
+        },
+        "v4": {
+          "value": null,
+          "quote": null
+        },
+        "v5": {
+          "value": null,
+          "quote": null
+        },
+        "v6": {
+          "value": true,
+          "quote": "Alice decides not to itemize her deductions."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Alice's AGI for 2017"
+          },
+          "v2": {
+            "type": "Int",
+            "meaning": "Alice's number of personal exemptions for 2017"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Alice is married filing jointly (true if joint)"
+          },
+          "v4": {
+            "type": "Bool",
+            "meaning": "Alice is a surviving spouse (true if surviving)"
+          },
+          "v5": {
+            "type": "Bool",
+            "meaning": "Alice is head of household (true if HOH)"
+          },
+          "v6": {
+            "type": "Bool",
+            "meaning": "Alice does not itemize deductions (true if not itemizing)"
+          }
+        },
+        "target": "§63(b) Non-itemizing calculation of taxable income: taxable income equals AGI minus the standard deduction minus personal exemptions for 2017",
+        "rule": [
+          "and",
+          [
+            "=",
+            [
+              "-",
+              [
+                "-",
+                "v1",
+                [
+                  "ite",
+                  [
+                    "or",
+                    "v3",
+                    "v4"
+                  ],
+                  6000,
+                  [
+                    "ite",
+                    "v5",
+                    4400,
+                    3000
+                  ]
+                ]
+              ],
+              [
+                "*",
+                2000,
+                "v2"
+              ]
+            ],
+            31200
+          ],
+          "v6"
+        ]
+      },
+      "old": "$31200",
+      "new": "$34200",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": 31200,
+          "after": 34200
+        },
+        {
+          "variable": "v3",
+          "before": null,
+          "after": false
+        },
+        {
+          "variable": "v4",
+          "before": null,
+          "after": false
+        },
+        {
+          "variable": "v5",
+          "before": null,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $0 for the year 2017, and no deduction under section 151. Alice decides not to itemize her deductions.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $0 for the year 2017, and no deduction under section 151. Alice decides not to itemize her deductions.",
+          "new": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $0 for the year 2017, and itemized deductions of $2,000 under section 151. Alice decides to itemize her deductions."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {
+              "v3": true,
+              "v4": false,
+              "v5": false
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v4": true,
+              "v5": false
+            },
+            "pivotal": [
+              "v2"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v2"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": 33200,
+              "quote": "In 2017, Alice was paid $33200."
+            },
+            "v2": {
+              "value": 0,
+              "quote": "She is allowed a deduction under section 63(c)(1) of $0 for the year 2017, and no deduction under section 151."
+            },
+            "v3": {
+              "value": null,
+              "quote": null
+            },
+            "v4": {
+              "value": null,
+              "quote": null
+            },
+            "v5": {
+              "value": null,
+              "quote": null
+            },
+            "v6": {
+              "value": true,
+              "quote": "Alice decides not to itemize her deductions."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Int",
+                "meaning": "Alice's AGI for 2017"
+              },
+              "v2": {
+                "type": "Int",
+                "meaning": "Alice's number of personal exemptions for 2017"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Alice is married filing jointly (true if joint)"
+              },
+              "v4": {
+                "type": "Bool",
+                "meaning": "Alice is a surviving spouse (true if surviving)"
+              },
+              "v5": {
+                "type": "Bool",
+                "meaning": "Alice is head of household (true if HOH)"
+              },
+              "v6": {
+                "type": "Bool",
+                "meaning": "Alice does not itemize deductions (true if not itemizing)"
+              }
+            },
+            "target": "§63(b) Non-itemizing calculation of taxable income: taxable income equals AGI minus the standard deduction minus personal exemptions for 2017",
+            "rule": [
+              "and",
+              [
+                "=",
+                [
+                  "-",
+                  [
+                    "-",
+                    "v1",
+                    [
+                      "ite",
+                      [
+                        "or",
+                        "v3",
+                        "v4"
+                      ],
+                      6000,
+                      [
+                        "ite",
+                        "v5",
+                        4400,
+                        3000
+                      ]
+                    ]
+                  ],
+                  [
+                    "*",
+                    2000,
+                    "v2"
+                  ]
+                ],
+                31200
+              ],
+              "v6"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

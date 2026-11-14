@@ -1,0 +1,70 @@
+{
+  "section": "63(c)(6)(d)",
+  "program": {
+    "variables": {
+      "estate": {
+        "type": "Bool",
+        "meaning": "Entity was an estate in the specified year."
+      },
+      "trust": {
+        "type": "Bool",
+        "meaning": "Entity was a trust, including a common trust fund, in the specified year."
+      },
+      "partnership": {
+        "type": "Bool",
+        "meaning": "Entity was a partnership in the specified year."
+      }
+    },
+    "rule": [
+      "or",
+      "estate",
+      "trust",
+      "partnership"
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "trust"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "trust"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "trust"
+      ],
+      "delta_e": [
+        "trust"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "estate": {
+        "value": false,
+        "quote": "From 1973 to 2019, the Walter Brown Family Trust II was considered to be a business trust."
+      },
+      "trust": {
+        "value": true,
+        "quote": "From 1973 to 2019, the Walter Brown Family Trust II was considered to be a business trust."
+      },
+      "partnership": {
+        "value": false,
+        "quote": "From 1973 to 2019, the Walter Brown Family Trust II was considered to be a business trust."
+      }
+    }
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice and Bob file a joint return for the years 2017 to 2019.",
+      "new": "Alice and Bob file a separate return for the years 2017 to 2019."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {
+          "v4": true
+        },
+        "pivotal": [
+          "v2",
+          "v5"
+        ],
+        "delta_e": [
+          "v2",
+          "v5"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v4": false
+        },
+        "pivotal": [
+          "v2",
+          "v5",
+          "v4"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v2",
+          "v5",
+          "v4"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice and Bob got married on April 5th, 2012."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Alice and Bob file a joint return for the years 2017 to 2019."
+        },
+        "v3": {
+          "value": true,
+          "quote": "Alice and Charlie live in a home maintained by Alice since September 16th, 2017."
+        },
+        "v4": {
+          "value": null,
+          "quote": null
+        },
+        "v5": {
+          "value": false,
+          "quote": "Alice and Bob file a joint return for the years 2017 to 2019."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is married under §7703(a) as of the close of 2018"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice files a separate return for 2018 (not a joint return)"
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "Alice maintains as her home a household which constitutes for more than half the year the principal place of abode of a child for whom she is entitled to a §151 deduction"
+          },
+          "v4": {
+            "type": "Bool",
+            "meaning": "Alice furnishes over one-half of the cost of maintaining that household during 2018"
+          },
+          "v5": {
+            "type": "Bool",
+            "meaning": "During the last 6 months of 2018, Alice's spouse is not a member of that household"
+          }
+        },
+        "target": "§7703(b)(2) Determination of marital status — Notwithstanding §7703(a), a married individual who files a separate return and maintains as home the household of a child for more than half the year, and who furnishes over half the cost of maintaining that household, and whose spouse is not a member of the household during the last 6 months, shall not be considered married.",
+        "rule": [
+          "and",
+          "v1",
+          "v2",
+          "v3",
+          "v4",
+          "v5"
+        ]
+      },
+      "old": "\"v2\": {\"value\": false, \"quote\": \"Alice and Bob file a joint return for the years 2017 to 2019.\"}, \"v5\": {\"value\": false, \"quote\": \"Alice and Bob file a joint return for the years 2017 to 2019.\"}",
+      "new": "\"v2\": {\"value\": true, \"quote\": \"Alice files a separate return for the year 2018.\"}, \"v5\": {\"value\": true, \"quote\": \"During the last six months of 2018, Alice's spouse is not a member of the household.\"}, \"v4\": {\"value\": true, \"quote\": \"Alice furnishes more than one-half of the cost of maintaining the household during 2018.\"}",
+      "changes": [
+        {
+          "variable": "v2",
+          "before": false,
+          "after": true
+        },
+        {
+          "variable": "v5",
+          "before": false,
+          "after": true
+        },
+        {
+          "variable": "v4",
+          "before": null,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice and Bob got married on April 5th, 2012. Alice and Bob have a son, Charlie, who was born on September 16th, 2017. Alice and Charlie live in a home maintained by Alice since September 16th, 2017. Alice is entitled to a deduction for Charlie under section 151(c) for the years 2017 to 2019. Alice and Bob file a separate return for the years 2017 to 2019.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "during the last 6 months of the taxable year, such individual's spouse is not a member of such household",
+          "new": "during the last 6 months of the taxable year, such individual's spouse is a member of such household"
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v4": true,
+              "v5": true
+            },
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v4": false,
+              "v5": false
+            },
+            "pivotal": [
+              "v4",
+              "v5"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v4",
+              "v5"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Alice and Bob got married on April 5th, 2012."
+            },
+            "v2": {
+              "value": true,
+              "quote": "Alice and Bob file a separate return for the years 2017 to 2019."
+            },
+            "v3": {
+              "value": true,
+              "quote": "Alice and Charlie live in a home maintained by Alice since September 16th, 2017."
+            },
+            "v4": {
+              "value": null,
+              "quote": null
+            },
+            "v5": {
+              "value": null,
+              "quote": null
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice is married under §7703(a) as of the close of 2018"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice files a separate return for 2018 (not a joint return)"
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "Alice maintains as her home a household which constitutes for more than half the year the principal place of abode of a child for whom she is entitled to a §151 deduction"
+              },
+              "v4": {
+                "type": "Bool",
+                "meaning": "Alice furnishes over one-half of the cost of maintaining that household during 2018"
+              },
+              "v5": {
+                "type": "Bool",
+                "meaning": "During the last 6 months of 2018, Alice's spouse is not a member of that household"
+              }
+            },
+            "target": "§7703(b)(2) Determination of marital status — Notwithstanding §7703(a), a married individual who files a separate return and maintains as home the household of a child for more than half the year, and who furnishes over half the cost of maintaining that household, and whose spouse is not a member of the household during the last 6 months, shall not be considered married.",
+            "rule": [
+              "and",
+              "v1",
+              "v2",
+              "v3",
+              "v4",
+              "v5"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

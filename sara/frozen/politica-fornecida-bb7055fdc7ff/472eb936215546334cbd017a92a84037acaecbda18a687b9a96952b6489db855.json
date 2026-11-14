@@ -1,0 +1,61 @@
+{
+  "section": "152(d)(2)(c)",
+  "program": {
+    "variables": {
+      "parent": {
+        "type": "Bool",
+        "meaning": "First person is a parent of the second."
+      },
+      "ancestor": {
+        "type": "Bool",
+        "meaning": "First person is an ancestor of a parent of the second."
+      }
+    },
+    "rule": [
+      "or",
+      "parent",
+      "ancestor"
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "parent"
+      ],
+      "delta_e": [
+        "parent"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "parent"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "parent"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "parent": {
+        "value": false,
+        "quote": "Alice married Charlie on August 8th, 2018."
+      },
+      "ancestor": {
+        "value": false,
+        "quote": "Alice married Charlie on August 8th, 2018."
+      }
+    }
+  }
+}

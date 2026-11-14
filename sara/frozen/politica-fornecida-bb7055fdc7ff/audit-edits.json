@@ -1,0 +1,1439 @@
+[
+  {
+    "id": "36a886230aa7208cef4a641b2c7946459e7bc20b91edec39eb85632646f35b3e",
+    "case": "s1_d_ii_pos",
+    "text": "Alice is married under section 7703 for the year 2017. Alice's taxable income for the year 2017 is $18450. Alice files a separate return.",
+    "text_sha256": "88952edc3d8092fa499ebc09249935ca6f1951341be7b8a36e4ce2b3ca97b6d5",
+    "proposal": {
+      "old": "Alice's taxable income for the year 2017 is $28864.",
+      "new": "Alice's taxable income for the year 2017 is $18450.",
+      "changes": [
+        {
+          "variable": "income",
+          "before": 28864,
+          "after": 18450
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63(alice,2017,I),s1_d_ii(I,5683)",
+    "before_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns7703(alice,spouse,_,2017).\ns63(alice,2017,28864).\n\n",
+    "after_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns7703(alice,spouse,_,2017).\ns63(alice,2017,18450).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "f2948c222809f6e16d134176831e9819bfc09e9e2501287c20cd40d77a6f0140",
+    "case": "s152_c_2_A_neg",
+    "text": "Alice is the child of Bob, who was born January 31st, 2014.",
+    "text_sha256": "319c8b0227c64386f66987c436c478a5fb17284de096e820f3418027f5352e77",
+    "proposal": {
+      "old": "Alice has a brother, Bob",
+      "new": "Alice is the child of Bob",
+      "changes": [
+        {
+          "variable": "child",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s152_c_2_A(bob,alice,_,_,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nbrother_(alice_and_bob).\nagent_(alice_and_bob,bob).\npatient_(alice_and_bob,alice).\nstart_(alice_and_bob,\"2014-01-31\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\n\ndaughter_(relationship).\nagent_(relationship,alice).\npatient_(relationship,bob).\nbirth_(bob_birth).\nagent_(bob_birth,bob).\nstart_(bob_birth,\"2014-01-31\").\n",
+    "oracle_before": false,
+    "oracle_after": false,
+    "oracle_flip": false,
+    "author_correct_both": false
+  },
+  {
+    "id": "6e39c066c30eb1aec1235092da1a7c08f29befdd6bbacab7f41f99b38974e49c",
+    "case": "s63_c_2_A_ii_pos",
+    "text": "In 2017, Alice was paid $33200. Alice is not a surviving spouse for 2017.",
+    "text_sha256": "1bad6ef0f064c9a997460debb0f6e7a7184100815b020e706366b7e7dbdc7574",
+    "proposal": {
+      "old": "Alice is a surviving spouse for 2017.",
+      "new": "Alice is not a surviving spouse for 2017.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Alice is a surviving spouse for 2017.",
+          "after": "Alice is not a surviving spouse for 2017."
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63_c_2_A_ii(alice,2017)",
+    "before_facts": "\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\ns2_a(alice,_,2017).\n\n",
+    "after_facts": "\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\n\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "03925dd3fdb35c9cff00cad2573e6e5eec167cc8563e97ba7a76785647b41b88",
+    "case": "s152_d_2_G_neg",
+    "text": "Alice and Bob started living together on April 15th, 2014. Alice is Bob's sister-in-law as of 2018.",
+    "text_sha256": "d88526508fe5c91db70be3f323ae0a52360e18bc1cbc4b88a48bb176a66840f1",
+    "proposal": {
+      "old": "Alice and Bob are not related, nor do they have relatives married to one another.",
+      "new": "Alice is Bob's sister-in-law as of 2018.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Alice and Bob are not related, nor do they have relatives married to one another.",
+          "after": "Alice is Bob's sister-in-law as of 2018."
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "Casamento com irmão de Bob representa cunhada; a consulta não recebe data.",
+    "query": "s152_d_2_G(alice,bob,_,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nresidence_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2014-04-15\").\npatient_(alice_and_bob,home).\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nresidence_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2014-04-15\").\npatient_(alice_and_bob,home).\n\n\nbrother_(sib).\nagent_(sib,bro).\npatient_(sib,bob).\n\nmarriage_(w).\nagent_(w,bro).\nstart_(w,\"2017-01-01\").\nagent_(w,alice).",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "2916e0ac447d80cb64dd7f6f0ef63ee3bdab4e5c99e4ec38d49c6403568bc1f2",
+    "case": "s152_d_2_G_pos",
+    "text": "Charlie is not Bob's father.",
+    "text_sha256": "9f38541ec19274da8473a5867d41eba50102ee4be4cf8972c6ed1869ef12b830",
+    "proposal": {
+      "old": "Charlie is Bob's father since April 15th, 2014. Alice married Bob on October 12th, 1992.",
+      "new": "Charlie is not Bob's father.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": null,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s152_d_2_G(alice,charlie,Start_relationship,End_relationship),\n    var(End_relationship),\n    first_day_year(2018,First_day),\n    is_before(Start_relationship,First_day)",
+    "before_facts": "\n:- [statutes/prolog/init].\nfather_(charlie_and_bob).\nagent_(charlie_and_bob,charlie).\npatient_(charlie_and_bob,bob).\nstart_(charlie_and_bob,\"2014-04-15\").\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-10-12\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "22f62d4a06311d0ec6349613b0ed77a972cd1d825983965e3ddfe3455bb52d5b",
+    "case": "s2_b_1_A_ii_pos",
+    "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c). In 2017, Bob earned $5254312.",
+    "text_sha256": "133a5d4df738db7db8a393199faa2dd17692346ff383b19101cd1f5343f885da",
+    "proposal": {
+      "old": "From 2015 to 2019, Bob was entitled to a deduction for Charlie under section 151(c).",
+      "new": "From 2015 to 2019, Bob was not entitled to a deduction for Charlie under section 151(c).",
+      "changes": [
+        {
+          "variable": "dependent",
+          "before": true,
+          "after": false
+        },
+        {
+          "variable": "deduction",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s2_b_1_A_ii(_,charlie,2017)",
+    "before_facts": "\n:- discontiguous s151_c_applies/3.\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nbrother_(charlie_is_brother).\nagent_(charlie_is_brother,charlie).\npatient_(charlie_is_brother,bob).\nstart_(charlie_is_brother,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\ns151_c_applies(bob,charlie,Year) :- between(2015,2019,Year).\nincome_(bob_makes_money).\nagent_(bob_makes_money,bob).\namount_(bob_makes_money,5254312).\nstart_(bob_makes_money,\"2017-12-31\").\n\n",
+    "after_facts": "\n:- discontiguous s151_c_applies/3.\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nbrother_(charlie_is_brother).\nagent_(charlie_is_brother,charlie).\npatient_(charlie_is_brother,bob).\nstart_(charlie_is_brother,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\n\nincome_(bob_makes_money).\nagent_(bob_makes_money,bob).\namount_(bob_makes_money,5254312).\nstart_(bob_makes_money,\"2017-12-31\").\n\n",
+    "oracle_before": true,
+    "oracle_after": true,
+    "oracle_flip": false,
+    "author_correct_both": false
+  },
+  {
+    "id": "88915d3d75f2caf0134988f80ecc9e331942cac37b871e4730991200a8e0a047",
+    "case": "s2_b_1_A_ii_neg",
+    "text": "Alice and Bob got married on Feb 3rd, 1992. Bob has a brother, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. In 2017, Charlie earned $312489. In 2017, Charlie did not file a joint return with his spouse; he filed a separate return.",
+    "text_sha256": "68cd5159146113061516c2a621ff59fa85828e0b5e39c6df722887b317a5e3b8",
+    "proposal": {
+      "old": "In 2017, Charlie earned $312489. In 2017, Charlie filed a joint return with his spouse whom he married on Dec 1st, 2016.",
+      "new": "In 2017, Charlie earned $312489. In 2017, Charlie did not file a joint return with his spouse; he filed a separate return.",
+      "changes": [
+        {
+          "variable": "dependent",
+          "before": false,
+          "after": true
+        },
+        {
+          "variable": "deduction",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": false,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s2_b_1_A_ii(_,charlie,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nson_(charlie_is_brother).\nagent_(charlie_is_brother,charlie).\npatient_(charlie_is_brother,bob).\nstart_(charlie_is_brother,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\nincome_(charlie_makes_money).\nagent_(charlie_makes_money,charlie).\namount_(charlie_makes_money,312489).\nstart_(charlie_makes_money,\"2017-12-31\").\nmarriage_(charlie_marriage).\nagent_(charlie_marriage,charlie).\nagent_(charlie_marriage,spouse).\nstart_(charlie_marriage,\"2016-12-01\").\njoint_return_(charlie_and_spouse_joint_return).\nagent_(charlie_and_spouse_joint_return,charlie).\nagent_(charlie_and_spouse_joint_return,spouse).\nstart_(charlie_and_spouse_joint_return,\"2017-01-01\").\nend_(charlie_and_spouse_joint_return,\"2017-12-31\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nson_(charlie_is_brother).\nagent_(charlie_is_brother,charlie).\npatient_(charlie_is_brother,bob).\nstart_(charlie_is_brother,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\nincome_(charlie_makes_money).\nagent_(charlie_makes_money,charlie).\namount_(charlie_makes_money,312489).\nstart_(charlie_makes_money,\"2017-12-31\").\n\n",
+    "oracle_before": false,
+    "oracle_after": false,
+    "oracle_flip": false,
+    "author_correct_both": true
+  },
+  {
+    "id": "5436c4fb4184888eacd50fbfd0d19981fafd93ea9c23ffb6c96e751f33d44291",
+    "case": "s152_d_2_A_neg",
+    "text": "Alice is Bob's child since April 15th, 2014.",
+    "text_sha256": "0f0ee53d001387772df5148a4ec40637ad1e36107ed5d85a82b99f55cae671c2",
+    "proposal": {
+      "old": "Bob is Alice's brother since April 15th, 2014.",
+      "new": "Alice is Bob's child since April 15th, 2014.",
+      "changes": [
+        {
+          "variable": "child",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s152_d_2_A(alice,bob,_,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nbrother_(alice_and_bob).\nagent_(alice_and_bob,bob).\npatient_(alice_and_bob,alice).\nstart_(alice_and_bob,\"2014-04-15\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\n\ndaughter_(relationship).\nagent_(relationship,alice).\npatient_(relationship,bob).\nstart_(relationship,\"2014-04-15\").\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "c75c2cb33ad5d020477c817b0f10f37a3e9690b6e2d9f5e195086dccdf319025",
+    "case": "s152_d_2_A_pos",
+    "text": "Bob is not Alice's father.",
+    "text_sha256": "e0512d56ff30fa9ea7c93eaff555d5e4e4b787a47139745d18a14b70685aa114",
+    "proposal": {
+      "old": "Bob is Alice's father since April 15th, 2014.",
+      "new": "Bob is not Alice's father.",
+      "changes": [
+        {
+          "variable": "child",
+          "before": true,
+          "after": false
+        },
+        {
+          "variable": "desc",
+          "before": null,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": null,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s152_d_2_A(alice,bob,_,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nfather_(alice_and_bob).\nagent_(alice_and_bob,bob).\npatient_(alice_and_bob,alice).\nstart_(alice_and_bob,\"2014-04-15\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "d5d2ba5be93aa41a01b829ac1eb16e4b500076f2938dfce2bde543652429c937",
+    "case": "s1_d_i_pos",
+    "text": "Alice is married under section 7703 for the year 2017. Alice's taxable income for the year 2017 is $6656. Alice files taxes separately in 2017.",
+    "text_sha256": "189c6e592ef2b7899bba902d1fe1bf60be294cc76ec1e6d84591bea508f13e97",
+    "proposal": {
+      "old": "6662",
+      "new": "6656",
+      "changes": [
+        {
+          "variable": "income",
+          "before": 6662,
+          "after": 6656
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63(alice,2017,I),s1_d_i(I,999)",
+    "before_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns7703(alice,spouse,_,2017).\ns63(alice,2017,6662).\n\n",
+    "after_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns7703(alice,spouse,_,2017).\ns63(alice,2017,6656).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "5224a7f930ab7f83d39186eba7d1ae9b60b2f9c60cc3e69f62c85d8bcfdaf339",
+    "case": "s7703_b_2_neg",
+    "text": "Alice and Bob got married on April 5th, 2012. Alice and Bob have a son, Charlie, who was born on September 16th, 2017. Alice and Charlie live in a home for which Alice furnished 60% of the maintenance costs, since September 16th, 2017. Alice is entitled to a deduction for Charlie under section 151(c) for the years 2017 to 2019.",
+    "text_sha256": "6f1499c2c9d425c94bb3e49221a39b2cb3e0a1d9ae6a0baa3bcdfe3d3cd1f651",
+    "proposal": {
+      "old": "Alice furnished 40% of the maintenance costs, since September 16th, 2017.",
+      "new": "Alice furnished 60% of the maintenance costs, since September 16th, 2017.",
+      "changes": [
+        {
+          "variable": "majority_cost",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": null,
+    "error": "Evidência ou tipo inválido",
+    "gold": false,
+    "note": "",
+    "query": "s7703_b_2(alice,alice_s_house,_,2018)",
+    "before_facts": "\n:- discontiguous s151_c_applies/3.\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2012-04-05\").\nson_(charlie_is_born).\nagent_(charlie_is_born,charlie).\npatient_(charlie_is_born,bob).\npatient_(charlie_is_born,alice).\nstart_(charlie_is_born,\"2017-09-16\").\nresidence_(home).\nagent_(home,alice).\nagent_(home,charlie).\npatient_(home,alice_s_house).\nstart_(home,\"2017-09-16\").\nsomeone_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2017,2117,Year), % avoid infinite forward loop\n    atom_concat('someone_maintains_household_',Year,Event),\n    (((Year==2017)->(Start_day=\"2017-09-16\"));first_day_year(Year,Start_day)),\n    last_day_year(Year,End_day).\npayment_(Event) :- someone_household_maintenance(_,Event,_,_).\nagent_(Event,someone) :- someone_household_maintenance(_,Event,_,_).\namount_(Event,60) :- someone_household_maintenance(_,Event,_,_).\npurpose_(Event,home) :- someone_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- someone_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- someone_household_maintenance(_,Event,_,End_day).\nalice_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2017,2117,Year), % avoid infinite forward loop\n    atom_concat('alice_maintains_household_',Year,Event),\n    (((Year==2017)->(Start_day=\"2017-09-16\"));first_day_year(Year,Start_day)),\n    last_day_year(Year,End_day).\npayment_(Event) :- alice_household_maintenance(_,Event,_,_).\nagent_(Event,alice) :- alice_household_maintenance(_,Event,_,_).\namount_(Event,40) :- alice_household_maintenance(_,Event,_,_).\npurpose_(Event,home) :- alice_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- alice_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- alice_household_maintenance(_,Event,_,End_day).\ns151_c_applies(alice,charlie,Year) :- between(2017,2019,Year).\n\n",
+    "after_facts": "\n:- discontiguous s151_c_applies/3.\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2012-04-05\").\nson_(charlie_is_born).\nagent_(charlie_is_born,charlie).\npatient_(charlie_is_born,bob).\npatient_(charlie_is_born,alice).\nstart_(charlie_is_born,\"2017-09-16\").\nresidence_(home).\nagent_(home,alice).\nagent_(home,charlie).\npatient_(home,alice_s_house).\nstart_(home,\"2017-09-16\").\nsomeone_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2017,2117,Year), % avoid infinite forward loop\n    atom_concat('someone_maintains_household_',Year,Event),\n    (((Year==2017)->(Start_day=\"2017-09-16\"));first_day_year(Year,Start_day)),\n    last_day_year(Year,End_day).\npayment_(Event) :- someone_household_maintenance(_,Event,_,_).\nagent_(Event,someone) :- someone_household_maintenance(_,Event,_,_).\namount_(Event,40) :- someone_household_maintenance(_,Event,_,_).\npurpose_(Event,home) :- someone_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- someone_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- someone_household_maintenance(_,Event,_,End_day).\nalice_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2017,2117,Year), % avoid infinite forward loop\n    atom_concat('alice_maintains_household_',Year,Event),\n    (((Year==2017)->(Start_day=\"2017-09-16\"));first_day_year(Year,Start_day)),\n    last_day_year(Year,End_day).\npayment_(Event) :- alice_household_maintenance(_,Event,_,_).\nagent_(Event,alice) :- alice_household_maintenance(_,Event,_,_).\namount_(Event,60) :- alice_household_maintenance(_,Event,_,_).\npurpose_(Event,home) :- alice_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- alice_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- alice_household_maintenance(_,Event,_,End_day).\ns151_c_applies(alice,charlie,Year) :- between(2017,2019,Year).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "e6a4c0742576979488096db0ad40392ecaf1443721f6074c5f73e558e48ef750",
+    "case": "s1_d_neg",
+    "text": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $59909.1935483871.",
+    "text_sha256": "652e303be866e3016faecb224f0f7098c650ee5f0f72490efe0f9144ff617cfc",
+    "proposal": {
+      "old": "70117",
+      "new": "59909.1935483871",
+      "changes": [
+        {
+          "variable": "income",
+          "before": 70117,
+          "after": 59909.1935483871
+        },
+        {
+          "variable": "joint",
+          "before": null,
+          "after": false
+        }
+      ]
+    },
+    "original": false,
+    "after": null,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s1_d(alice,_,2017,_,14836)",
+    "before_facts": "\n:- discontiguous s2_a/3.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns2_a(alice,_,2017).\ns63(alice,2017,70117).\n\n",
+    "after_facts": "\n:- discontiguous s2_a/3.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns2_a(alice,_,2017).\ns63(alice,2017,59909.1935483871).\n\n",
+    "oracle_before": false,
+    "oracle_after": false,
+    "oracle_flip": false,
+    "author_correct_both": false
+  },
+  {
+    "id": "ed93d665e3c187bab1eedac47056ec3777c56647c375f1a1f17b8837281eb59a",
+    "case": "s1_d_pos",
+    "text": "Alice is married under section 7703 for the year 2017. Alice's taxable income for the year 2017 is $554313. Alice files a joint return.",
+    "text_sha256": "260f0fa7ba9454df45af4cf60cb8aac6a63b8bfda81140f1c05c46d4d46f9169",
+    "proposal": {
+      "old": "Alice files a separate return.",
+      "new": "Alice files a joint return.",
+      "changes": [
+        {
+          "variable": "joint",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s1_d(alice,_,2017,_,207772)",
+    "before_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns7703(alice,spouse,_,2017).\ns63(alice,2017,554313).\n\n",
+    "after_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns7703(alice,spouse,_,2017).\ns63(alice,2017,554313).\n\n\njoint_return_(jr).\nagent_(jr,alice).\nagent_(jr,spouse).\nstart_(jr,\"2017-01-01\").\nend_(jr,\"2017-12-31\").\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "a24e8b36aacabcf7b596873aa946631417c4130a13fc27901255cbecba3f4c67",
+    "case": "s1_c_iii_pos",
+    "text": "Alice's taxable income for the year 2017 is $53500. Alice is not married, is not a surviving spouse, and is not a head of household in 2017.",
+    "text_sha256": "20a195e20672a0eb41db380b1e212e72f426f7baa4bcb58feaa8c68d7f8b7e18",
+    "proposal": {
+      "old": "102268",
+      "new": "53500",
+      "changes": [
+        {
+          "variable": "income",
+          "before": 102268,
+          "after": 53500
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63(alice,2017,I),s1_c_iii(I,27225)",
+    "before_facts": "\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns63(alice,2017,102268).\n\n",
+    "after_facts": "\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns63(alice,2017,53500).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "553a85b662dc16979fbc0c8f3338de67aff212eeb44d30d405f6cd980bea7010",
+    "case": "s68_b_1_B_pos",
+    "text": "In 2016, Alice's income was $567192. Alice is not a head of household for the year 2016.",
+    "text_sha256": "e0c5fa05dcee6b32c33c0d2fbbb4c726f29b940b96508d6b1d86eb2c8db3fc89",
+    "proposal": {
+      "old": "Alice is a head of household for the year 2016.",
+      "new": "Alice is not a head of household for the year 2016.",
+      "changes": [
+        {
+          "variable": "head",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s68_b_1_B(alice,275000,2016)",
+    "before_facts": "\n:- discontiguous s2_b/3.\n:- [statutes/prolog/init].\nincome_(alice_is_paid).\nagent_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2016-12-31\").\namount_(alice_is_paid,567192).\ns2_b(alice,_,2016).\n\n",
+    "after_facts": "\n:- discontiguous s2_b/3.\n:- [statutes/prolog/init].\nincome_(alice_is_paid).\nagent_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2016-12-31\").\namount_(alice_is_paid,567192).\n\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "94806b6e2c4b6f98563f1f43e661566338c7fd7d0e4bd92fcfaa4c6e20aacdd7",
+    "case": "s68_b_1_B_neg",
+    "text": "In 2016, Alice's income was $567192. Alice is a head of household for the year 2016.",
+    "text_sha256": "2e04e424e8463d03a3d439f3ef5e40d047c50e5282c0810f9096962531d93796",
+    "proposal": {
+      "old": "Alice is a surviving spouse for the year 2016.",
+      "new": "Alice is a head of household for the year 2016.",
+      "changes": [
+        {
+          "variable": "head",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s68_b_1_B(alice,275000,2016)",
+    "before_facts": "\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\nincome_(alice_is_paid).\nagent_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2016-12-31\").\namount_(alice_is_paid,567192).\ns2_a(alice,_,2016).\n\n",
+    "after_facts": "\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\nincome_(alice_is_paid).\nagent_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2016-12-31\").\namount_(alice_is_paid,567192).\ns2_b(alice,_,2016).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "507111aa37c5180132adfa88e9b848d8876184fe33fff59123d45c1b40e5985e",
+    "case": "s152_d_2_C_pos",
+    "text": "Bob is not Alice's son.",
+    "text_sha256": "6ab08e4e7ac79bc8ae0a6fe04d7771c9f0575e467e703c661b5c696480999d9a",
+    "proposal": {
+      "old": "Bob is Alice's son since April 15th, 2014.",
+      "new": "Bob is not Alice's son.",
+      "changes": [
+        {
+          "variable": "parent",
+          "before": true,
+          "after": false
+        },
+        {
+          "variable": "ancestor",
+          "before": null,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": null,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s152_d_2_C(alice,bob,_,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nson_(alice_and_bob).\nagent_(alice_and_bob,bob).\npatient_(alice_and_bob,alice).\nstart_(alice_and_bob,\"2014-04-15\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "f5ad4867838bb927fff90ace9ef340ce15d971c629f34848554b5585b57dc6a9",
+    "case": "s63_b_neg",
+    "text": "In 2017, Alice was paid $33400. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+    "text_sha256": "2213d120d95429f5c29a9760cc06a8fc96ce3092d5eaf3af6717b6280d9971da",
+    "proposal": {
+      "old": "In 2017, Alice was paid $33200. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+      "new": "In 2017, Alice was paid $33400. She is allowed a deduction under section 63(c)(1) of $2000 for the year 2017, and no deduction under section 151. Alice takes the standard deduction.",
+      "changes": [
+        {
+          "variable": "agi",
+          "before": 31200,
+          "after": 33400
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s63_b(alice,2017,31400,_)",
+    "before_facts": "\n:- discontiguous s63_c_1/3.\n:- discontiguous s151/5.\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\ns63_c_1(alice,2017,2000).\ns151(alice,0,_,_,2017).\n\n",
+    "after_facts": "\n:- discontiguous s63_c_1/3.\n:- discontiguous s151/5.\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33400).\ns63_c_1(alice,2017,2000).\ns151(alice,0,_,_,2017).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "2e39de75bec62fa6563433d1227619629762e8272710799b6e7e13e711b05480",
+    "case": "s63_c_6_B_pos",
+    "text": "In 2017, Alice was paid $33200. Alice and Bob got married on Feb 3rd, 2017. Alice was a resident alien from August 23rd, 2016 to September 15th, 2018.",
+    "text_sha256": "50539d5c52c8c4338dbdb191c486b9fe1cc3494f1352ced5263446f2f3c23159",
+    "proposal": {
+      "old": "Alice was a nonresident alien from August 23rd, 2016 to September 15th, 2018.",
+      "new": "Alice was a resident alien from August 23rd, 2016 to September 15th, 2018.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Alice was a nonresident alien from August 23rd, 2016 to September 15th, 2018.",
+          "after": "Alice was a resident alien from August 23rd, 2016 to September 15th, 2018."
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63_c_6_B(alice,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\nnonresident_alien_(alice_is_a_nra).\nagent_(alice_is_a_nra,alice).\nstart_(alice_is_a_nra,\"2016-08-23\").\nend_(alice_is_a_nra,\"2018-08-15\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "3ecf0c3277a81c448f3d53362e2d529b64c0dd04ff0ff742aa9061727f61f053",
+    "case": "s3306_c_11_pos",
+    "text": "Alice was paid $73200 in 2017 as an employee of a private company.",
+    "text_sha256": "b946d4442274ebaed443202851ad25fde1ec5a3fb0d651e32956d60d9c8a9626",
+    "proposal": {
+      "old": "Alice was paid $73200 in 2017 as an employee of the Canadian Government.",
+      "new": "Alice was paid $73200 in 2017 as an employee of a private company.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Employer for the service was a foreign government, including its consular or diplomatic service.",
+          "after": "Employer for the service was a private company."
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s3306_c_11(alice_employed,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"canadian government\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,\"toronto\").\nlocation_(alice_employed,\"ontario\").\nlocation_(alice_employed,\"canada\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"canadian government\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"private company\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,\"toronto\").\nlocation_(alice_employed,\"ontario\").\nlocation_(alice_employed,\"canada\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"private company\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "9ef8828ddeb8b0df865c0619ac80c6846fe6e19f457924c4f945f4dd138b1d42",
+    "case": "s3306_c_11_neg",
+    "text": "Alice was paid $73200 in 2017 as an employee of a foreign government in Baltimore, Maryland, USA.",
+    "text_sha256": "add5d0578bdf6516fe6152fb908dd21115746363067b875cf9e5048e61792a96",
+    "proposal": {
+      "old": "Alice was paid $73200 in 2017 as an employee of the State of Maryland in Baltimore, Maryland, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of a foreign government in Baltimore, Maryland, USA.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_c_11(alice_employed,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"state of maryland\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,\"baltimore\").\nlocation_(alice_employed,\"maryland\").\nlocation_(alice_employed,\"usa\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"state of maryland\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"foreign government\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,\"baltimore\").\nlocation_(alice_employed,\"maryland\").\nlocation_(alice_employed,\"usa\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"foreign government\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "a9f30095d90299f7824c76c95afdc605e6b32f336bd6734c60f5d4b10530c377",
+    "case": "s1_c_neg",
+    "text": "Alice is not married under section 7703 for the year 2017. Alice files a single return for 2017. Alice's taxable income for the year 2017 is $17333.3333.",
+    "text_sha256": "ea2db467967b8ac337844a7f064432bbcea012579b1a69d99d0b00e2bd06c309",
+    "proposal": {
+      "old": "Alice is married under section 7703 for the year 2017. Alice files a joint return with her spouse for 2017. Alice's and her spouse's taxable income for the year 2017 is $17330.",
+      "new": "Alice is not married under section 7703 for the year 2017. Alice files a single return for 2017. Alice's taxable income for the year 2017 is $17333.3333.",
+      "changes": [
+        {
+          "variable": "income",
+          "before": 17330,
+          "after": 17333.3333333333
+        },
+        {
+          "variable": "married",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": false,
+    "after": null,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s1_c(alice,2017,_,2600)",
+    "before_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\ns7703(alice,spouse,_,2017).\njoint_return_(joint_return).\nagent_(joint_return,alice).\nagent_(joint_return,spouse).\nstart_(joint_return,\"2017-01-01\").\nend_(joint_return,\"2017-12-31\").\ns63(alice,2017,17330).\n\n",
+    "after_facts": "\n:- discontiguous s7703/4.\n:- discontiguous s63/3.\n:- [statutes/prolog/init].\n\ns63(alice,2017,17333.3333).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "08b32ac75bb050882184194007114750db4ebecd6eeb51dbee41d4cfe851608c",
+    "case": "s152_a_pos",
+    "text": "Alice has a son, Bob, who does not satisfy section 152(c)(1) for the year 2015, and Bob is not a qualifying relative of Alice for the year 2015.",
+    "text_sha256": "fd3106198d94345e82eb278176c84a7e16e2d6e99e574fe4f3a846a8e73a9a1c",
+    "proposal": {
+      "old": "Alice has a son, Bob, who satisfies section 152(c)(1) for the year 2015.",
+      "new": "Alice has a son, Bob, who does not satisfy section 152(c)(1) for the year 2015, and Bob is not a qualifying relative of Alice for the year 2015.",
+      "changes": [
+        {
+          "variable": "child",
+          "before": true,
+          "after": false
+        },
+        {
+          "variable": "relative",
+          "before": null,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": null,
+    "error": "Evidência ou tipo inválido",
+    "gold": true,
+    "note": "Retirada a classificação afirmada. O caso oficial não codifica separadamente a filiação.",
+    "query": "s152_a(bob,alice,2015,_,_)",
+    "before_facts": "\n:- discontiguous s152_c_1/3.\n:- [statutes/prolog/init].\ns152_c_1(bob,alice,2015).\n\n",
+    "after_facts": "\n:- discontiguous s152_c_1/3.\n:- [statutes/prolog/init].\n\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "3604857f9b9c5b00f9f876ae767c9b3028ad4e1a603724bcf87528faebcd37b7",
+    "case": "s1_a_2_v_pos",
+    "text": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615570.",
+    "text_sha256": "c3009a4593277d45a00acff086df9e1cd48d445d16db68aa7f1c12b34673cf93",
+    "proposal": {
+      "old": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615572.",
+      "new": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $615570.",
+      "changes": [
+        {
+          "variable": "income",
+          "before": 615572,
+          "after": 615570
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63(alice,2017,I),s1_a_v(I,220295)",
+    "before_facts": "\n:- discontiguous s63/3.\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\ns2_a(alice,_,2017).\ns63(alice,2017,615572).\n\n",
+    "after_facts": "\n:- discontiguous s63/3.\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\ns2_a(alice,_,2017).\ns63(alice,2017,615570).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "a2cdf23de34a9057d9c71215799af67c800354bd8dcbe39b77ac0191f2085433",
+    "case": "s7703_a_1_pos",
+    "text": "Alice and Bob got married on April 5th, 2013. Bob died September 16th, 2017.",
+    "text_sha256": "1b6c5385d16e201d66e6246e562e1a6887bb9376652d33fc0b8bc616ab557601",
+    "proposal": {
+      "old": "Alice and Bob got married on April 5th, 2012.",
+      "new": "Alice and Bob got married on April 5th, 2013.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Alice and Bob got married on April 5th, 2012.",
+          "after": "Alice and Bob got married on April 5th, 2013."
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s7703_a_1(alice,_,_,_,2012)",
+    "before_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2012-04-05\").\ndeath_(bob_dies).\nagent_(bob_dies,bob).\nstart_(bob_dies,\"2017-09-16\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2013-04-05\").\ndeath_(bob_dies).\nagent_(bob_dies,bob).\nstart_(bob_dies,\"2017-09-16\").\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "fa41c43197a6d48e542b321af1330e848b64ba20eca1a16b42d47efd6fb7b9fc",
+    "case": "s7703_a_1_neg",
+    "text": "Alice and Bob got married on April 5th, 2012. Bob and Alice divorced on September 16th, 2017.",
+    "text_sha256": "d4a9cf90d66038e0bf184b59a63b235226acbe424ff3adaa58ff974e3fda6d30",
+    "proposal": {
+      "old": "Bob died September 16th, 2017.",
+      "new": "Bob and Alice divorced on September 16th, 2017.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s7703_a_1(alice,_,_,_,2018)",
+    "before_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2012-04-05\").\ndeath_(bob_dies).\nagent_(bob_dies,bob).\nstart_(bob_dies,\"2017-09-16\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2012-04-05\").\n\nend_(alice_and_bob,\"2017-09-16\").\n",
+    "oracle_before": false,
+    "oracle_after": false,
+    "oracle_flip": false,
+    "author_correct_both": false
+  },
+  {
+    "id": "1b21f8d3104c630cff21f575928147a2a59d589c81706022a8e0eed1bb9fcf27",
+    "case": "s3306_c_16_neg",
+    "text": "Alice was paid $73200 in 2017 as an employee of an international organization in Arlington, Virginia, USA.",
+    "text_sha256": "7e80490654dcc11f3240b1054bc50a07ad3c1a937ee246a456208b979347bb2e",
+    "proposal": {
+      "old": "Alice was paid $73200 in 2017 as an employee of the United States Government in Arlington, Virginia, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of an international organization in Arlington, Virginia, USA.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_c_16(alice_employed,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"united states government\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,arlington).\nlocation_(alice_employed,virginia).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"united states government\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"international organization\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,arlington).\nlocation_(alice_employed,virginia).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"international organization\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n\ninternational_organization_(org).\nagent_(org,\"international organization\").\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "ad9a1d00f51e1bf0cb218772128844bdd6797a66eb4e70b7d739ef6ea8c1a668",
+    "case": "s3306_c_B_neg",
+    "text": "Alice has paid $3200 to Bob for work done from Feb 1st, 2017 to Sep 2nd, 2017, in Caracas, Venezuela. Alice is an American employer, and Bob is an American citizen.",
+    "text_sha256": "6ae3ba98080705ffd8b8ade6b17f0895a9a9ec9f3119512a3cb7be33c99e120f",
+    "proposal": {
+      "old": "Alice is a citizen of Venezuela",
+      "new": "Alice is an American employer",
+      "changes": [
+        {
+          "variable": "employer",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": null,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_c_B(_,alice,bob,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employer).\npatient_(alice_employer,alice).\nagent_(alice_employer,bob).\nstart_(alice_employer,\"2017-02-01\").\nend_(alice_employer,\"2017-09-02\").\nlocation_(alice_employer,\"caracas, venezuela\").\ncountry_(\"caracas, venezuela\",\"venezuela\").\npayment_(alice_pays).\nagent_(alice_pays,alice).\npatient_(alice_pays,bob).\nstart_(alice_pays,\"2017-09-02\").\npurpose_(alice_pays,alice_employer).\namount_(alice_pays,3200).\ncitizenship_(alice_is_venezuelan).\nagent_(alice_is_venezuelan,alice).\npatient_(alice_is_venezuelan,\"venezuela\").\ncitizenship_(bob_is_american).\nagent_(bob_is_american,bob).\npatient_(bob_is_american,\"usa\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employer).\npatient_(alice_employer,alice).\nagent_(alice_employer,bob).\nstart_(alice_employer,\"2017-02-01\").\nend_(alice_employer,\"2017-09-02\").\nlocation_(alice_employer,\"caracas, venezuela\").\ncountry_(\"caracas, venezuela\",\"venezuela\").\npayment_(alice_pays).\nagent_(alice_pays,alice).\npatient_(alice_pays,bob).\nstart_(alice_pays,\"2017-09-02\").\npurpose_(alice_pays,alice_employer).\namount_(alice_pays,3200).\ncitizenship_(bob_is_american).\nagent_(bob_is_american,bob).\npatient_(bob_is_american,\"usa\").\n\namerican_employer_(ae).\nagent_(ae,alice).\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "64c5ccca629e6e125659c18013aceba4c27388c5a167ae13587d098692d5c87a",
+    "case": "s1_b_pos",
+    "text": "Alice is not a head of household for the year 2017. Alice's taxable income for the year 2017 is $97407.",
+    "text_sha256": "99057b344f3e1bfd3fe33b87b709c158dcb3f7142deefd28b9ec0c1be19d059c",
+    "proposal": {
+      "old": "Alice is a head of household for the year 2017.",
+      "new": "Alice is not a head of household for the year 2017.",
+      "changes": [
+        {
+          "variable": "head",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s1_b(alice,2017,_,24056)",
+    "before_facts": "\n:- discontiguous s63/3.\n:- discontiguous s2_b/3.\n:- [statutes/prolog/init].\ns2_b(alice,_,2017).\ns63(alice,2017,97407).\n\n",
+    "after_facts": "\n:- discontiguous s63/3.\n:- discontiguous s2_b/3.\n:- [statutes/prolog/init].\n\ns63(alice,2017,97407).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "329f0faa8e713b2ed7cc8e31cf41127a37d54c765da29c9daae22e0db51a383d",
+    "case": "s3306_c_7_neg",
+    "text": "Alice was paid $73200 in 2017 as an employee of the Maryland State Government in Baltimore, Maryland, USA.",
+    "text_sha256": "9a340cb8936f4d3d97b8a39c9217e966ef7bd6075246cbcfb2d3006f5ae539cb",
+    "proposal": {
+      "old": "Alice was paid $73200 in 2017 as an employee of Bertha's Mussels in Baltimore, Maryland, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of the Maryland State Government in Baltimore, Maryland, USA.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_c_7(alice_employed,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"bertha's mussels\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,baltimore).\nlocation_(alice_employed,maryland).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"bertha's mussels\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"state of maryland\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,baltimore).\nlocation_(alice_employed,maryland).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"state of maryland\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "44473a8cd34d638eb25bcc7b2396196131a2551b2bbde0ce125cb8f28bc22861",
+    "case": "s3306_c_7_pos",
+    "text": "Alice was paid $73200 in 2017 as an employee of a private company in Maryland.",
+    "text_sha256": "2eccafdac4dc1f325bbcdbe602e13b591006d304f4d78157634884e03b0ee72e",
+    "proposal": {
+      "old": "Alice was paid $73200 in 2017 as an employee of the State of Maryland in Baltimore, Maryland, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of a private company in Maryland.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s3306_c_7(alice_employed,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"state of maryland\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,baltimore).\nlocation_(alice_employed,maryland).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"state of maryland\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"private company\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,baltimore).\nlocation_(alice_employed,maryland).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"private company\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "226ab5020339bd2d2c2901e37e534cf5a50198306feed512dc03cfea1a7795b5",
+    "case": "s2_b_1_A_i_I_neg",
+    "text": "Alice and Bob got married on Feb 3rd, 1992. Alice and Bob have a child, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. Charlie married Dan on Feb 14th, 2017.",
+    "text_sha256": "823849ac001d5f06c63d81bbdcac32562a0cb4ef9996457ca8eb0f5fb014d73b",
+    "proposal": {
+      "old": "Charlie married Dan on Feb 14th, 2018.",
+      "new": "Charlie married Dan on Feb 14th, 2017.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s2_b_1_A_i_I(charlie,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nson_(charlie_is_son).\nagent_(charlie_is_son,charlie).\npatient_(charlie_is_son,alice).\npatient_(charlie_is_son,bob).\nstart_(charlie_is_son,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\nmarriage_(charlie_and_dan).\nagent_(charlie_and_dan,dan).\nagent_(charlie_and_dan,charlie).\nstart_(charlie_and_dan,\"2018-02-14\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nson_(charlie_is_son).\nagent_(charlie_is_son,charlie).\npatient_(charlie_is_son,alice).\npatient_(charlie_is_son,bob).\nstart_(charlie_is_son,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\nmarriage_(charlie_and_dan).\nagent_(charlie_and_dan,dan).\nagent_(charlie_and_dan,charlie).\nstart_(charlie_and_dan,\"2017-02-14\").\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "557e54a52c72596511ce3f244364ce1c11b0ea1ceb61afe14412d178a0bc6e9c",
+    "case": "s2_b_1_A_i_I_pos",
+    "text": "Alice and Bob got married on Feb 3rd, 1992. Alice and Bob have a child, Charlie, born October 9th, 2000. Alice died on July 9th, 2014. From 2004 to 2019, Bob furnished the costs of maintaining the home where he and Charlie lived during that time. Charlie did not marry Dan on or before December 31, 2017.",
+    "text_sha256": "8c0be81d1435434c4c93a56e0baaa422086f1e8fe043cb00c26c75c714d68809",
+    "proposal": {
+      "old": "Charlie married Dan on Feb 14th, 2017.",
+      "new": "Charlie did not marry Dan on or before December 31, 2017.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Charlie married Dan on Feb 14th, 2017.",
+          "after": "Charlie did not marry Dan on or before December 31, 2017."
+        }
+      ]
+    },
+    "original": true,
+    "after": null,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s2_b_1_A_i_I(charlie,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nson_(charlie_is_son).\nagent_(charlie_is_son,charlie).\npatient_(charlie_is_son,alice).\npatient_(charlie_is_son,bob).\nstart_(charlie_is_son,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\nmarriage_(charlie_and_dan).\nagent_(charlie_and_dan,dan).\nagent_(charlie_and_dan,charlie).\nstart_(charlie_and_dan,\"2017-02-14\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"1992-02-03\").\ndeath_(alice_dies).\nagent_(alice_dies,alice).\nstart_(alice_dies,\"2014-07-09\").\nend_(alice_dies,\"2014-07-09\").\nson_(charlie_is_son).\nagent_(charlie_is_son,charlie).\npatient_(charlie_is_son,alice).\npatient_(charlie_is_son,bob).\nstart_(charlie_is_son,\"2000-10-09\").\nresidence_(charlie_and_bob_residence).\nagent_(charlie_and_bob_residence,charlie).\nagent_(charlie_and_bob_residence,bob).\npatient_(charlie_and_bob_residence,bob_s_house).\nstart_(charlie_and_bob_residence,\"2004-01-01\").\nend_(charlie_and_bob_residence,\"2019-12-31\").\nbob_household_maintenance(Year,Event,Start_day,End_day) :-\n    between(2004,2019,Year),\n    atom_concat('bob_maintains_household_',Year,Event),\n    first_day_year(Year,Start_day),\n    last_day_year(Year,End_day).\npayment_(Event) :- bob_household_maintenance(_,Event,_,_).\nagent_(Event,bob) :- bob_household_maintenance(_,Event,_,_).\namount_(Event,1) :- bob_household_maintenance(_,Event,_,_).\npurpose_(Event,bob_s_house) :- bob_household_maintenance(_,Event,_,_).\nstart_(Event,Start_day) :- bob_household_maintenance(_,Event,Start_day,_).\nend_(Event,End_day) :- bob_household_maintenance(_,Event,_,End_day).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "1b19e252b3d2a6955390442346e4249d65bf0f91a01c4c5bcaf3e1664a489005",
+    "case": "s63_c_2_A_i_pos",
+    "text": "In 2017, Alice was paid $33200 in remuneration. Alice and Bob have been married since Feb 3rd, 2017, and they file separate returns for 2017.",
+    "text_sha256": "7ee067f5140240be770e893c41a35435e9686437133b3d88da56171c6d08a1e0",
+    "proposal": {
+      "old": "they file a joint return for 2017.",
+      "new": "they file separate returns for 2017.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63_c_2_A_i(alice,_,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\njoint_return_(alice_and_bob_file_a_joint_return).\nagent_(alice_and_bob_file_a_joint_return,alice).\nagent_(alice_and_bob_file_a_joint_return,bob).\nstart_(alice_and_bob_file_a_joint_return,\"2017-01-01\").\nend_(alice_and_bob_file_a_joint_return,\"2017-12-31\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "44340e26519acd770b012f21f9188dd9743a807c25ef886388f6ad5ed25169ce",
+    "case": "s63_c_2_A_i_neg",
+    "text": "In 2017, Alice was paid $33200 in remuneration. Alice and Bob have been married since Feb 3rd, 2017. Alice and Bob file joint returns in 2017.",
+    "text_sha256": "0109b95beaa9cf2314542af1c150cba4b9684829a17e7b2537d61b15533035ea",
+    "proposal": {
+      "old": "Alice and Bob file separate returns in 2017.",
+      "new": "Alice and Bob file joint returns in 2017.",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Alice and Bob file separate returns in 2017.",
+          "after": "Alice and Bob file joint returns in 2017."
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s63_c_2_A_i(alice,_,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\n\n\njoint_return_(jr).\nagent_(jr,alice).\nstart_(jr,\"2017-01-01\").\nend_(jr,\"2017-12-31\").\nagent_(jr,bob).",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "5f297c84513d49fcab6ca50e4c1beaa8c7583809648d612a172f0277e27bd7be",
+    "case": "s63_f_1_A_pos",
+    "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Alice was born March 2nd, 1953 and Bob was born March 3rd, 1955.",
+    "text_sha256": "0ce1d96428889743632a5280e44382d6f20513d0fff848de51d0c3c561b52ed0",
+    "proposal": {
+      "old": "Alice was born March 2nd, 1950",
+      "new": "Alice was born March 2nd, 1953",
+      "changes": [
+        {
+          "variable": "birth_year",
+          "before": 1950,
+          "after": 1953
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63_f_1_A(alice,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\nbirth_(alice_is_born).\nagent_(alice_is_born,alice).\nstart_(alice_is_born,\"1950-03-02\").\nend_(alice_is_born,\"1950-03-02\").\nbirth_(bob_is_born).\nagent_(bob_is_born,bob).\nstart_(bob_is_born,\"1955-03-03\").\nend_(bob_is_born,\"1955-03-03\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\nbirth_(alice_is_born).\nagent_(alice_is_born,alice).\nstart_(alice_is_born,\"1953-03-02\").\nend_(alice_is_born,\"1953-03-02\").\nbirth_(bob_is_born).\nagent_(bob_is_born,bob).\nstart_(bob_is_born,\"1955-03-03\").\nend_(bob_is_born,\"1955-03-03\").\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "882152827d371b3bf1aa8fe45150569587392eb2bf95a1a9ad74c132e2a290ed",
+    "case": "s63_f_1_A_neg",
+    "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Alice was born March 2nd, 1950 and Bob was born March 3rd, 1952.",
+    "text_sha256": "d0c1b4243e22f2f4b37e2d5b5d0396d7430425fd6d1b9c2c81dcac5eb0c8ba73",
+    "proposal": {
+      "old": "Bob was born March 3rd, 1955.",
+      "new": "Bob was born March 3rd, 1952.",
+      "changes": [
+        {
+          "variable": "birth_year",
+          "before": 1955,
+          "after": 1952
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s63_f_1_A(bob,2017)",
+    "before_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\nbirth_(alice_is_born).\nagent_(alice_is_born,alice).\nstart_(alice_is_born,\"1950-03-02\").\nend_(alice_is_born,\"1950-03-02\").\nbirth_(bob_is_born).\nagent_(bob_is_born,bob).\nstart_(bob_is_born,\"1955-03-03\").\nend_(bob_is_born,\"1955-03-03\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\nbirth_(alice_is_born).\nagent_(alice_is_born,alice).\nstart_(alice_is_born,\"1950-03-02\").\nend_(alice_is_born,\"1950-03-02\").\nbirth_(bob_is_born).\nagent_(bob_is_born,bob).\nstart_(bob_is_born,\"1952-03-03\").\nend_(bob_is_born,\"1952-03-03\").\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "ff130d3e778981da0f0cd3dd12ad729c11e11e5c9645a43382067120ef1061ad",
+    "case": "s68_a_2_pos",
+    "text": "In 2016, Alice's income was $277192. Alice is a head of household for the year 2016. Alice is allowed itemized deductions of $60001 under section 63.",
+    "text_sha256": "863d5868c21ae426ea70f31a4684f9b4fdd19249053e936c56c662e5d28d95e0",
+    "proposal": {
+      "old": "Alice is allowed itemized deductions of $60000 under section 63.",
+      "new": "Alice is allowed itemized deductions of $60001 under section 63.",
+      "changes": [
+        {
+          "variable": "itemized",
+          "before": 60000,
+          "after": 60001
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s68_a_2(alice,_,48000,2016)",
+    "before_facts": "\n:- discontiguous s2_b/3.\n:- discontiguous s63_d/4.\n:- [statutes/prolog/init].\nincome_(alice_is_paid).\nagent_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2016-12-31\").\namount_(alice_is_paid,277192).\ns63_d(alice,_,60000,2016).\ns2_b(alice,_,2016).\n\n",
+    "after_facts": "\n:- discontiguous s2_b/3.\n:- discontiguous s63_d/4.\n:- [statutes/prolog/init].\nincome_(alice_is_paid).\nagent_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2016-12-31\").\namount_(alice_is_paid,277192).\ns63_d(alice,_,60001,2016).\ns2_b(alice,_,2016).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "9d17ddac5f87c5799a02ba9a15773c2299aba463c2d008c74e803a222dba7196",
+    "case": "s63_f_2_B_pos",
+    "text": "In 2017, Alice was paid $33200. Alice and Bob have been married since Feb 3rd, 2017. Alice is not blind as of the close of the 2017 tax year. In addition, Bob is allowed an exemption for Alice under section 151(b) for the year 2017.",
+    "text_sha256": "3b830aabbdf21a59d3e78d2766b4137007e1eafc6fe24b03b9e9bc8251441692",
+    "proposal": {
+      "old": "Alice has been blind since Feb 28, 2014.",
+      "new": "Alice is not blind as of the close of the 2017 tax year.",
+      "changes": [
+        {
+          "variable": "blind",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "A cegueira no fechamento do ano é o parâmetro consultado.",
+    "query": "s63_f_2_B(bob,_,2017)",
+    "before_facts": "\n:- discontiguous s151_b_applies/3.\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\nblindness_(alice_is_blind).\nagent_(alice_is_blind,alice).\nstart_(alice_is_blind,\"2014-02-28\").\ns151_b_applies(bob,alice,2017).\n\n",
+    "after_facts": "\n:- discontiguous s151_b_applies/3.\n:- [statutes/prolog/init].\npayment_(alice_is_paid).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\namount_(alice_is_paid,33200).\nmarriage_(alice_and_bob).\nagent_(alice_and_bob,alice).\nagent_(alice_and_bob,bob).\nstart_(alice_and_bob,\"2017-02-03\").\ns151_b_applies(bob,alice,2017).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "c0a79d140a84c76232ea48277b129a5f5490fd04b9a606aa612e0a282852e706",
+    "case": "s3306_b_2_C_neg",
+    "text": "Alice has paid $45252 to Bob for work done in the year 2017. In 2017, Alice has also paid $9832 into a retirement fund for Bob to provide a death benefit, and $5322 into life insurance for Charlie, who is Alice's father and has retired in 2016.",
+    "text_sha256": "f3d69af919c5a51aa0e78b8649dcc1eb8591ed40eb808a969b7a46f6a1d1913c",
+    "proposal": {
+      "old": "Alice has also paid $9832 into a retirement fund for Bob",
+      "new": "Alice has also paid $9832 into a retirement fund for Bob to provide a death benefit",
+      "changes": [
+        {
+          "variable": "fact",
+          "before": "Alice has also paid $9832 into a retirement fund for Bob",
+          "after": "Alice has also paid $9832 into a retirement fund for Bob to provide a death benefit"
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_b_2_C(retirement_fund)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employer).\npatient_(alice_employer,alice).\nagent_(alice_employer,bob).\nstart_(alice_employer,\"2017-01-01\").\nend_(alice_employer,\"2017-12-31\").\npayment_(alice_pays_bob).\nagent_(alice_pays_bob,alice).\npatient_(alice_pays_bob,bob).\nstart_(alice_pays_bob,\"2017-01-01\").\nend_(alice_pays_bob,\"2017-12-31\").\npurpose_(alice_pays_bob,alice_employer).\namount_(alice_pays_bob,45252).\npayment_(alice_pays_retirement).\nagent_(alice_pays_retirement,alice).\npatient_(alice_pays_retirement,retirement_fund).\npurpose_(alice_pays_retirement,\"make provisions for employees in case of retirement\").\nbeneficiary_(alice_pays_retirement,bob).\nstart_(alice_pays_retirement,\"2017-01-01\").\nend_(alice_pays_retirement,\"2017-12-31\").\namount_(alice_pays_retirement,9832).\npayment_(alice_pays_insurance).\nagent_(alice_pays_insurance,alice).\npatient_(alice_pays_insurance,life_insurance_fund).\npurpose_(alice_pays_insurance,\"make provisions in case of death\").\nbeneficiary_(alice_pays_insurance,charlie).\nstart_(alice_pays_insurance,\"2017-01-01\").\nend_(alice_pays_insurance,\"2017-12-31\").\namount_(alice_pays_insurance,5322).\nfather_(alice_and_charlie).\nagent_(alice_and_charlie,charlie).\npatient_(alice_and_charlie,alice).\nretirement_(charlie_retires).\nagent_(charlie_retires,charlie).\nstart_(charlie_retires,\"2016-01-01\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employer).\npatient_(alice_employer,alice).\nagent_(alice_employer,bob).\nstart_(alice_employer,\"2017-01-01\").\nend_(alice_employer,\"2017-12-31\").\npayment_(alice_pays_bob).\nagent_(alice_pays_bob,alice).\npatient_(alice_pays_bob,bob).\nstart_(alice_pays_bob,\"2017-01-01\").\nend_(alice_pays_bob,\"2017-12-31\").\npurpose_(alice_pays_bob,alice_employer).\namount_(alice_pays_bob,45252).\npayment_(alice_pays_retirement).\nagent_(alice_pays_retirement,alice).\npatient_(alice_pays_retirement,retirement_fund).\npurpose_(alice_pays_retirement,\"make provisions in case of death\").\nbeneficiary_(alice_pays_retirement,bob).\nstart_(alice_pays_retirement,\"2017-01-01\").\nend_(alice_pays_retirement,\"2017-12-31\").\namount_(alice_pays_retirement,9832).\npayment_(alice_pays_insurance).\nagent_(alice_pays_insurance,alice).\npatient_(alice_pays_insurance,life_insurance_fund).\npurpose_(alice_pays_insurance,\"make provisions in case of death\").\nbeneficiary_(alice_pays_insurance,charlie).\nstart_(alice_pays_insurance,\"2017-01-01\").\nend_(alice_pays_insurance,\"2017-12-31\").\namount_(alice_pays_insurance,5322).\nfather_(alice_and_charlie).\nagent_(alice_and_charlie,charlie).\npatient_(alice_and_charlie,alice).\nretirement_(charlie_retires).\nagent_(charlie_retires,charlie).\nstart_(charlie_retires,\"2016-01-01\").\n\n",
+    "oracle_before": false,
+    "oracle_after": false,
+    "oracle_flip": false,
+    "author_correct_both": false
+  },
+  {
+    "id": "a7e43aa7ea0c03c57389e43133c1de5f4f80a02353b6cf773c370655fe4a9132",
+    "case": "s1_a_2_iv_pos",
+    "text": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $140000.",
+    "text_sha256": "36ca13ecc1435a81e6d59e73aebec4e345b39e4b54c1dd9f317d314b07798035",
+    "proposal": {
+      "old": "Alice's taxable income for the year 2017 is $236422.",
+      "new": "Alice's taxable income for the year 2017 is $140000.",
+      "changes": [
+        {
+          "variable": "income",
+          "before": 236422,
+          "after": 140000
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s63(alice,2017,I),s1_a_iv(I,70640)",
+    "before_facts": "\n:- discontiguous s63/3.\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\ns2_a(alice,_,2017).\ns63(alice,2017,236422).\n\n",
+    "after_facts": "\n:- discontiguous s63/3.\n:- discontiguous s2_a/3.\n:- [statutes/prolog/init].\ns2_a(alice,_,2017).\ns63(alice,2017,140000).\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "e2e5d9323903b2088bb1e7750c87f0da87edffffb37f7135462ed8c839a659c9",
+    "case": "s3306_c_6_neg",
+    "text": "Alice was paid $73200 in 2017 as an employee of the United States government in Arlington, Virginia, USA.",
+    "text_sha256": "53d859df5b4625a7a45bbce882b8cd59da50d1f3b3045429ec3185353ef36e2f",
+    "proposal": {
+      "old": "Alice was paid $73200 in 2017 as an employee of Nando's Chicken in Arlington, Virginia, USA.",
+      "new": "Alice was paid $73200 in 2017 as an employee of the United States government in Arlington, Virginia, USA.",
+      "changes": [
+        {
+          "variable": "facts.fact.value",
+          "before": false,
+          "after": true
+        },
+        {
+          "variable": "facts.fact.quote",
+          "before": "Alice was paid $73200 in 2017 as an employee of Nando's Chicken in Arlington, Virginia, USA.",
+          "after": "Alice was paid $73200 in 2017 as an employee of the United States government in Arlington, Virginia, USA."
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_c_6(alice_employed)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"nando's chicken\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,\"arlington\").\nlocation_(alice_employed,\"virginia\").\nlocation_(alice_employed,\"usa\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"nando's chicken\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employed).\npatient_(alice_employed,\"united states government\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-01-01\").\nend_(alice_employed,\"2017-12-31\").\nlocation_(alice_employed,\"arlington\").\nlocation_(alice_employed,\"virginia\").\nlocation_(alice_employed,\"usa\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"united states government\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-12-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,73200).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "267ceac4c3349cfb337062d1570f838ad125e1d6beadb2d1eb74f1d34e437af9",
+    "case": "s3301_pos",
+    "text": "Alice is an employer under section 3306(a) for the year 2015 and 2016, and she has paid $453008 in total wages in 2015, and $443870 in 2016.",
+    "text_sha256": "23fde44d42101df2aca4e0bb02fdcc5684dbc5ba3e8b42e90f05902e89a08247",
+    "proposal": {
+      "old": "$453009",
+      "new": "$453008",
+      "changes": [
+        {
+          "variable": "wages",
+          "before": 453009,
+          "after": 453008
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s3301(alice,2015,_,_,_,27181)",
+    "before_facts": "\n:- discontiguous total_wages_employer/6.\n:- discontiguous s3306_a/2.\n:- [statutes/prolog/init].\ns3306_a(alice,Year) :- between(2015,2016,Year).\ntotal_wages_employer(alice,453009,_,_,\"2015-01-01\",\"2015-12-31\").\ntotal_wages_employer(alice,443870,_,_,\"2016-01-01\",\"2016-12-31\").\n\n",
+    "after_facts": "\n:- discontiguous total_wages_employer/6.\n:- discontiguous s3306_a/2.\n:- [statutes/prolog/init].\ns3306_a(alice,Year) :- between(2015,2016,Year).\ntotal_wages_employer(alice,453008,_,_,\"2015-01-01\",\"2015-12-31\").\ntotal_wages_employer(alice,443870,_,_,\"2016-01-01\",\"2016-12-31\").\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "c106fadfdb761cc0ad51588d972a3c15e08297c2c3affb87ee01a9dfa9d73e2b",
+    "case": "s3301_neg",
+    "text": "Alice is an employer under section 3306(a) for the year 2015 and 2016, and she has paid $453009 in total wages in 2015, and $439360 in 2016.",
+    "text_sha256": "c87858de7fd2a6d448643376a7f0b34cf01cbaad2bdf4c477a57833b16f0620b",
+    "proposal": {
+      "old": "443870",
+      "new": "439360",
+      "changes": [
+        {
+          "variable": "wages",
+          "before": 443870,
+          "after": 439360
+        }
+      ]
+    },
+    "original": false,
+    "after": null,
+    "error": "Evidência ou tipo inválido",
+    "gold": false,
+    "note": "",
+    "query": "s3301(alice,2016,_,_,_,26362)",
+    "before_facts": "\n:- discontiguous total_wages_employer/6.\n:- discontiguous s3306_a/2.\n:- [statutes/prolog/init].\ns3306_a(alice,Year) :- between(2015,2016,Year).\ntotal_wages_employer(alice,453009,_,_,\"2015-01-01\",\"2015-12-31\").\ntotal_wages_employer(alice,443870,_,_,\"2016-01-01\",\"2016-12-31\").\n\n",
+    "after_facts": "\n:- discontiguous total_wages_employer/6.\n:- discontiguous s3306_a/2.\n:- [statutes/prolog/init].\ns3306_a(alice,Year) :- between(2015,2016,Year).\ntotal_wages_employer(alice,453009,_,_,\"2015-01-01\",\"2015-12-31\").\ntotal_wages_employer(alice,439360,_,_,\"2016-01-01\",\"2016-12-31\").\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "ca1766c355db2a9dba5efba78e90748544a90a94ee3f186ee50bcd04d549c5b4",
+    "case": "s152_d_1_D_neg",
+    "text": "In 2015, Alice's income was $312. The exemption amount for Alice under section 151(d) for the year 2015 was $2000. Alice is Bob's mother, and Bob is not a dependent of Alice under 152(c) for the year 2015.",
+    "text_sha256": "69a6b6cfd32bdef980c6e7006a5be7390f4f9023c6674e161f842cbe1a119700",
+    "proposal": {
+      "old": "Bob is a dependent of Alice under 152(c) for the year 2015.",
+      "new": "Bob is not a dependent of Alice under 152(c) for the year 2015.",
+      "changes": [
+        {
+          "variable": "child",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": false,
+    "after": null,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s152_d_1_D(bob,2015)",
+    "before_facts": "\n:- discontiguous s152_c/3.\n:- discontiguous s151_d/4.\n:- [statutes/prolog/init].\nincome_(alice_makes_money).\nagent_(alice_makes_money,alice).\namount_(alice_makes_money,312).\nstart_(alice_makes_money,\"2015-01-01\").\nend_(alice_makes_money,\"2015-12-31\").\nfather_(alice_and_bob).\nagent_(alice_and_bob,bob).\npatient_(alice_and_bob,alice).\ns152_c(bob,alice,2015).\ns151_d(alice,_,2000,2015).\n\n",
+    "after_facts": "\n:- discontiguous s152_c/3.\n:- discontiguous s151_d/4.\n:- [statutes/prolog/init].\nincome_(alice_makes_money).\nagent_(alice_makes_money,alice).\namount_(alice_makes_money,312).\nstart_(alice_makes_money,\"2015-01-01\").\nend_(alice_makes_money,\"2015-12-31\").\nfather_(alice_and_bob).\nagent_(alice_and_bob,bob).\npatient_(alice_and_bob,alice).\n\ns151_d(alice,_,2000,2015).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": false
+  },
+  {
+    "id": "a739f5400868daab8521f24e742989c50e4f5415ecbd5bde141e368eefc2800b",
+    "case": "s3306_c_10_B_neg",
+    "text": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017. Alice was a patient at Johns Hopkins Hospital from January 12th, 2017 to March 20th, 2017.",
+    "text_sha256": "b763ea9064f91aa44a099f848b332ee635e29e0263c95dc450ba2dc61352fc6f",
+    "proposal": {
+      "old": "Alice was a patient at Johns Hopkins Hospital from January 12th, 2017 to February 20th, 2017.",
+      "new": "Alice was a patient at Johns Hopkins Hospital from January 12th, 2017 to March 20th, 2017.",
+      "changes": [
+        {
+          "variable": "patient",
+          "before": false,
+          "after": true
+        },
+        {
+          "variable": "patient_period",
+          "before": "January 12th, 2017 to February 20th, 2017",
+          "after": "January 12th, 2017 to March 20th, 2017"
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_c_10_B(alice_employed,_,alice,\"2017-03-01\")",
+    "before_facts": "\n:- [statutes/prolog/init].\nhospital_(hopkins_is_a_hospital).\nagent_(hopkins_is_a_hospital,\"johns hopkins hospital\").\nservice_(alice_employed).\npatient_(alice_employed,\"johns hopkins hospital\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-03-01\").\nend_(alice_employed,\"2017-03-31\").\nlocation_(alice_employed,baltimore).\nlocation_(alice_employed,maryland).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"johns hopkins hospital\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-03-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,200).\nmedical_patient_(alice_goes_to_hopkins).\nagent_(alice_goes_to_hopkins,alice).\npatient_(alice_goes_to_hopkins,\"johns hopkins hospital\").\nstart_(alice_goes_to_hopkins,\"2017-01-12\").\nend_(alice_goes_to_hopkins,\"2017-02-20\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nhospital_(hopkins_is_a_hospital).\nagent_(hopkins_is_a_hospital,\"johns hopkins hospital\").\nservice_(alice_employed).\npatient_(alice_employed,\"johns hopkins hospital\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-03-01\").\nend_(alice_employed,\"2017-03-31\").\nlocation_(alice_employed,baltimore).\nlocation_(alice_employed,maryland).\nlocation_(alice_employed,usa).\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"johns hopkins hospital\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-03-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,200).\nmedical_patient_(alice_goes_to_hopkins).\nagent_(alice_goes_to_hopkins,alice).\npatient_(alice_goes_to_hopkins,\"johns hopkins hospital\").\nstart_(alice_goes_to_hopkins,\"2017-01-12\").\nend_(alice_goes_to_hopkins,\"2017-03-20\").\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "f7fd0e056c6057c809bbf870d6794bcaed70cb85e331312d595c953eb09bd43d",
+    "case": "s3306_c_10_B_pos",
+    "text": "Alice was paid $200 in March 2017 for services performed at a clinic in March 2017. Alice was a patient at Johns Hopkins Hospital from March 15th, 2017 to April 2nd, 2017.",
+    "text_sha256": "772c6339a0aba4f3a4fd338e02b9135e98ad1189e3d1ea57eb606b30f6b38bf6",
+    "proposal": {
+      "old": "Alice was paid $200 in March 2017 for services performed at Johns Hopkins Hospital in March 2017.",
+      "new": "Alice was paid $200 in March 2017 for services performed at a clinic in March 2017.",
+      "changes": [
+        {
+          "variable": "hospital",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": true,
+    "after": false,
+    "error": null,
+    "gold": true,
+    "note": "",
+    "query": "s3306_c_10_B(alice_employed,_,alice,\"2017-03-15\")",
+    "before_facts": "\n:- [statutes/prolog/init].\nhospital_(hopkins_is_a_hospital).\nagent_(hopkins_is_a_hospital,\"johns hopkins hospital\").\nservice_(alice_employed).\npatient_(alice_employed,\"johns hopkins hospital\").\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-03-15\").\nend_(alice_employed,\"2017-03-31\").\nlocation_(alice_employed,\"baltimore\").\nlocation_(alice_employed,\"maryland\").\nlocation_(alice_employed,\"usa\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,\"johns hopkins hospital\").\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-03-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,200).\nmedical_patient_(alice_goes_to_hopkins).\nagent_(alice_goes_to_hopkins,alice).\npatient_(alice_goes_to_hopkins,\"johns hopkins hospital\").\nstart_(alice_goes_to_hopkins,\"2017-03-15\").\nend_(alice_goes_to_hopkins,\"2017-04-02\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nhospital_(hopkins_is_a_hospital).\nagent_(hopkins_is_a_hospital,\"johns hopkins hospital\").\nservice_(alice_employed).\npatient_(alice_employed,clinic).\nagent_(alice_employed,alice).\nstart_(alice_employed,\"2017-03-15\").\nend_(alice_employed,\"2017-03-31\").\nlocation_(alice_employed,\"baltimore\").\nlocation_(alice_employed,\"maryland\").\nlocation_(alice_employed,\"usa\").\npayment_(alice_is_paid).\nagent_(alice_is_paid,clinic).\npatient_(alice_is_paid,alice).\nstart_(alice_is_paid,\"2017-03-31\").\npurpose_(alice_is_paid,alice_employed).\namount_(alice_is_paid,200).\nmedical_patient_(alice_goes_to_hopkins).\nagent_(alice_goes_to_hopkins,alice).\npatient_(alice_goes_to_hopkins,\"johns hopkins hospital\").\nstart_(alice_goes_to_hopkins,\"2017-03-15\").\nend_(alice_goes_to_hopkins,\"2017-04-02\").\n\n",
+    "oracle_before": true,
+    "oracle_after": false,
+    "oracle_flip": true,
+    "author_correct_both": true
+  },
+  {
+    "id": "3fd2c54b7a115c86ba537a3230ffb3c1f1b0af8bcb07e74f157b33f7be0fb50d",
+    "case": "s3306_c_1_B_neg",
+    "text": "Alice has paid $3200 to Bob for agricultural labor done from Feb 1st, 2017 to Sep 2nd, 2017, in Stanley, Wisconsin, USA. Alice is an american citizen, and Bob is a Mexican citizen who was not admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act.",
+    "text_sha256": "0221adb9898408afff2dbc920386b72b5ec708b6cba944d78a179cb9a0fb4e14",
+    "proposal": {
+      "old": "Bob is a Mexican citizen who was admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act",
+      "new": "Bob is a Mexican citizen who was not admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act",
+      "changes": [
+        {
+          "variable": "admitted",
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    "original": false,
+    "after": true,
+    "error": null,
+    "gold": false,
+    "note": "",
+    "query": "s3306_c_1_B(alice_employer,_)",
+    "before_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employer).\npatient_(alice_employer,alice).\nagent_(alice_employer,bob).\nstart_(alice_employer,\"2017-02-01\").\nend_(alice_employer,\"2017-09-02\").\nlocation_(alice_employer,\"stanley, wisconsin, usa\").\ncountry_(\"stanley, wisconsin, usa\",\"usa\").\npurpose_(alice_employer,\"agricultural labor\").\npayment_(alice_pays).\nagent_(alice_pays,alice).\npatient_(alice_pays,bob).\nstart_(alice_pays,\"2017-09-02\").\npurpose_(alice_pays,alice_employer).\namount_(alice_pays,3200).\ncitizenship_(alice_is_american).\nagent_(alice_is_american,alice).\npatient_(alice_is_american,\"usa\").\ncitizenship_(bob_is_mexican).\nagent_(bob_is_mexican,bob).\npatient_(bob_is_mexican,mexico).\nmigration_(bob_migrates_to_usa).\ndestination_(bob_migrates_to_usa,\"usa\").\nagent_(bob_migrates_to_usa,bob).\npurpose_(bob_migrates_to_usa,\"agricultural labor\").\n\n",
+    "after_facts": "\n:- [statutes/prolog/init].\nservice_(alice_employer).\npatient_(alice_employer,alice).\nagent_(alice_employer,bob).\nstart_(alice_employer,\"2017-02-01\").\nend_(alice_employer,\"2017-09-02\").\nlocation_(alice_employer,\"stanley, wisconsin, usa\").\ncountry_(\"stanley, wisconsin, usa\",\"usa\").\npurpose_(alice_employer,\"agricultural labor\").\npayment_(alice_pays).\nagent_(alice_pays,alice).\npatient_(alice_pays,bob).\nstart_(alice_pays,\"2017-09-02\").\npurpose_(alice_pays,alice_employer).\namount_(alice_pays,3200).\ncitizenship_(alice_is_american).\nagent_(alice_is_american,alice).\npatient_(alice_is_american,\"usa\").\ncitizenship_(bob_is_mexican).\nagent_(bob_is_mexican,bob).\npatient_(bob_is_mexican,mexico).\n\n",
+    "oracle_before": false,
+    "oracle_after": true,
+    "oracle_flip": true,
+    "author_correct_both": true
+  }
+]

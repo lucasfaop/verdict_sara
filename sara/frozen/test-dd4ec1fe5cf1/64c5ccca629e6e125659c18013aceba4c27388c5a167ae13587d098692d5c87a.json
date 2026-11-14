@@ -1,0 +1,406 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "    (b) Heads of households\n\nThere is hereby imposed on the taxable income of every head of a household (as defined in section 2(b)) a tax determined in accordance with the following:\n\n    (i) 15% of taxable income if the taxable income is not over $29,600;\n    (ii) $4,440, plus 28% of the excess over $29,600 if the taxable income is over $29,600 but not over $76,400;\n    (iii) $17,544, plus 31% of the excess over $76,400 if the taxable income is over $76,400 but not over $127,500;",
+      "new": "Replace '31% of the excess over $76,400' with '30% of the excess over $76,400' (i.e., 31% -> 30%), which would alter the tax calculation for Alice and could reverse the decision."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 97407,
+          "quote": "Alice's taxable income for the year 2017 is $97407."
+        },
+        "v2": {
+          "value": true,
+          "quote": "Alice is a head of household for the year 2017."
+        },
+        "v3": {
+          "value": 2017,
+          "quote": "Alice is a head of household for the year 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Real",
+            "meaning": "Taxable income of the taxpayer for the 2017 tax year (as defined in §63) used for HOH tax calculation under §1(b)"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Whether the taxpayer files as head of household under §2(b) for the 2017 tax year"
+          },
+          "v3": {
+            "type": "Int",
+            "meaning": "Tax year (2017)"
+          }
+        },
+        "target": "§1(b) Heads of households; proposition tested: tax computed under HOH rules for 2017 equals 24056 given taxable income v1 and HOH status v2",
+        "rule": [
+          "and",
+          [
+            "=",
+            "v2",
+            true
+          ],
+          [
+            "=",
+            "v3",
+            2017
+          ],
+          [
+            "=",
+            [
+              "ite",
+              [
+                "<=",
+                "v1",
+                29600
+              ],
+              [
+                "*",
+                [
+                  "/",
+                  3,
+                  20
+                ],
+                "v1"
+              ],
+              [
+                "ite",
+                [
+                  "<=",
+                  "v1",
+                  76400
+                ],
+                [
+                  "+",
+                  4440,
+                  [
+                    "*",
+                    [
+                      "/",
+                      7,
+                      25
+                    ],
+                    [
+                      "-",
+                      "v1",
+                      29600
+                    ]
+                  ]
+                ],
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v1",
+                    127500
+                  ],
+                  [
+                    "+",
+                    17544,
+                    [
+                      "*",
+                      [
+                        "/",
+                        31,
+                        100
+                      ],
+                      [
+                        "-",
+                        "v1",
+                        76400
+                      ]
+                    ]
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v1",
+                      250000
+                    ],
+                    [
+                      "+",
+                      33385,
+                      [
+                        "*",
+                        [
+                          "/",
+                          36,
+                          100
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          127500
+                        ]
+                      ]
+                    ],
+                    [
+                      "+",
+                      77485,
+                      [
+                        "*",
+                        [
+                          "/",
+                          99,
+                          250
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          250000
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            24056
+          ]
+        ]
+      },
+      "old": "Alice's taxable income for the year 2017 is $97407.",
+      "new": "Alice's taxable income for the year 2017 is $97406.45161290323.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": 97407,
+          "after": 97406.45161290323
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice is a head of household for the year 2017. Alice's taxable income for the year 2017 is $97406.45161290323.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "(iii) $17,544, plus 31% of the excess over $76,400 if the taxable income is over $76,400 but not over $127,500;",
+          "new": "(iii) $17,544, plus 28% of the excess over $76,400 if the taxable income is over $76,400 but not over $127,500;"
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": 97406.45161290323,
+              "quote": "Alice's taxable income for the year 2017 is $97406.45161290323."
+            },
+            "v2": {
+              "value": true,
+              "quote": "Alice is a head of household for the year 2017."
+            },
+            "v3": {
+              "value": 2017,
+              "quote": "Alice is a head of household for the year 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Real",
+                "meaning": "Taxable income of the taxpayer for the 2017 tax year (as defined in §63) used for HOH tax calculation under §1(b)"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Whether the taxpayer files as head of household under §2(b) for the 2017 tax year"
+              },
+              "v3": {
+                "type": "Int",
+                "meaning": "Tax year (2017)"
+              }
+            },
+            "target": "§1(b) Heads of households; proposition tested: tax computed under HOH rules for 2017 equals 24056 given taxable income v1 and HOH status v2",
+            "rule": [
+              "and",
+              [
+                "=",
+                "v2",
+                true
+              ],
+              [
+                "=",
+                "v3",
+                2017
+              ],
+              [
+                "=",
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v1",
+                    29600
+                  ],
+                  [
+                    "*",
+                    [
+                      "/",
+                      3,
+                      20
+                    ],
+                    "v1"
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v1",
+                      76400
+                    ],
+                    [
+                      "+",
+                      4440,
+                      [
+                        "*",
+                        [
+                          "/",
+                          7,
+                          25
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          29600
+                        ]
+                      ]
+                    ],
+                    [
+                      "ite",
+                      [
+                        "<=",
+                        "v1",
+                        127500
+                      ],
+                      [
+                        "+",
+                        17544,
+                        [
+                          "*",
+                          [
+                            "/",
+                            31,
+                            100
+                          ],
+                          [
+                            "-",
+                            "v1",
+                            76400
+                          ]
+                        ]
+                      ],
+                      [
+                        "ite",
+                        [
+                          "<=",
+                          "v1",
+                          250000
+                        ],
+                        [
+                          "+",
+                          33385,
+                          [
+                            "*",
+                            [
+                              "/",
+                              36,
+                              100
+                            ],
+                            [
+                              "-",
+                              "v1",
+                              127500
+                            ]
+                          ]
+                        ],
+                        [
+                          "+",
+                          77485,
+                          [
+                            "*",
+                            [
+                              "/",
+                              99,
+                              250
+                            ],
+                            [
+                              "-",
+                              "v1",
+                              250000
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                24056
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

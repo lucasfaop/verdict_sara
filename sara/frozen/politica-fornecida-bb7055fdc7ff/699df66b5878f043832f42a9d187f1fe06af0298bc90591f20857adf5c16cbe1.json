@@ -1,0 +1,39 @@
+{
+  "section": "2(a)(1)(b)",
+  "program": {
+    "variables": {
+      "cost": {
+        "type": "Bool",
+        "meaning": "Taxpayer furnished more than half of household maintenance costs."
+      },
+      "home": {
+        "type": "Bool",
+        "meaning": "Home was taxpayer's home and dependent's principal abode as a household member throughout tax year."
+      },
+      "child": {
+        "type": "Bool",
+        "meaning": "Dependent is taxpayer's son, stepson, daughter or stepdaughter."
+      },
+      "dependent": {
+        "type": "Bool",
+        "meaning": "Person was a dependent of this taxpayer in the year."
+      },
+      "deduction": {
+        "type": "Bool",
+        "meaning": "Taxpayer entitled to section 151 deduction for dependent in year."
+      }
+    },
+    "rule": [
+      "and",
+      "cost",
+      "home",
+      "child",
+      "dependent",
+      "deduction"
+    ]
+  },
+  "result": {
+    "decision": null,
+    "error": "Evidência ou tipo inválido"
+  }
+}

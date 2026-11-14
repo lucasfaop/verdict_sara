@@ -1,0 +1,65 @@
+{
+  "section": "152(c)(2)(a)",
+  "program": {
+    "variables": {
+      "child": {
+        "type": "Bool",
+        "meaning": "First named person is a child of the second person."
+      },
+      "desc": {
+        "type": "Bool",
+        "meaning": "First person is a further descendant of a child of the second person."
+      }
+    },
+    "rule": [
+      "or",
+      "child",
+      "desc"
+    ]
+  },
+  "result": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {
+        "desc": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "child"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {
+        "desc": false
+      },
+      "pivotal": [
+        "child"
+      ],
+      "delta_e": [
+        "child"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "child": {
+        "value": true,
+        "quote": "Alice has a son, Bob"
+      },
+      "desc": {
+        "value": null,
+        "quote": null
+      }
+    }
+  }
+}

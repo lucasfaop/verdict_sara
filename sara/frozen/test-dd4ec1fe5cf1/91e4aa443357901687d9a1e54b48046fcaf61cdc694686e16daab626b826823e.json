@@ -1,0 +1,14 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "63(c)(2)(A)(ii)",
+      "new": "63(c)(2)(A)(ii) should be read as applying to a joint return only if the marriage existed before the start of the taxable year."
+    },
+    "verdict": {
+      "decision": null,
+      "error": "Expressão inválida"
+    }
+  },
+  "edits": {}
+}

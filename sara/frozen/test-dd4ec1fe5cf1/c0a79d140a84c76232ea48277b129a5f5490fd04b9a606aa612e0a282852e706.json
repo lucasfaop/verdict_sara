@@ -1,0 +1,119 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice has also paid $9832 into a retirement fund for Bob, and $5322 into life insurance for Charlie, who is Alice's father and has retired in 2016.",
+      "new": "In §3306(b)(2), add (D) retirement to the list of categories of payments made into a fund to provide for such payments, so the clause reads: (A) sickness or accident disability, (C) death, or (D) retirement."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": true
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v1": false
+        },
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": null,
+          "quote": "In 2017, Alice has also paid $9832 into a retirement fund for Bob."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's 2017 payment to a retirement fund is made under an employer-established plan for the employee and is on account of death (i.e., a death benefit under 3306(b)(2)(C))."
+          }
+        },
+        "target": "§3306(b)(2)(C) Exclusion from wages for payments under a plan established by an employer on account of death",
+        "rule": "v1"
+      }
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Alice has paid $45252 to Bob for work done in the year 2017. In 2017, In §3306(b)(2), add (D) retirement to the list of categories of payments made into a fund to provide for such payments, so the clause reads: (A) sickness or accident disability, (C) death, or (D) retirement.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "(A) sickness or accident disability, or\n        (C) death;",
+          "new": "(A) sickness or accident disability, or\n        (C) retirement;"
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Alice has paid $45252 to Bob for work done in the year 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's 2017 payment to a retirement fund is made under an employer-established plan for the employee and is on account of death (i.e., a death benefit under 3306(b)(2)(C))."
+              }
+            },
+            "target": "§3306(b)(2)(C) Exclusion from wages for payments under a plan established by an employer on account of death",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

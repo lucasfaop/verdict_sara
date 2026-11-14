@@ -1,0 +1,66 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "(B) a nonresident alien individual",
+      "new": "(B) a resident alien individual, or"
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice was a nonresident alien from August 23rd, 2016 to September 15th, 2018."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is a nonresident alien for the 2017 tax year (status triggering §63(c)(6)(B) not to be eligible for the standard deduction)."
+          }
+        },
+        "target": "§63(c)(6)(B) applies to Alice for 2017",
+        "rule": "v1"
+      },
+      "old": "Alice was a nonresident alien from August 23rd, 2016 to September 15th 2018.",
+      "new": "Alice was a resident alien for the 2017 tax year.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {}
+}

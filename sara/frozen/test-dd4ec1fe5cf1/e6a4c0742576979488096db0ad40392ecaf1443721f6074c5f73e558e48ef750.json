@@ -1,0 +1,445 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "§1. Tax imposed (d) Married individuals filing separate returns There is hereby imposed on the taxable income of every married individual (as defined in section 7703) who does not make a single return jointly with his spouse, a tax determined in accordance with the following: \n\n    (i) 15% of taxable income if the taxable income is not over $18,450;\n\n    (ii) $2,767.50, plus 28% of the excess over $18,450 if the taxable income is over $18,450 but not over $44,575;\n\n    (iii) $10,082.50, plus 31% of the excess over $44,575 if the taxable income is over $44,575 but not over $70,000;\n\n    (iv) $17,964.25, plus 36% of the excess over $70,000 if the taxable income is over $70,000 but not over $125,000;\n\n    (v) $37,764.25, plus 39.6% of the excess over $125,000 if the taxable income is over $125,000",
+      "new": "Replace §1. Tax imposed (d) Married individuals filing separate returns with §1. Tax imposed (a) Married individuals filing joint returns and surviving spouses (i.e., compute tax under surviving-spouse brackets)."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1",
+          "v2"
+        ],
+        "delta_e": [
+          "v1",
+          "v2"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1",
+          "v2"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1",
+          "v2"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 70117,
+          "quote": "Alice's taxable income for the year 2017 is $70117."
+        },
+        "v2": {
+          "value": false,
+          "quote": "Alice is a surviving spouse for the year 2017."
+        },
+        "v3": {
+          "value": 2017,
+          "quote": "the year 2017."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Real",
+            "meaning": "Alice's taxable income for the 2017 tax year (in dollars)"
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Alice files a married individual separate return (true if section 1(d) applies)"
+          },
+          "v3": {
+            "type": "Int",
+            "meaning": "Tax year being considered (e.g., 2017)"
+          }
+        },
+        "target": "§1(d) – Tax for married individuals filing separate returns; proposition tested: tax equals $14,836 for the 2017 tax year",
+        "rule": [
+          "and",
+          "v2",
+          [
+            "=",
+            "v3",
+            2017
+          ],
+          [
+            "=",
+            [
+              "ite",
+              [
+                "<=",
+                "v1",
+                18450
+              ],
+              [
+                "*",
+                "v1",
+                [
+                  "/",
+                  3,
+                  20
+                ]
+              ],
+              [
+                "ite",
+                [
+                  "<=",
+                  "v1",
+                  44575
+                ],
+                [
+                  "+",
+                  [
+                    "/",
+                    5535,
+                    2
+                  ],
+                  [
+                    "*",
+                    [
+                      "/",
+                      7,
+                      25
+                    ],
+                    [
+                      "-",
+                      "v1",
+                      18450
+                    ]
+                  ]
+                ],
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v1",
+                    70000
+                  ],
+                  [
+                    "+",
+                    [
+                      "/",
+                      20165,
+                      2
+                    ],
+                    [
+                      "*",
+                      [
+                        "/",
+                        31,
+                        100
+                      ],
+                      [
+                        "-",
+                        "v1",
+                        44575
+                      ]
+                    ]
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v1",
+                      125000
+                    ],
+                    [
+                      "+",
+                      [
+                        "/",
+                        71857,
+                        2
+                      ],
+                      [
+                        "*",
+                        [
+                          "/",
+                          9,
+                          25
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          70000
+                        ]
+                      ]
+                    ],
+                    [
+                      "+",
+                      [
+                        "/",
+                        151057,
+                        2
+                      ],
+                      [
+                        "*",
+                        [
+                          "/",
+                          99,
+                          250
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          125000
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            14836
+          ]
+        ]
+      },
+      "old": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $70117.",
+      "new": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $59909.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": 70117,
+          "after": 59909
+        },
+        {
+          "variable": "v2",
+          "before": false,
+          "after": true
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice is not a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $59909.",
+      "predictions": {
+        "direct": {
+          "decision": true,
+          "old": "Alice is not a surviving spouse for the year 2017.",
+          "new": "Alice is a married individual filing separately for the year 2017."
+        },
+        "verdict": {
+          "decision": false,
+          "trace": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": false
+            },
+            "pivotal": [
+              "v1",
+              "v2"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1",
+              "v2"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": 59909,
+              "quote": "Alice's taxable income for the year 2017 is $59909."
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": 2017,
+              "quote": "Alice is not a surviving spouse for the year 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Real",
+                "meaning": "Alice's taxable income for the 2017 tax year (in dollars)"
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Alice files a married individual separate return (true if section 1(d) applies)"
+              },
+              "v3": {
+                "type": "Int",
+                "meaning": "Tax year being considered (e.g., 2017)"
+              }
+            },
+            "target": "§1(d) – Tax for married individuals filing separate returns; proposition tested: tax equals $14,836 for the 2017 tax year",
+            "rule": [
+              "and",
+              "v2",
+              [
+                "=",
+                "v3",
+                2017
+              ],
+              [
+                "=",
+                [
+                  "ite",
+                  [
+                    "<=",
+                    "v1",
+                    18450
+                  ],
+                  [
+                    "*",
+                    "v1",
+                    [
+                      "/",
+                      3,
+                      20
+                    ]
+                  ],
+                  [
+                    "ite",
+                    [
+                      "<=",
+                      "v1",
+                      44575
+                    ],
+                    [
+                      "+",
+                      [
+                        "/",
+                        5535,
+                        2
+                      ],
+                      [
+                        "*",
+                        [
+                          "/",
+                          7,
+                          25
+                        ],
+                        [
+                          "-",
+                          "v1",
+                          18450
+                        ]
+                      ]
+                    ],
+                    [
+                      "ite",
+                      [
+                        "<=",
+                        "v1",
+                        70000
+                      ],
+                      [
+                        "+",
+                        [
+                          "/",
+                          20165,
+                          2
+                        ],
+                        [
+                          "*",
+                          [
+                            "/",
+                            31,
+                            100
+                          ],
+                          [
+                            "-",
+                            "v1",
+                            44575
+                          ]
+                        ]
+                      ],
+                      [
+                        "ite",
+                        [
+                          "<=",
+                          "v1",
+                          125000
+                        ],
+                        [
+                          "+",
+                          [
+                            "/",
+                            71857,
+                            2
+                          ],
+                          [
+                            "*",
+                            [
+                              "/",
+                              9,
+                              25
+                            ],
+                            [
+                              "-",
+                              "v1",
+                              70000
+                            ]
+                          ]
+                        ],
+                        [
+                          "+",
+                          [
+                            "/",
+                            151057,
+                            2
+                          ],
+                          [
+                            "*",
+                            [
+                              "/",
+                              99,
+                              250
+                            ],
+                            [
+                              "-",
+                              "v1",
+                              125000
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                14836
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

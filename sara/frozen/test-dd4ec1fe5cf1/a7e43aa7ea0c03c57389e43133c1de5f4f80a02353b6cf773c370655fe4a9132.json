@@ -1,0 +1,124 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "(iv) $35,928.50, plus 36% of the excess over $140,000 if the taxable income is over $140,000 but not over $250,000;",
+      "new": "After computing the tax under §1(a), round the resulting tax to the nearest dollar."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $236422."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice is in 2017 filing status married filing jointly with taxable income in the 140,000 to 250,000 bracket (TI = 1418525/6)."
+          }
+        },
+        "target": "§1(a)(iv) – Tax on married individuals filing joint returns and surviving spouses; tax = 35928.50 + 36% of the excess over 140,000 for TI in (140,000, 250,000].",
+        "rule": [
+          "and",
+          "v1",
+          [
+            "=",
+            [
+              "+",
+              [
+                "/",
+                71857,
+                2
+              ],
+              [
+                "*",
+                [
+                  "/",
+                  9,
+                  25
+                ],
+                [
+                  "-",
+                  [
+                    "/",
+                    1418525,
+                    6
+                  ],
+                  140000
+                ]
+              ]
+            ],
+            70640
+          ],
+          [
+            ">",
+            [
+              "-",
+              [
+                "/",
+                1418525,
+                6
+              ],
+              140000
+            ],
+            0
+          ],
+          [
+            "<=",
+            [
+              "-",
+              [
+                "/",
+                1418525,
+                6
+              ],
+              250000
+            ],
+            0
+          ]
+        ]
+      },
+      "old": "\"v1\": {\"value\": true, \"quote\": \"Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $236422.\"}",
+      "new": "\"v1\": {\"value\": false, \"quote\": \"Alice is a surviving spouse for the year 2017. Alice's taxable income for the year 2017 is $236422.\"}",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {}
+}

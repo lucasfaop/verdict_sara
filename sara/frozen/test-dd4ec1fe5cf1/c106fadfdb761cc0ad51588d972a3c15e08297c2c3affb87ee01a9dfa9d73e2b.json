@@ -1,0 +1,57 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice has to pay $26362 in excise tax for the year 2016 under section 3301.",
+      "new": "Alice has to pay $26,632.20 in excise tax for the year 2016 under section 3301."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [],
+        "delta_e": [],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": 443870,
+          "quote": "and $443870 in 2016."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Int",
+            "meaning": "Total wages paid by the employer (Alice) during calendar year 2016, in dollars, as defined by section 3306(b)"
+          }
+        },
+        "target": "§3301. Rate of tax — test whether the excise tax for 2016 equals 6% of total wages",
+        "rule": [
+          "=",
+          [
+            "*",
+            6,
+            "v1"
+          ],
+          2636200
+        ]
+      }
+    }
+  },
+  "edits": {}
+}

@@ -1,0 +1,62 @@
+{
+  "id": "267ceac4c3349cfb337062d1570f838ad125e1d6beadb2d1eb74f1d34e437af9",
+  "original": true,
+  "pivotal": [
+    "employer"
+  ],
+  "proposal": {
+    "old": "$453009",
+    "new": "$453008",
+    "changes": [
+      {
+        "variable": "wages",
+        "before": 453009,
+        "after": 453008
+      }
+    ]
+  },
+  "text": "Alice is an employer under section 3306(a) for the year 2015 and 2016, and she has paid $453008 in total wages in 2015, and $443870 in 2016.",
+  "text_sha256": "23fde44d42101df2aca4e0bb02fdcc5684dbc5ba3e8b42e90f05902e89a08247",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "wages"
+      ],
+      "delta_e": [
+        "wages"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "wages"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "wages"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "employer": {
+        "value": true,
+        "quote": "Alice is an employer under section 3306(a) for the year 2015 and 2016"
+      },
+      "wages": {
+        "value": 453008,
+        "quote": "she has paid $453008 in total wages in 2015"
+      }
+    }
+  },
+  "status": "edited"
+}

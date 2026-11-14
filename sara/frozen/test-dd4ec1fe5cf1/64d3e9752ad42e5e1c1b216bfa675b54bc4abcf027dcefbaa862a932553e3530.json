@@ -1,0 +1,142 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "In the case of a taxable year beginning after December 31, 2017, and before January 1, 2026, the term \"exemption amount\" means zero.",
+      "new": "In the case of a taxable year beginning after December 31, 2017, and before January 1, 2026, the term \"exemption amount\" means $2,000."
+    },
+    "verdict": {
+      "decision": false,
+      "trace": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Alice is entitled to an exemption under section 151(b) for the year 2018."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "Alice's taxable year falls within the 2018-2025 period during which §151(d)(5) applies"
+          }
+        },
+        "target": "§151. Exemption amount; (5) Special rules for taxable years 2018 through 2025 — the term 'exemption amount' means zero. Proposition tested: whether the exemption amount is equal to $2000 under §151(d)(5).",
+        "rule": [
+          "=",
+          [
+            "ite",
+            "v1",
+            0,
+            2000
+          ],
+          2000
+        ]
+      },
+      "old": "Alice is entitled to an exemption under section 151(b) for the year 2018.",
+      "new": "Alice is entitled to an exemption under section 151(b) for the year 2017.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "verdict": {
+      "text": "Alice is entitled to an exemption under section 151(b) for the year 2017.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "(5) Special rules for taxable years 2018 through 2025\n\n    In the case of a taxable year beginning after December 31, 2017, and before January 1, 2026, the term 'exemption amount' means zero.",
+          "new": "(5) Special rules for taxable years 2018 through 2025\n\n    In the case of a taxable year beginning after December 31, 2017, and before January 1, 2026, the term 'exemption amount' means $2,000."
+        },
+        "verdict": {
+          "decision": true,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "ineligible",
+            "trace": "UNSAT under the asserted patient constraints",
+            "assumptions": {},
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [
+              "v1"
+            ],
+            "delta_i": [],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": false,
+              "quote": "Alice is entitled to an exemption under section 151(b) for the year 2017."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "Alice's taxable year falls within the 2018-2025 period during which §151(d)(5) applies"
+              }
+            },
+            "target": "§151. Exemption amount; (5) Special rules for taxable years 2018 through 2025 — the term 'exemption amount' means zero. Proposition tested: whether the exemption amount is equal to $2000 under §151(d)(5).",
+            "rule": [
+              "=",
+              [
+                "ite",
+                "v1",
+                0,
+                2000
+              ],
+              2000
+            ]
+          }
+        }
+      }
+    }
+  }
+}

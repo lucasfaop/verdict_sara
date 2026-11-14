@@ -1,0 +1,58 @@
+{
+  "id": "3ecf0c3277a81c448f3d53362e2d529b64c0dd04ff0ff742aa9061727f61f053",
+  "original": true,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice was paid $73200 in 2017 as an employee of the Canadian Government.",
+    "new": "Alice was paid $73200 in 2017 as an employee of a private company.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Employer for the service was a foreign government, including its consular or diplomatic service.",
+        "after": "Employer for the service was a private company."
+      }
+    ]
+  },
+  "text": "Alice was paid $73200 in 2017 as an employee of a private company.",
+  "text_sha256": "b946d4442274ebaed443202851ad25fde1ec5a3fb0d651e32956d60d9c8a9626",
+  "after": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": false,
+        "quote": "Alice was paid $73200 in 2017 as an employee of a private company."
+      }
+    }
+  },
+  "status": "edited"
+}

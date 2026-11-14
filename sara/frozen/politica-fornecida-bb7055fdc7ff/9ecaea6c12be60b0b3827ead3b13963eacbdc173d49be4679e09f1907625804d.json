@@ -1,0 +1,259 @@
+{
+  "section": "151(d)(3)(a)",
+  "program": {
+    "variables": {
+      "agi": {
+        "type": "Real",
+        "meaning": "Adjusted gross income of the taxpayer for the relevant year, dollars."
+      },
+      "joint": {
+        "type": "Bool",
+        "meaning": "Taxpayer filed a joint return with spouse for the tax year."
+      },
+      "survivor": {
+        "type": "Bool",
+        "meaning": "Taxpayer had surviving-spouse status for this tax year."
+      },
+      "head": {
+        "type": "Bool",
+        "meaning": "Taxpayer had head-of-household status for this tax year."
+      },
+      "separate": {
+        "type": "Bool",
+        "meaning": "Taxpayer married filing separately."
+      }
+    },
+    "rule": [
+      "and",
+      [
+        ">",
+        [
+          "-",
+          "agi",
+          [
+            "ite",
+            [
+              "or",
+              "joint",
+              "survivor"
+            ],
+            300000,
+            [
+              "ite",
+              "head",
+              275000,
+              [
+                "ite",
+                "separate",
+                150000,
+                250000
+              ]
+            ]
+          ]
+        ],
+        0
+      ],
+      [
+        "or",
+        [
+          "and",
+          [
+            "=",
+            1900,
+            0
+          ],
+          [
+            ">",
+            [
+              "-",
+              "agi",
+              [
+                "ite",
+                [
+                  "or",
+                  "joint",
+                  "survivor"
+                ],
+                300000,
+                [
+                  "ite",
+                  "head",
+                  275000,
+                  [
+                    "ite",
+                    "separate",
+                    150000,
+                    250000
+                  ]
+                ]
+              ]
+            ],
+            [
+              "*",
+              49,
+              [
+                "ite",
+                "separate",
+                1250,
+                2500
+              ]
+            ]
+          ]
+        ],
+        [
+          "and",
+          false,
+          [
+            ">",
+            1900,
+            0
+          ],
+          [
+            "<",
+            1900,
+            2000
+          ],
+          [
+            ">",
+            [
+              "-",
+              "agi",
+              [
+                "ite",
+                [
+                  "or",
+                  "joint",
+                  "survivor"
+                ],
+                300000,
+                [
+                  "ite",
+                  "head",
+                  275000,
+                  [
+                    "ite",
+                    "separate",
+                    150000,
+                    250000
+                  ]
+                ]
+              ]
+            ],
+            [
+              "*",
+              [
+                "-",
+                [
+                  "/",
+                  [
+                    "-",
+                    2000,
+                    1900
+                  ],
+                  40
+                ],
+                1
+              ],
+              [
+                "ite",
+                "separate",
+                1250,
+                2500
+              ]
+            ]
+          ],
+          [
+            "<=",
+            [
+              "-",
+              "agi",
+              [
+                "ite",
+                [
+                  "or",
+                  "joint",
+                  "survivor"
+                ],
+                300000,
+                [
+                  "ite",
+                  "head",
+                  275000,
+                  [
+                    "ite",
+                    "separate",
+                    150000,
+                    250000
+                  ]
+                ]
+              ]
+            ],
+            [
+              "*",
+              [
+                "/",
+                [
+                  "-",
+                  2000,
+                  1900
+                ],
+                40
+              ],
+              [
+                "ite",
+                "separate",
+                1250,
+                2500
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  },
+  "result": {
+    "decision": false,
+    "trace": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints; trial constraints unsatisfiable in isolation",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [],
+      "delta_e": [],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "agi": {
+        "value": 260932,
+        "quote": "Alice's income in 2015 was $260932."
+      },
+      "joint": {
+        "value": null,
+        "quote": ""
+      },
+      "survivor": {
+        "value": null,
+        "quote": ""
+      },
+      "head": {
+        "value": null,
+        "quote": ""
+      },
+      "separate": {
+        "value": null,
+        "quote": ""
+      }
+    }
+  }
+}

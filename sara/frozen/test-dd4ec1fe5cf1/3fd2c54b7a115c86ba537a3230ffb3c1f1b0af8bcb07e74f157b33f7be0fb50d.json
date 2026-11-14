@@ -1,0 +1,175 @@
+{
+  "originals": {
+    "direct": {
+      "decision": false,
+      "old": "Alice has paid $3200 to Bob for agricultural labor done from Feb 1st, 2017 to Sep 2nd, 2017, in Stanley, Wisconsin, USA. Alice is an american citizen, and Bob is a Mexican citizen who was admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act.",
+      "new": "Section 3306(c)(1)(A) applies to Alice employing Bob for the year 2017."
+    },
+    "verdict": {
+      "decision": null,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v3": true
+        },
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v3"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {
+          "v3": false
+        },
+        "pivotal": [
+          "v3"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v3"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "from Feb 1st, 2017 to Sep 2nd, 2017"
+        },
+        "v2": {
+          "value": true,
+          "quote": "Bob is a Mexican citizen who was admitted to the USA to perform agricultural labor pursuant to sections 214(c) and 101(a)(15)(H) of the Immigration and Nationality Act."
+        },
+        "v3": {
+          "value": null,
+          "quote": null
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "the analysis year is 2017 (calendar year for evaluating the 10-days rule)."
+          },
+          "v2": {
+            "type": "Bool",
+            "meaning": "Bob's work qualifies as agricultural labor under the definitions relevant to §3306(c)(1)."
+          },
+          "v3": {
+            "type": "Bool",
+            "meaning": "There exist at least ten calendar days in the year (or preceding calendar year) on which Alice employed at least five individuals in agricultural labor for some portion of the day."
+          }
+        },
+        "target": "§3306(c)(1)(B) applies to agricultural labor (10 days, 5+ workers) for the year 2017; testing the applicability of the 10-day/5-person rule to Alice employing Bob in 2017.",
+        "rule": [
+          "and",
+          "v1",
+          [
+            "and",
+            "v2",
+            "v3"
+          ]
+        ]
+      }
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Section 3306(c)(1)(A) applies to Alice employing Bob for the year 2017.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "The term \"employment\" means any service, of whatever nature,\n\n    (A) performed by an employee for the person employing him, irrespective of the citizenship or residence of either, within the United States, and",
+          "new": "The term \"employment\" means any service, of whatever nature,\n\n    (A) performed by an employee for the person employing him, irrespective of the citizenship or residence of either, within the United States or outside the United States, and"
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": true,
+              "v3": true
+            },
+            "pivotal": [
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v2": false,
+              "v3": false
+            },
+            "pivotal": [
+              "v2",
+              "v3"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v2",
+              "v3"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": true,
+              "quote": "Section 3306(c)(1)(A) applies to Alice employing Bob for the year 2017."
+            },
+            "v2": {
+              "value": null,
+              "quote": null
+            },
+            "v3": {
+              "value": null,
+              "quote": null
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "the analysis year is 2017 (calendar year for evaluating the 10-days rule)."
+              },
+              "v2": {
+                "type": "Bool",
+                "meaning": "Bob's work qualifies as agricultural labor under the definitions relevant to §3306(c)(1)."
+              },
+              "v3": {
+                "type": "Bool",
+                "meaning": "There exist at least ten calendar days in the year (or preceding calendar year) on which Alice employed at least five individuals in agricultural labor for some portion of the day."
+              }
+            },
+            "target": "§3306(c)(1)(B) applies to agricultural labor (10 days, 5+ workers) for the year 2017; testing the applicability of the 10-day/5-person rule to Alice employing Bob in 2017.",
+            "rule": [
+              "and",
+              "v1",
+              [
+                "and",
+                "v2",
+                "v3"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

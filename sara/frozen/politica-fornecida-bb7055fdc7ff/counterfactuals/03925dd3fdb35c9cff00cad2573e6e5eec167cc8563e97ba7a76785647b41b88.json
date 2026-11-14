@@ -1,0 +1,58 @@
+{
+  "id": "03925dd3fdb35c9cff00cad2573e6e5eec167cc8563e97ba7a76785647b41b88",
+  "original": false,
+  "pivotal": [
+    "fact"
+  ],
+  "proposal": {
+    "old": "Alice and Bob are not related, nor do they have relatives married to one another.",
+    "new": "Alice is Bob's sister-in-law as of 2018.",
+    "changes": [
+      {
+        "variable": "fact",
+        "before": "Alice and Bob are not related, nor do they have relatives married to one another.",
+        "after": "Alice is Bob's sister-in-law as of 2018."
+      }
+    ]
+  },
+  "text": "Alice and Bob started living together on April 15th, 2014. Alice is Bob's sister-in-law as of 2018.",
+  "text_sha256": "d88526508fe5c91db70be3f323ae0a52360e18bc1cbc4b88a48bb176a66840f1",
+  "after": {
+    "decision": true,
+    "trace": {
+      "decision": "eligible",
+      "trace": "SAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [],
+      "delta_i": [
+        "fact"
+      ],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "negated": {
+      "decision": "ineligible",
+      "trace": "UNSAT under the asserted patient constraints",
+      "assumptions": {},
+      "pivotal": [
+        "fact"
+      ],
+      "delta_e": [
+        "fact"
+      ],
+      "delta_i": [],
+      "status": "ok",
+      "version": "maxsmt"
+    },
+    "facts": {
+      "fact": {
+        "value": true,
+        "quote": "Alice is Bob's sister-in-law as of 2018."
+      }
+    }
+  },
+  "status": "edited"
+}

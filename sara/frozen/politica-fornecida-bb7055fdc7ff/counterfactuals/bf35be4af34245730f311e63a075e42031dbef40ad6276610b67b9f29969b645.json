@@ -1,0 +1,19 @@
+{
+  "id": "bf35be4af34245730f311e63a075e42031dbef40ad6276610b67b9f29969b645",
+  "original": true,
+  "pivotal": [
+    "weeks"
+  ],
+  "proposal": {
+    "old": "\"value\": 11",
+    "new": "\"value\": 9",
+    "changes": [
+      {
+        "variable": "weeks",
+        "before": 11,
+        "after": 9
+      }
+    ]
+  },
+  "status": "no_edit"
+}

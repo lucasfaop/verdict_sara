@@ -1,0 +1,19 @@
+{
+  "id": "5ab1a810ac577726c6e0298a561c9ff50a79f83cac023c5e4c5801a2c3d172b7",
+  "original": true,
+  "pivotal": [
+    "survivor"
+  ],
+  "proposal": {
+    "old": "\"survivor\": {\"value\": true, \"quote\": \"Alice is a surviving spouse for the year 2017.\"}",
+    "new": "\"survivor\": {\"value\": false, \"quote\": \"Alice is not a surviving spouse for the year 2017.\"}",
+    "changes": [
+      {
+        "variable": "survivor",
+        "before": "Alice is a surviving spouse for the year 2017.",
+        "after": "Alice is not a surviving spouse for the year 2017."
+      }
+    ]
+  },
+  "status": "no_edit"
+}

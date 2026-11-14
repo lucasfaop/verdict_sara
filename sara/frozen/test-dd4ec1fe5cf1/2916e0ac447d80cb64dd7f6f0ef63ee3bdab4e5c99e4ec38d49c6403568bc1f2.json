@@ -1,0 +1,189 @@
+{
+  "originals": {
+    "direct": {
+      "decision": true,
+      "old": "Charlie is Bob's father since April 15th, 2014. Alice married Bob on October 12th, 1992.",
+      "new": "Charlie is not Bob's father."
+    },
+    "verdict": {
+      "decision": true,
+      "trace": {
+        "decision": "eligible",
+        "trace": "SAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [],
+        "delta_i": [
+          "v1"
+        ],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "negated": {
+        "decision": "ineligible",
+        "trace": "UNSAT under the asserted patient constraints",
+        "assumptions": {},
+        "pivotal": [
+          "v1"
+        ],
+        "delta_e": [
+          "v1"
+        ],
+        "delta_i": [],
+        "status": "ok",
+        "version": "maxsmt"
+      },
+      "facts": {
+        "v1": {
+          "value": true,
+          "quote": "Charlie is Bob's father since April 15th, 2014. Alice married Bob on October 12th, 1992."
+        }
+      },
+      "program": {
+        "variables": {
+          "v1": {
+            "type": "Bool",
+            "meaning": "In the year 2018, Alice bears a relationship to Charlie that falls within the set {son-in-law, daughter-in-law, father-in-law, mother-in-law, brother-in-law, sister-in-law} as defined in §152(d)(2)(G)."
+          }
+        },
+        "target": "§152(d)(2)(G) — Qualifying relative; in-law relationships (son-/daughter-/father-/mother-/brother-/sister-in-law); testing whether Alice bears such a relationship to Charlie for the 2018 tax year.",
+        "rule": "v1"
+      },
+      "old": "Charlie is Bob's father since April 15th, 2014.",
+      "new": "Charlie is not Bob's father.",
+      "changes": [
+        {
+          "variable": "v1",
+          "before": true,
+          "after": false
+        }
+      ]
+    }
+  },
+  "edits": {
+    "direct": {
+      "text": "Charlie is not Bob's father.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Charlie is not Bob's father.",
+          "new": "Alice is Charlie's mother-in-law."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": "Charlie is not Bob's father."
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "In the year 2018, Alice bears a relationship to Charlie that falls within the set {son-in-law, daughter-in-law, father-in-law, mother-in-law, brother-in-law, sister-in-law} as defined in §152(d)(2)(G)."
+              }
+            },
+            "target": "§152(d)(2)(G) — Qualifying relative; in-law relationships (son-/daughter-/father-/mother-/brother-/sister-in-law); testing whether Alice bears such a relationship to Charlie for the 2018 tax year.",
+            "rule": "v1"
+          }
+        }
+      }
+    },
+    "verdict": {
+      "text": "Charlie is not Bob's father. Alice married Bob on October 12th, 1992.",
+      "predictions": {
+        "direct": {
+          "decision": false,
+          "old": "Charlie is not Bob's father.",
+          "new": "Charlie is Bob's father."
+        },
+        "verdict": {
+          "decision": null,
+          "trace": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": true
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "negated": {
+            "decision": "eligible",
+            "trace": "SAT under the asserted patient constraints",
+            "assumptions": {
+              "v1": false
+            },
+            "pivotal": [
+              "v1"
+            ],
+            "delta_e": [],
+            "delta_i": [
+              "v1"
+            ],
+            "status": "ok",
+            "version": "maxsmt"
+          },
+          "facts": {
+            "v1": {
+              "value": null,
+              "quote": null
+            }
+          },
+          "program": {
+            "variables": {
+              "v1": {
+                "type": "Bool",
+                "meaning": "In the year 2018, Alice bears a relationship to Charlie that falls within the set {son-in-law, daughter-in-law, father-in-law, mother-in-law, brother-in-law, sister-in-law} as defined in §152(d)(2)(G)."
+              }
+            },
+            "target": "§152(d)(2)(G) — Qualifying relative; in-law relationships (son-/daughter-/father-/mother-/brother-/sister-in-law); testing whether Alice bears such a relationship to Charlie for the 2018 tax year.",
+            "rule": "v1"
+          }
+        }
+      }
+    }
+  }
+}

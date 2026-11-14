@@ -1,0 +1,22 @@
+{
+  "id": "5224a7f930ab7f83d39186eba7d1ae9b60b2f9c60cc3e69f62c85d8bcfdaf339",
+  "original": false,
+  "pivotal": [
+    "majority_cost"
+  ],
+  "proposal": {
+    "old": "Alice furnished 40% of the maintenance costs, since September 16th, 2017.",
+    "new": "Alice furnished 60% of the maintenance costs, since September 16th, 2017.",
+    "changes": [
+      {
+        "variable": "majority_cost",
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "text": "Alice and Bob got married on April 5th, 2012. Alice and Bob have a son, Charlie, who was born on September 16th, 2017. Alice and Charlie live in a home for which Alice furnished 60% of the maintenance costs, since September 16th, 2017. Alice is entitled to a deduction for Charlie under section 151(c) for the years 2017 to 2019.",
+  "text_sha256": "6f1499c2c9d425c94bb3e49221a39b2cb3e0a1d9ae6a0baa3bcdfe3d3cd1f651",
+  "status": "error",
+  "error": "Evidência ou tipo inválido"
+}
